@@ -15,6 +15,7 @@ public class BaseUI {
 	public static final int EXIT_OPTION = 5;
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		new BaseUI();
 	}
 	
@@ -126,6 +127,10 @@ public class BaseUI {
 		scanner.close();
 		
 		return input;
+=======
+		// TODO Auto-generated method stub
+		System.out.println("sup dude");
+>>>>>>> branch 'master' of https://github.com/Zerali/PizzaAnonymous.git
 	}
 
 }
