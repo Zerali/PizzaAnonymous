@@ -1,5 +1,5 @@
 /**
- * Testing to see if GIT works
+ * Facade class between user interfaces and controllers
  * 
  * @author Neil
  *
