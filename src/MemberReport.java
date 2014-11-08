@@ -25,7 +25,7 @@ public class MemberReport extends Report {
 	
 	/**
 	 * A list of service records. Each service occasion is stored as a string array.
-	 * The array consists of: The date, provider name, and service name.
+	 * The array consists of: The date of service, provider name, and service name.
 	 */
 	private List<String[]> serviceInfo = new LinkedList<String[]>();
 
