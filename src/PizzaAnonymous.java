@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 /**
  * Facade class between user interfaces and controllers
  * 
@@ -37,12 +39,69 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 * Get a member based on their ID number
+	 * @param memberID The unique ID number of the member
+	 * @return A reference to the Member object, or null if nonexistant member
+	 */
+	public Member getMember(int memberID)
+	{
+		return memberController.getMember(memberID);
+	}
+	
+	/**
+	 * Get a member based on its service code
+	 * @param serviceID The unique service code
+	 * @return A reference to the Service object, or null if nonexistant service
+	 */
+	public Service getService(int serviceID)
+	{
+		return serviceController.getServiceDirectory().getService(serviceID);
+	}
+	
+	/**
+	 * Get a provider based on their ID number
+	 * @param providerID The unique ID number of the provider
+	 * @return A reference to the Provider object, or null if nonexistant provider
+	 */
+	public Provider getProvider(int providerID)
+	{
+		return providerController.getProvider(providerID);
+	}
+	
+	/**
+	 * Obtain an iterator view of the Pizza Anonymous members
+	 * @return An iterator over all of the Members
+	 */
+	public Iterator<Member> getMemberList()
+	{
+		return memberController.getMemberList();
+	}
+	
+	/**
+	 * Obtain an iterator view of the Pizza Anonymous providers
+	 * @return An iterator over all of the Providers
+	 */
+	public Iterator<Provider> getProviderList()
+	{
+		return providerController.getProviderList();
+	}
+	
+	/**
+	 * Obtain an iterator view of the ServiceOccasion records
+	 * @return An iterator over all of the ServiceOccasions
+	 */
+	public Iterator<ServiceOccasion> getServiceOccasions()
+	{
+		return serviceController.getOccasionList().getServiceOccasionIterator();
+	}
+	
+	/**
 	 * Create the weekly reports - ie the four types of reports
 	 * @return True if the report creation was successful
 	 */
 	public boolean createWeeklyReports()
 	{
-		reportController.createWeeklyReports();
+		return reportController.createWeeklyReports();
 	}
 	
 	/**
@@ -51,7 +110,7 @@ public class PizzaAnonymous {
 	 */
 	public boolean createMemberSvcReport(int memberID)
 	{
-		reportController.createMemberSvcReport(memberID);
+		return reportController.makeMemberSvcReport(memberID);
 	}
 	
 	/**
@@ -60,7 +119,7 @@ public class PizzaAnonymous {
 	 */
 	public boolean createProviderSvcReport(int providerID)
 	{
-		reportController.createProviderSvcReport(providerID);
+		return reportController.makeProviderSvcReport(providerID);
 	}
 	
 	/**
@@ -69,7 +128,7 @@ public class PizzaAnonymous {
 	 */
 	public boolean createEFTReport()
 	{
-		reportController.createEFTReport();
+		return reportController.makeEFTReport();
 	}
 	
 	/**
@@ -78,7 +137,7 @@ public class PizzaAnonymous {
 	 */
 	public boolean createSummaryReport()
 	{
-		reportController.createSummaryReport();
+		return reportController.makeSummaryReport();
 	}
 
 }

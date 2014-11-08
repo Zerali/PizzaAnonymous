@@ -28,8 +28,9 @@ public abstract class Report {
 	 * The content of the file is determined via the toString() method. 
 	 * This means subclasses must implement getFileName() and toString() 
 	 * When the method returns, a file containing the report's contents should be created
+	 * @return True if the file was successfully written to
 	 */
-	public void saveReport()
+	public boolean saveReport()
 	{
 		try {
 			// Open the file for writing
@@ -41,8 +42,13 @@ public abstract class Report {
 			// Close the file
 			printWriter.flush();
 			printWriter.close();
+			
+			// Things worked! So we should return true
+			return true;
 		} catch (IOException e) {
-			e.printStackTrace();
+			// Something went wrong. Return false.
+			System.err.println(e.getMessage());
+			return false;
 		}
 	}
 

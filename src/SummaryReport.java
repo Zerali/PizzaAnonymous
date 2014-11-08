@@ -32,7 +32,7 @@ public class SummaryReport extends Report {
 	private int totalConsultations;
 	
 	/** The total fee to be paid to all providers */
-	private int totalFee;
+	private double totalFee;
 
 	public SummaryReport() {
 		super();
@@ -114,10 +114,10 @@ public class SummaryReport extends Report {
 		this.totalConsultations = totalConsultations;
 	}
 
-	public int getTotalFee() {
+	public double getTotalFee() {
 		return totalFee;
 	}
-	public void setTotalFee(int totalFee) {
+	public void setTotalFee(double totalFee) {
 		this.totalFee = totalFee;
 	}
 	// End accessors & mutators //
