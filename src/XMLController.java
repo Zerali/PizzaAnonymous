@@ -1,4 +1,9 @@
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.XStreamException;
 
 /**
  * Controller for XML functions. 
@@ -41,7 +46,7 @@ public class XMLController {
 	public void saveServices(ServiceController object)
 	{
 		// Utilize the XStream library
-		writeXMLFile(object, "Service.xml");
+		writeXMLFile(object, "ServiceData.xml");
 	}
 
 	/**
@@ -50,8 +55,14 @@ public class XMLController {
 	 */
 	public MemberController loadMembers()
 	{
-		// Utilize the XStream library
-		return xStream.fromXML("MemberData.xml");
+		try {
+			// Utilize the XStream library. Try to deserialize
+			return (MemberController) xStream.fromXML(new FileInputStream("MemberData.xml"));
+		} catch (Exception e) {
+			// If it fails, file probably doesn't exist yet. So create a new object instance instead
+			System.err.println("Could not load MemberData.xml. Returning new MemberController object.");
+			return new MemberController();
+		}
 	}
 
 	/**
@@ -60,8 +71,14 @@ public class XMLController {
 	 */
 	public ProviderController loadProviders()
 	{
-		// Utilize the XStream library
-		return xStream.fromXML("ProviderData.xml");
+		try {
+			// Utilize the XStream library. Try to deserialize
+			return (ProviderController) xStream.fromXML(new FileInputStream("ProviderData.xml"));
+		} catch (Exception e) {
+			// If it fails, file probably doesn't exist yet. So create a new object instance instead
+			System.err.println("Could not load MemberData.xml. Returning new ProviderController object.");
+			return new ProviderController();
+		}
 	}
 
 	/**
@@ -70,8 +87,14 @@ public class XMLController {
 	 */
 	public ServiceController loadServices()
 	{
-		// Utilize the XStream library
-		return xStream.fromXML("ServiceData.xml");
+		try {
+			// Utilize the XStream library. Try to deserialize
+			return (ServiceController) xStream.fromXML(new FileInputStream("ServiceData.xml"));
+		} catch (Exception e) {
+			// If it fails, file probably doesn't exist yet. So create a new object instance instead
+			System.err.println("Could not load MemberData.xml. Returning new ServiceController object.");
+			return new ServiceController();
+		}
 	}
 	
 	/**
@@ -82,12 +105,18 @@ public class XMLController {
 	 */
 	private void writeXMLFile(Object object, String filename)
 	{
-		FileOutputStream out = new FileOutputStream(filename);
 		try {
-			xStream.toXML(object, out);
-			out.flush();
-		} finally {
-			out.close();
+			FileOutputStream out = new FileOutputStream(filename);
+			try {
+				xStream.toXML(object, out);
+				out.flush();
+			} catch (XStreamException e) {
+				System.err.println("writeXMLFile: Could not write " + filename);
+			} finally {
+				out.close();
+			}
+		} catch (IOException e) {
+			System.err.println("writeXMLFile: Could not write " + filename);
 		}
 	}
 
