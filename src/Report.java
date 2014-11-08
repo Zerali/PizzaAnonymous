@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.NumberFormat;
 
 /**
  * Abstract report class.  Defines methods that all reports need to implement themselves.
@@ -12,6 +13,9 @@ import java.io.PrintWriter;
  *
  */
 public abstract class Report {
+	
+	/** A number formatter that'll reduce pretty results for a fee */
+	public static final NumberFormat FEE_FORMAT = NumberFormat.getCurrencyInstance();
 
 	/**
 	 * Determines and returns the file name for this report. 

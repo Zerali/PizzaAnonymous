@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -52,7 +53,8 @@ public class ReportController {
 	 */
 	public boolean makeMemberSvcReport(int memberID)
 	{
-		MemberReport report;
+		// Create a blank report to start with
+		MemberReport report = new MemberReport();
 
 		// Obtain the relevant member
 		Member member = PizzaAnonymous.getInstance().getMember(memberID);
@@ -78,10 +80,27 @@ public class ReportController {
 			// Pull out the ServiceOccasion from the iterator
 			ServiceOccasion occasion = serviceOccasionIt.next();
 			
+			// Check to see if the service was provided to this member
+			if(occasion.getMemberID() != member.getID())
+			{
+				// Not a match, skip over it
+				continue;
+			}
+			
+			// We need the Provider and Service for some info. Get references first
+			Provider provider = PizzaAnonymous.getInstance().getProvider(occasion.getProviderID());
+			Service service = PizzaAnonymous.getInstance().getService(occasion.getServiceID());
+			
+			// Null check them, in case they were deleted for some reason
+			if(provider == null || service == null)
+			{
+				// One was null.. report the issue and stop
+				System.err.println("makeMemberSvcReport: Null provider or service.");
+				return false;
+			}
+			
 			// Again there will be multiple fields to get and set
-			report.addServiceInfo(occasion.getDateProvided(), 
-					PizzaAnonymous.getInstance().getProvider(occasion.getProviderID()).getName(), 
-					PizzaAnonymous.getInstance().getService(occasion.getServiceID()).getName());
+			report.addServiceInfo(occasion.getDateProvided(), provider.getName(), service.getName());
 		}
 
 		// Finally save the report to a file
@@ -95,7 +114,8 @@ public class ReportController {
 	 */
 	public boolean makeProviderSvcReport(int providerID)
 	{
-		ProviderReport report;
+		// Create a blank report to start with
+		ProviderReport report = new ProviderReport();
 
 		// Obtain a reference to the provider
 		Provider provider = PizzaAnonymous.getInstance().getProvider(providerID);
@@ -120,14 +140,33 @@ public class ReportController {
 		{
 			// Pull out the ServiceOccasion from the iterator
 			ServiceOccasion occasion = serviceOccasionIt.next();
+			
+			// Need to match up the occasion to the provider
+			if(occasion.getProviderID() != provider.getID())
+			{
+				// Not a match, skip it
+				continue;
+			}
+			
+			// We need a Member and Service reference for some info. Get them up front
+			Member member = PizzaAnonymous.getInstance().getMember(occasion.getMemberID());
+			Service service = PizzaAnonymous.getInstance().getService(occasion.getServiceID());
+			
+			// Null check them, in case they were deleted for some reason
+			if(member == null || service == null)
+			{
+				// One was null.. report the issue and stop
+				System.err.println("makeMemberSvcReport: Null member or service.");
+				return false;
+			}
 						
 			// Again will be multiple lookups and assignments
 			report.addServiceInfo(occasion.getDateProvided(), 
 					occasion.getDateReceived(), 
-					PizzaAnonymous.getInstance().getMember(occasion.getMemberID()).getName(), 
+					member.getName(), 
 					occasion.getMemberID(), 
 					occasion.getServiceID(), 
-					PizzaAnonymous.getInstance().getService(occasion.getServiceID()).getFee());
+					service.getFee());
 		}
 
 		// Finally save the report to file
@@ -141,11 +180,11 @@ public class ReportController {
 	public boolean makeSummaryReport()
 	{
 		/** The report object */
-		SummaryReport report;
+		SummaryReport report = new SummaryReport();
 		
 		/** Mapping from provider ID to summary information. This array is in order: 
 		 *  String name, integer # consultations, double fee */
-		Map<Integer, Object[]> map;
+		Map<Integer, Object[]> map = new HashMap<Integer, Object[]>();
 		
 		// Total figures used at end of report
 		int totalProviders = 0;
@@ -161,11 +200,29 @@ public class ReportController {
 			
 			// Obtain a reference to the Provider that gave the service
 			Provider provider = PizzaAnonymous.getInstance().getProvider(occasion.getProviderID());
+			
+			// Also get a reference to the plain Service
+			Service service = PizzaAnonymous.getService(occasion.getServiceID());
+			
+			// Make sure the Provider is still around
+			if(provider == null)
+			{
+				// Since they're gone, we're really left no choice but to skip this service
+				System.err.println("makeSummaryReport: Missing provider (ID " + occasion.getProviderID() + ")");
+				continue;
+			}
+			
+			// Null checks. Can't break this code! (Did I just jinx it?)
+			if(service == null)
+			{
+				System.err.println("makeSummaryReport: Missing service (ID " + occasion.getServiceID() + ")");
+				continue;
+			}
 
 			// Put an entry in the map for the provider, if there isn’t already one
 			if(!map.containsKey(provider.getID()))
 			{
-				map.put(provider.getID(), new Object[] {provider.getName(), 0, 0});
+				map.put(provider.getID(), new Object[] {provider.getName(), 0, 0.0});
 				
 				// Increment since there's another provider thats done something
 				totalProviders++;
@@ -179,7 +236,6 @@ public class ReportController {
 			totalConsults++;
 
 			// Update the fee information
-			Service service = PizzaAnonymous.getService(occasion.getServiceID());
 			value[2] += service.getCost();
 			totalFee += service.getCost();
 		}
@@ -206,7 +262,8 @@ public class ReportController {
 	 */
 	public boolean makeEFTReport()
 	{
-		EFTReport report;
+		// Create an empty EFT report
+		EFTReport report = new EFTReport();
 
 		// Look through all of the providers
 		Iterator<Provider> providerIt = PizzaAnonymous.getInstance().getProviderList();
@@ -222,8 +279,18 @@ public class ReportController {
 			while(serviceOccasionIt.hasNext())
 			{
 				ServiceOccasion occasion = serviceOccasionIt.next();
+				Service service = PizzaAnonymous.getInstance().getService(occasion.getServiceID());
 				
-				fee += PizzaAnonymous.getInstance().getService(occasion.getServiceID()).fee;
+				// Make sure the service info is still around
+				if(service == null)
+				{
+					// It wasn't. Print an error line and skip past
+					System.err.println("makeEFTReport: Missing service (ID " + occasion.getServiceID() + ")");
+					continue;
+				}
+				
+				// Add to the total fee
+				fee += service.getCost();
 			}
 
 			// We can now add a line to the EFT report

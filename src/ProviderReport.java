@@ -35,10 +35,10 @@ public class ProviderReport extends Report {
 	private List<String[]> serviceInfo = new LinkedList<String[]>();
 	
 	// The total consultations this provider has provided
-	private int totalConsultations;
+	private int totalConsultations = 0;
 	
 	// The total fee this provider is owed by PA
-	private double totalFee;
+	private double totalFee = 0.0;
 	
 	public ProviderReport() {
 		super();
@@ -163,7 +163,7 @@ public class ProviderReport extends Report {
 				memberName, 
 				String.valueOf(memberID), 
 				String.valueOf(serviceCode), 
-				String.valueOf(fee)});
+				Report.FEE_FORMAT.format(fee)});
 	}
 
 

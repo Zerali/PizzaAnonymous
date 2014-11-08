@@ -164,17 +164,17 @@ public class ReportUI {
 	{
 		// Confirm action
 		if(BaseUI.getConfirmation("Are you sure you want to create the EFT report?"))
-				{
-					// Pass through to underlying system, have it done
-					if(PizzaAnonymous.getInstance().createEFTReport())
-					{
-						// Success message, since the call was true
-						System.out.println("EFT report created successfully");
-					} else {
-						// Failure message, since call returned false
-						System.out.println("Could not create EFT report");
-					}
-				}
+		{
+			// Pass through to underlying system, have it done
+			if(PizzaAnonymous.getInstance().createEFTReport())
+			{
+				// Success message, since the call was true
+				System.out.println("EFT report created successfully");
+			} else {
+				// Failure message, since call returned false
+				System.out.println("Could not create EFT report");
+			}
+		}
 	}
 	
 	/**

@@ -74,7 +74,7 @@ public class EFTReport extends Report {
 	// Begin accessors & mutators //
 	public void addLine(String providerName, int providerID, double amount)
 	{
-		eftInfo.add(new String[] {providerName, String.valueOf(providerID), String.valueOf(amount)});
+		eftInfo.add(new String[] {providerName, String.valueOf(providerID), Report.FEE_FORMAT.format(amount)});
 	}
 	public List<String[]> getEftInfo()
 	{

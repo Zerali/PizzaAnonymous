@@ -84,7 +84,7 @@ public class SummaryReport extends Report {
 		content.append("Total Number of Consultations: " + totalConsultations + System.lineSeparator());
 
 		// Append the total fee
-		content.append("Total Fee for the Week: " + totalFee + System.lineSeparator());
+		content.append("Total Fee for the Week: " + Report.FEE_FORMAT.format(totalFee) + System.lineSeparator());
 		
 		// Return the final string
 		return content.toString();
@@ -97,7 +97,7 @@ public class SummaryReport extends Report {
 	public void addLine(String providerName, int consults, double fee)
 	{
 		// Add the data to the list of string arrays
-		providerLines.add(new String[] {providerName, String.valueOf(consults), String.valueOf(fee)});
+		providerLines.add(new String[] {providerName, String.valueOf(consults), Report.FEE_FORMAT.format(fee)});
 	}
 
 	public int getTotalProviders() {
