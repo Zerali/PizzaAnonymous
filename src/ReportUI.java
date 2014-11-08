@@ -95,7 +95,7 @@ public class ReportUI {
 		if(BaseUI.getConfirmation("Are you sure you want to create all weekly reports?"))
 		{
 			// Pass through to underlying system, have it done
-			if(PizzaAnonymous.createWeeklyReports())
+			if(PizzaAnonymous.getInstance().createWeeklyReports())
 			{
 				// Success message, since the call was true
 				System.out.println("Weekly reports created successfully");
@@ -120,7 +120,7 @@ public class ReportUI {
 		if(BaseUI.getConfirmation("Are you sure you want to create a report for member " + memberID + "?"))
 		{
 			// Pass through to underlying system, have it done
-			if(PizzaAnonymous.createMemberSvcReport(memberID))
+			if(PizzaAnonymous.getInstance().createMemberSvcReport(memberID))
 			{
 				// Success message, since the call was true
 				System.out.println("Member report for member #" + memberID + " created successfully");
@@ -145,7 +145,7 @@ public class ReportUI {
 		if(BaseUI.getConfirmation("Are you sure you want to create a report for provider " + providerID + "?"))
 		{
 			// Pass through to underlying system, have it done
-			if(PizzaAnonymous.createProviderSvcReport(providerID))
+			if(PizzaAnonymous.getInstance().createProviderSvcReport(providerID))
 			{
 				// Success message, since the call was true
 				System.out.println("Provider report for provider #" + providerID + " created successfully");
@@ -166,7 +166,7 @@ public class ReportUI {
 		if(BaseUI.getConfirmation("Are you sure you want to create the EFT report?"))
 				{
 					// Pass through to underlying system, have it done
-					if(PizzaAnonymous.createEFTReport())
+					if(PizzaAnonymous.getInstance().createEFTReport())
 					{
 						// Success message, since the call was true
 						System.out.println("EFT report created successfully");
@@ -187,7 +187,7 @@ public class ReportUI {
 		if(BaseUI.getConfirmation("Are you sure you want to create the week's summary report?"))
 		{
 			// Pass through to underlying system, have it done
-			if(PizzaAnonymous.createSummaryReport())
+			if(PizzaAnonymous.getInstance().createSummaryReport())
 			{
 				// Success message, since the call was true
 				System.out.println("Summary report created successfully");
