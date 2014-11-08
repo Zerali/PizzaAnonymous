@@ -3,6 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+<<<<<<< HEAD
 /**
  * Abstract report class.  Defines methods that all reports need to implement themselves.
  * Contains the general code for saving a report to a file. 
@@ -11,6 +12,9 @@ import java.io.PrintWriter;
  * @author Blake
  *
  */
+=======
+
+>>>>>>> branch 'master' of https://github.com/Zerali/PizzaAnonymous.git
 public abstract class Report {
 
 	/**
