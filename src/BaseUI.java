@@ -66,7 +66,7 @@ public class BaseUI {
 			new ReportUI();
 			break;
 		case ACCOUNT_OPTION:
-
+			new AccountingProcedureUI();
 			break;
 		case EXIT_OPTION:
 			System.exit(0);
