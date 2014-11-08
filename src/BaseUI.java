@@ -63,7 +63,7 @@ public class BaseUI {
 
 			break;
 		case REPORT_OPTION:
-
+			new ReportUI();
 			break;
 		case ACCOUNT_OPTION:
 
@@ -126,6 +126,95 @@ public class BaseUI {
 		scanner.close();
 		
 		return input;
+	}
+	
+	/**
+	 * Prompt the user for an integer.  Validates that the input is indeed an integer. 
+	 * @param prompt The message to display to the user, asking for input
+	 * @return An integer of the user's choosing
+	 */
+	public static int getIntegerInput(String prompt)
+	{
+		Scanner scanner = new Scanner(System.in); // Scanner to read input
+		int input = -1; // The integer the user inputs
+		
+		// Show a prompt
+		System.out.print(prompt);
+		System.out.flush();
+		
+		while(true)
+		{
+			// Get the user's input as an integer
+			try {
+				input = scanner.nextInt();
+				
+				// Break since input was a valid integer
+				break;
+			} catch(Exception e) {
+				// Eat the invalid input
+				scanner.nextLine();
+				
+				// Invalid, so prompt again and let us loop around
+				System.out.print("Invalid input. Please enter a number: ");
+				System.out.flush();
+				
+				continue;
+			}
+		}
+		
+		scanner.close();
+		
+		return input;
+	}
+	
+	/**
+	 * Get user confirmation for an action. 
+	 * Will display the prompt message and ask for a yes/no response. 
+	 * @param prompt The prompt message
+	 * @return True if the answer is yes (confirmed)
+	 */
+	public static boolean getConfirmation(String prompt)
+	{
+		Scanner scanner = new Scanner(System.in); // Scanner to read input
+		boolean confirmed = false; // The user choice
+		
+		// Show a prompt
+		System.out.print(prompt);
+		System.out.print(" [y]es / [n]o: ");
+		System.out.flush();
+		
+		while(true)
+		{
+			// Get the user's input, simplify it
+			String input = scanner.nextLine().trim().toLowerCase();
+			
+			// Check to see if it matches y, yes, n, or no
+			if(input.equals("y") || input.equals("yes"))
+			{
+				// Chose yes, so confirmed = true
+				confirmed = true;
+				
+				break;
+			}
+			else if(input.equals("n") || input.equals("no"))
+			{
+				// Chose no, so confirmed = false;
+				confirmed = false;
+				
+				break;
+			}
+			else {
+				// Invalid response, try again
+				System.out.print("Invalid response. Please answer [y]es or [n]o: ");
+				System.out.flush();
+				
+				continue;
+			}
+		}
+		
+		scanner.close();
+		
+		return confirmed;
 	}
 
 }
