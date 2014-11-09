@@ -99,7 +99,7 @@ public class ProviderReport extends Report {
 		content.append("Total number of consultations: " + totalConsultations + System.lineSeparator());
 		
 		// Append the total fee to pay this provider
-		content.append("Total fee: " + totalFee + System.lineSeparator());
+		content.append("Total fee: " + Report.FEE_FORMAT.format(totalFee) + System.lineSeparator());
 		
 		// Return the final string
 		return content.toString();
