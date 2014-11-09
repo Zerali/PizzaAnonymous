@@ -1,3 +1,5 @@
+import java.io.InputStream;
+
 /**
  * The front end user interface for report related actions.
  * 
@@ -13,15 +15,19 @@ public class ReportUI {
 	public static final int EFT_OPTION = 4;
 	public static final int SUMMARY_OPTION = 5;
 	public static final int EXIT_OPTION = 6;
+	
+	// The input stream that user input is taken from
+	InputStream userInputStream;
 
-	public ReportUI() {
+	public ReportUI(InputStream userInputStream) {
+		this.userInputStream = userInputStream;
 		int menuOption; // The user's menu option
 		
 		// Show the menu options
 		runUI();
 		
 		// Get the user's menu option
-		menuOption = BaseUI.getMenuInput(WEEKLY_OPTION, EXIT_OPTION);
+		menuOption = BaseUI.getMenuInput(userInputStream, WEEKLY_OPTION, EXIT_OPTION);
 		
 		// Handle that option
 		handleMenuOption(menuOption);
@@ -74,7 +80,7 @@ public class ReportUI {
 			
 		case EXIT_OPTION:
 			// Return to the base UI
-			new BaseUI();
+			new BaseUI(userInputStream);
 			break;
 			
 		default:
@@ -92,7 +98,7 @@ public class ReportUI {
 	private void createWeeklyReports()
 	{
 		// Confirm action
-		if(BaseUI.getConfirmation("Are you sure you want to create all weekly reports?"))
+		if(BaseUI.getConfirmation(userInputStream, "Are you sure you want to create all weekly reports?"))
 		{
 			// Pass through to underlying system, have it done
 			if(PizzaAnonymous.getInstance().createWeeklyReports())
@@ -114,10 +120,10 @@ public class ReportUI {
 	private void createMemberSvcReport()
 	{
 		// Ask for the Member ID
-		int memberID = BaseUI.getIntegerInput("Enter the ID of the member to create a report for: ");
+		int memberID = BaseUI.getIntegerInput(userInputStream, "Enter the ID of the member to create a report for: ");
 		
 		// Confirm action
-		if(BaseUI.getConfirmation("Are you sure you want to create a report for member " + memberID + "?"))
+		if(BaseUI.getConfirmation(userInputStream, "Are you sure you want to create a report for member " + memberID + "?"))
 		{
 			// Pass through to underlying system, have it done
 			if(PizzaAnonymous.getInstance().createMemberSvcReport(memberID))
@@ -139,10 +145,10 @@ public class ReportUI {
 	private void createProviderSvcReport()
 	{
 		// Ask for the Provider ID
-		int providerID = BaseUI.getIntegerInput("Enter the ID of the provider to create a report for: ");
+		int providerID = BaseUI.getIntegerInput(userInputStream, "Enter the ID of the provider to create a report for: ");
 
 		// Confirm action
-		if(BaseUI.getConfirmation("Are you sure you want to create a report for provider " + providerID + "?"))
+		if(BaseUI.getConfirmation(userInputStream, "Are you sure you want to create a report for provider " + providerID + "?"))
 		{
 			// Pass through to underlying system, have it done
 			if(PizzaAnonymous.getInstance().createProviderSvcReport(providerID))
@@ -163,7 +169,7 @@ public class ReportUI {
 	private void createEFTReport()
 	{
 		// Confirm action
-		if(BaseUI.getConfirmation("Are you sure you want to create the EFT report?"))
+		if(BaseUI.getConfirmation(userInputStream, "Are you sure you want to create the EFT report?"))
 		{
 			// Pass through to underlying system, have it done
 			if(PizzaAnonymous.getInstance().createEFTReport())
@@ -184,7 +190,7 @@ public class ReportUI {
 	private void createSummaryReport()
 	{
 		// Confirm action
-		if(BaseUI.getConfirmation("Are you sure you want to create the week's summary report?"))
+		if(BaseUI.getConfirmation(userInputStream, "Are you sure you want to create the week's summary report?"))
 		{
 			// Pass through to underlying system, have it done
 			if(PizzaAnonymous.getInstance().createSummaryReport())

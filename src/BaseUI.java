@@ -1,3 +1,4 @@
+import java.io.InputStream;
 import java.util.Scanner;
 
 /**
@@ -14,20 +15,27 @@ public class BaseUI {
 	public static final int ACCOUNT_OPTION = 4;
 	public static final int SAVE_OPTION = 5;
 	public static final int EXIT_OPTION = 6;
+	
+	// The input stream that user input is taken from
+	InputStream userInputStream;
 
 	public static void main(String[] args) {
-		new BaseUI();
+		new BaseUI(System.in);
 	}
 	
-	public BaseUI()
+	/**
+	 * @param userInputStream An InputStream which provides user input (can be System.in)
+	 */
+	public BaseUI(InputStream userInputStream)
 	{
+		this.userInputStream = userInputStream;
 		int menuOption; // The user's menu option
 		
 		// Show the menu options
 		runUI();
 		
 		// Get the user's menu option
-		menuOption = getMenuInput(MAINTENANCE_OPTION, EXIT_OPTION);
+		menuOption = getMenuInput(userInputStream, MAINTENANCE_OPTION, EXIT_OPTION);
 		
 		// Handle that option
 		handleMenuOption(menuOption);
@@ -65,10 +73,10 @@ public class BaseUI {
 
 			break;
 		case REPORT_OPTION:
-			new ReportUI();
+			new ReportUI(userInputStream);
 			break;
 		case ACCOUNT_OPTION:
-			new AccountingProcedureUI();
+			new AccountingProcedureUI(userInputStream);
 			break;
 		case SAVE_OPTION:
 			PizzaAnonymous.getInstance().saveData();
@@ -85,13 +93,14 @@ public class BaseUI {
 	/**
 	 * Get a user's choice for a menu option. 
 	 * This is a numerical value bounded on the possible options.
+	 * @param userInput The InputStream that user input is accepted from
 	 * @param lowerBound The lowest possible menu option
 	 * @param upperBound The highest possible menu option
 	 * @return A valid menu option
 	 */
-	public static int getMenuInput(int lowerBound, int upperBound)
+	public static int getMenuInput(InputStream userInput, int lowerBound, int upperBound)
 	{
-		Scanner scanner = new Scanner(System.in); // Scanner to read input
+		Scanner scanner = new Scanner(userInput); // Scanner to read input
 		int input = -1; // The menu option
 		
 		// Show a prompt
@@ -135,12 +144,13 @@ public class BaseUI {
 	
 	/**
 	 * Prompt the user for an integer.  Validates that the input is indeed an integer. 
+	 * @param userInput The InputStream user input is accepted from
 	 * @param prompt The message to display to the user, asking for input
 	 * @return An integer of the user's choosing
 	 */
-	public static int getIntegerInput(String prompt)
+	public static int getIntegerInput(InputStream userInput, String prompt)
 	{
-		Scanner scanner = new Scanner(System.in); // Scanner to read input
+		Scanner scanner = new Scanner(userInput); // Scanner to read input
 		int input = -1; // The integer the user inputs
 		
 		// Show a prompt
@@ -175,12 +185,13 @@ public class BaseUI {
 	/**
 	 * Get user confirmation for an action. 
 	 * Will display the prompt message and ask for a yes/no response. 
+	 * @param userInput The InputStream user input is accepted from
 	 * @param prompt The prompt message
 	 * @return True if the answer is yes (confirmed)
 	 */
-	public static boolean getConfirmation(String prompt)
+	public static boolean getConfirmation(InputStream userInput, String prompt)
 	{
-		Scanner scanner = new Scanner(System.in); // Scanner to read input
+		Scanner scanner = new Scanner(userInput); // Scanner to read input
 		boolean confirmed = false; // The user choice
 		
 		// Show a prompt
