@@ -35,7 +35,7 @@ public class EFTReport extends Report {
 		DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH-mm-ss");
 
 		// Return the member name appended with the date
-		return "EFT Report" + " " + dateFormat.format(date);
+		return "./reports/EFT Report" + " " + dateFormat.format(date) + ".txt";
 	}
 	
 	/**

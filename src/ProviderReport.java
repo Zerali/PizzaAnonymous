@@ -51,7 +51,7 @@ public class ProviderReport extends Report {
         DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH-mm-ss");
         
         // Return the member name appended with the date
-        return name + " " + dateFormat.format(date);
+        return "./reports/" + name + " " + dateFormat.format(date) + ".txt";
 	}
 	
 	/**

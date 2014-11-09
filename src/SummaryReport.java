@@ -45,7 +45,7 @@ public class SummaryReport extends Report {
 		DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH-mm-ss");
 
 		// Return the member name appended with the date
-		return "Summary Report" + " " + dateFormat.format(date);
+		return "./reports/Summary Report" + " " + dateFormat.format(date) + ".txt";
 	}
 	
 	/**
