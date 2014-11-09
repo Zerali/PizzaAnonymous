@@ -5,7 +5,11 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
 	// The list of Test Classes that will run together
 	BaseUITest.class,
-	ReportTest.class
+	ReportTest.class,
+	MemberReportTest.class,
+	ProviderReportTest.class,
+	EFTReportTest.class,
+	SummaryReportTest.class
 })
 public class TestSuite {
 
