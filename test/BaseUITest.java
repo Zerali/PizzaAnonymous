@@ -50,8 +50,60 @@ public class BaseUITest {
 	}
 	
 	@Test
-	public void test2() {
-		fail("Not yet implemented");
+	public void testGetIntegerInput() {
+		String testData; // String to store user input string in
+		InputStream testInput; // InputStream that will simulate user input
+		
+		// Positive number
+		testData = "47";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		assertEquals(47, BaseUI.getIntegerInput(testInput, "prompt"));
+
+		// Negative number
+		testData = "-12345678";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		assertEquals(-12345678, BaseUI.getIntegerInput(testInput, "prompt"));
+
+		// Not an integer
+		testData = "3.14" + System.lineSeparator() + "3";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		assertEquals(3, BaseUI.getIntegerInput(testInput, "prompt"));
+
+		// Not a number
+		testData = "this is not a number" + System.lineSeparator() + "3";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		assertEquals(3, BaseUI.getIntegerInput(testInput, "prompt"));
+	}
+	
+	@Test
+	public void testGetConfirmation() {
+		String testData; // String to store user input string in
+		InputStream testInput; // InputStream that will simulate user input
+		
+		// Confirmation
+		testData = "y";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		assertEquals(true, BaseUI.getConfirmation(testInput, "prompt"));
+
+		// Also confirmation
+		testData = "yes";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		assertEquals(true, BaseUI.getConfirmation(testInput, "prompt"));
+
+		// Declined
+		testData = "n";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		assertEquals(false, BaseUI.getConfirmation(testInput, "prompt"));
+
+		// Also declined
+		testData = "no";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		assertEquals(false, BaseUI.getConfirmation(testInput, "prompt"));
+
+		// Anything else should ask again
+		testData = "anything else" + System.lineSeparator() + "yes";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		assertEquals(true, BaseUI.getConfirmation(testInput, "prompt"));
 	}
 
 }

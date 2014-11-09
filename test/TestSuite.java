@@ -4,7 +4,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 	// The list of Test Classes that will run together
-	
+	BaseUITest.class
 })
 public class TestSuite {
 
