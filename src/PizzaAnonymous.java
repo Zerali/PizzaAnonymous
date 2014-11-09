@@ -11,6 +11,18 @@ public class PizzaAnonymous {
 	/** Singleton instance of this class */
 	private static PizzaAnonymous instance;
 	
+	/** The subcontroller dealing with XML functionality */
+	private XMLController xmlController;
+	
+	/** The subcontroller dealing with Member functionality */
+	private MemberController memberController;
+	
+	/** The subcontroller dealing with Provider functionality */
+	private ProviderController providerController;
+	
+	/** The subcontroller dealing with Service functionality */
+	private ServiceController serviceController;
+	
 	/** The subcontroller dealing with report functionality */
 	private ReportController reportController;
 	
@@ -20,7 +32,16 @@ public class PizzaAnonymous {
 	 */
 	private PizzaAnonymous()
 	{
-		// TODO: XML stuff. Create XML Controller & load other controllers
+		// Create the XML controller since we'll load others from it
+		xmlController = new XMLController();
+		
+		// Then load all the others from it
+		memberController = xmlController.loadMembers();
+		providerController = xmlController.loadProviders();
+		serviceController = xmlController.loadServices();
+		
+		// Well, almost all the others. Report controller is on its own
+		reportController = new ReportController();
 	}
 	
 	/**
@@ -36,6 +57,18 @@ public class PizzaAnonymous {
 		}
 		
 		return instance;
+	}
+	
+	/**
+	 * Save data to XML.  Saves the data found in the Member, 
+	 * Provider, and Service controllers.
+	 */
+	public void saveData()
+	{
+		// Tell the XML Controller to save all of the objects
+		xmlController.saveMembers(memberController);
+		xmlController.saveProviders(providerController);
+		xmlController.saveServices(serviceController);
 	}
 	
 	/**

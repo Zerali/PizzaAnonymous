@@ -12,7 +12,8 @@ public class BaseUI {
 	public static final int PROVIDER_OPTION = 2;
 	public static final int REPORT_OPTION = 3;
 	public static final int ACCOUNT_OPTION = 4;
-	public static final int EXIT_OPTION = 5;
+	public static final int SAVE_OPTION = 5;
+	public static final int EXIT_OPTION = 6;
 
 	public static void main(String[] args) {
 		new BaseUI();
@@ -43,6 +44,7 @@ public class BaseUI {
 		System.out.println(PROVIDER_OPTION + ": Provider");
 		System.out.println(REPORT_OPTION + ": Report");
 		System.out.println(ACCOUNT_OPTION + ": Accounting Procedure");
+		System.out.println(SAVE_OPTION + ": Save Data");
 		System.out.println(EXIT_OPTION + ": Exit");
 	}
 	
@@ -67,6 +69,9 @@ public class BaseUI {
 			break;
 		case ACCOUNT_OPTION:
 			new AccountingProcedureUI();
+			break;
+		case SAVE_OPTION:
+			PizzaAnonymous.getInstance().saveData();
 			break;
 		case EXIT_OPTION:
 			System.exit(0);
