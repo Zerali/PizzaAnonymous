@@ -67,7 +67,7 @@ public class BaseUI {
 		switch(option)
 		{
 		case MAINTENANCE_OPTION:
-			new MaintenanceUI();
+			new MaintenanceUI(userInputStream);
 			break;
 		case PROVIDER_OPTION:
 
@@ -231,6 +231,70 @@ public class BaseUI {
 		scanner.close();
 		
 		return confirmed;
+	}
+	
+	/**
+	 * Prompt the user for a string.  
+	 * @param userInput The InputStream user input is accepted from
+	 * @param prompt The message to display to the user, asking for input
+	 * @return An string of the user's choosing
+	 */
+	public static String getStringInput(InputStream userInput, String prompt)
+	{
+		Scanner scanner = new Scanner(userInput); // Scanner to read input
+		String input; // The integer the user inputs
+		
+		// Show a prompt
+		System.out.print(prompt);
+		System.out.flush();
+		
+		// Get the user's input
+
+		input = scanner.nextLine();
+
+		scanner.close();
+		
+		return input;
+	}
+	
+	/**
+	 * Prompt the user for an float.  Validates that the input is indeed an float. 
+	 * @param userInput The InputStream user input is accepted from
+	 * @param prompt The message to display to the user, asking for input
+	 * @return An float of the user's choosing
+	 */
+	public static float getFloatInput(InputStream userInput, String prompt)
+	{
+		Scanner scanner = new Scanner(userInput); // Scanner to read input
+		float input = -1; // The float the user inputs
+		
+		// Show a prompt
+		System.out.print(prompt);
+		System.out.flush();
+		
+		while(true)
+		{
+			// Get the user's input as an float
+			try {
+				input = scanner.nextFloat();
+				
+				// Break since float was a valid integer
+				break;
+			} catch(Exception e) {
+				// Eat the invalid input
+				scanner.nextLine();
+				
+				// Invalid, so prompt again and let us loop around
+				System.out.print("Invalid input. Please enter a number: ");
+				System.out.flush();
+				
+				continue;
+			}
+		}
+		
+		scanner.close();
+		
+		return input;
 	}
 
 }

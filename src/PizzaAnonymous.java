@@ -92,6 +92,27 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 * Add a service to the system
+	 * @param name the name of the service
+	 * @param cost the cost of the service
+	 * @return True if the service was added and false if it was not
+	 */
+	public boolean addService(String name, float cost)
+	{
+		return serviceController.getServiceDirectory().addService(name, cost);
+	}
+	
+	/**
+	 * delete service from the system
+	 * @param serviceID the ID of the service
+	 * @return True if the service was deleted and false if it was not
+	 */
+	public boolean deleteService(int serviceID)
+	{
+		return serviceController.getServiceDirectory().deleteService(serviceID);
+	}
+	
+	/**
 	 * Get a provider based on their ID number
 	 * @param providerID The unique ID number of the provider
 	 * @return A reference to the Provider object, or null if nonexistant provider

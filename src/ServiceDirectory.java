@@ -13,6 +13,13 @@ public class ServiceDirectory {
 	private List<Service> servicesList = new LinkedList<Service>();		//List of all the services aka "Provider Directory"
 	private int nextServiceID;											//Integer that keeps the next ID of created Service
 	
+	/** Constructor **/
+	public ServiceDirectory()
+	{
+		//Set the first ID number on creation
+		nextServiceID = 1;
+	}
+	
 	
 	/** Methods **/
 	
