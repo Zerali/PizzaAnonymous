@@ -92,6 +92,15 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 * Get the service directory as an Iterator
+	 * @return Service directory as an Iterator
+	 */
+	public Iterator<Service> lookupServiceDirectory()
+	{
+		return serviceController.getServiceDirectory().getDirectoryIterator();
+	}
+	
+	/**
 	 * Add a service to the system
 	 * @param name the name of the service
 	 * @param cost the cost of the service
@@ -100,6 +109,19 @@ public class PizzaAnonymous {
 	public boolean addService(String name, float cost)
 	{
 		return serviceController.getServiceDirectory().addService(name, cost);
+	}
+	
+	/**
+	 * Add a service occasion to the system
+	 * @param date when the provider provided the service
+	 * @param provider ID of the provider adding the occasion
+	 * @param member ID of the member that did the service
+	 * @param service ID of the service provided
+	 * @param comments comments on the service provided
+	 */
+	public void addServiceOccasion(String date, int provider, int member, int service, String comments)
+	{
+		serviceController.getServiceOccasionList().addServiceOccasion(date, provider, member, service, comments);
 	}
 	
 	/**
@@ -193,5 +215,4 @@ public class PizzaAnonymous {
 	{
 		return reportController.makeSummaryReport();
 	}
-
 }
