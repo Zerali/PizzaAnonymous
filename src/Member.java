@@ -20,13 +20,21 @@ public class Member
 	/**
 	 * 
 	 */
-	public Member() {
+	public Member(String name, int ID, String address, String city, String state, int ZIP, boolean validStatus) 
+	{
 		// TODO Auto-generated constructor stub
+		this.name = name;
+		this.ID = ID;
+		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.ZIP = ZIP;
+		this.validStatus = validStatus;
 	}
 
 	/**
 	 * 
-	 * @return
+	 * @return name
 	 */
 	//Accessor method to return the value of the private data member name
 	public String getName()
@@ -36,7 +44,7 @@ public class Member
 		
 	/**
 	 * 
-	 * @return
+	 * @return ID
 	 */
 	//Accessor method to return the value of the private data member ID	
 	public int getID()
@@ -46,7 +54,7 @@ public class Member
 
 	/**
 	 * 
-	 * @return
+	 * @return address
 	 */
 	//Accessor method to return the value of the private data member address
 	public String getAddress()
@@ -56,7 +64,7 @@ public class Member
 
 	/**
 	 * 
-	 * @return
+	 * @return city
 	 */
 	//Accessor method to return the value of the private data member city
 	public String getCity()
@@ -66,7 +74,7 @@ public class Member
 
 	/**
 	 * 
-	 * @return
+	 * @return state
 	 */
 	//Accessor method to return the value of the private data member state
 	public String getState()
@@ -76,7 +84,7 @@ public class Member
 
 	/**
 	 * 
-	 * @return
+	 * @return ZIP
 	 */
 	//Accessor method to return the value of the private data member ZIP
 	public int getZIP()
@@ -86,7 +94,7 @@ public class Member
 
 	/**
 	 * 
-	 * @return
+	 * @return validstatus
 	 */
 	//Accessor method to return the value of the private data member //validstatus
 	public boolean getValidStatus()
