@@ -92,6 +92,49 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 * Get the service directory as an Iterator
+	 * @return Service directory as an Iterator
+	 */
+	public Iterator<Service> lookupServiceDirectory()
+	{
+		return serviceController.getServiceDirectory().getDirectoryIterator();
+	}
+	
+	/**
+	 * Add a service to the system
+	 * @param name the name of the service
+	 * @param cost the cost of the service
+	 * @return True if the service was added and false if it was not
+	 */
+	public boolean addService(String name, float cost)
+	{
+		return serviceController.getServiceDirectory().addService(name, cost);
+	}
+	
+	/**
+	 * Add a service occasion to the system
+	 * @param date when the provider provided the service
+	 * @param provider ID of the provider adding the occasion
+	 * @param member ID of the member that did the service
+	 * @param service ID of the service provided
+	 * @param comments comments on the service provided
+	 */
+	public void addServiceOccasion(String date, int provider, int member, int service, String comments)
+	{
+		serviceController.getServiceOccasionList().addServiceOccasion(date, provider, member, service, comments);
+	}
+	
+	/**
+	 * delete service from the system
+	 * @param serviceID the ID of the service
+	 * @return True if the service was deleted and false if it was not
+	 */
+	public boolean deleteService(int serviceID)
+	{
+		return serviceController.getServiceDirectory().deleteService(serviceID);
+	}
+	
+	/**
 	 * Get a provider based on their ID number
 	 * @param providerID The unique ID number of the provider
 	 * @return A reference to the Provider object, or null if nonexistant provider
@@ -172,5 +215,4 @@ public class PizzaAnonymous {
 	{
 		return reportController.makeSummaryReport();
 	}
-
 }
