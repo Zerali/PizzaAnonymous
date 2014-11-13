@@ -1,5 +1,7 @@
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -7,6 +9,8 @@ import java.util.Map.Entry;
 /**
  * The controller that deals with report related tasks. 
  * Takes care of creating reports and placing information into the report.
+ * Has overloaded methods for each, one that accepts report parameters for unit testing
+ * and another with less parameters for normal usage.
  * 
  * @author Blake
  *
@@ -17,9 +21,48 @@ public class ReportController {
 	 * Create all of the weekly reports.  This will create a 
 	 * MemberServiceReport for every member, ProviderServiceReport for every Provider, 
 	 * EFT Report, and Summary Report.
+	 * @param eftReport2 
+	 * @param summaryReport2 
+	 * @param providerReports2 
+	 * @param memberReports2 
 	 * @return True if this task is successful
 	 */
 	public boolean createWeeklyReports()
+	{
+		// Create each report we'll need
+		List<MemberReport> memberReports = new LinkedList<MemberReport>();
+		List<ProviderReport> providerReports = new LinkedList<ProviderReport>();
+		SummaryReport summaryReport = new SummaryReport();
+		EFTReport eftReport = new EFTReport();
+		
+		// Need to fill the lists
+		Iterator<Member> memberIt = PizzaAnonymous.getInstance().getMemberList();
+		while(memberIt.hasNext())
+		{
+			memberReports.add(new MemberReport());
+		}
+		
+		Iterator<Provider> providerIt = PizzaAnonymous.getInstance().getProviderList();
+		while(providerIt.hasNext())
+		{
+			providerReports.add(new ProviderReport());
+		}
+		
+		// Then delegate the call
+		return createWeeklyReports(memberReports, providerReports, summaryReport, eftReport);
+	}
+	
+	/**
+	 * Fill in all of the weekly reports. 
+	 * Takes each report as a parameter. The size of the report lists must match the size 
+	 * of the corresponding data list, and each report should be initialized.
+	 * This method is to aid in unit testability
+	 * @return True if this task is successful
+	 */
+	public boolean createWeeklyReports(List<MemberReport> memberReports, 
+			List<ProviderReport> providerReports, 
+			SummaryReport summaryReport, 
+			EFTReport eftReport)
 	{
 		boolean success = true; // Flag. True if all reports successful
 		
@@ -55,7 +98,26 @@ public class ReportController {
 	{
 		// Create a blank report to start with
 		MemberReport report = new MemberReport();
-
+		
+		// Delegate to the overloaded method
+		return makeMemberSvcReport(memberID, report);
+	}
+	
+	/**
+	 * Create a Member Service Report for the given member, placing the information
+	 * in the provided report.
+	 * @param memberID Who to create the report for
+	 * @param report The report the information will be placed into
+	 * @return True if the task is successful
+	 */
+	public boolean makeMemberSvcReport(int memberID, MemberReport report)
+	{
+		if(report == null)
+		{
+			System.err.println("Must provide initialized MemberReport object");
+			return false;
+		}
+		
 		// Obtain the relevant member
 		Member member = PizzaAnonymous.getInstance().getMember(memberID);
 		
@@ -116,6 +178,23 @@ public class ReportController {
 	{
 		// Create a blank report to start with
 		ProviderReport report = new ProviderReport();
+
+		return makeProviderSvcReport(providerID, report);
+	}
+	
+	/**
+	 * Create a Provider Service Report for the given provider. 
+	 * @param providerID Who to create the report for
+	 * @param report The ProviderReport information will be placed in
+	 * @return True if the task is successful
+	 */
+	public boolean makeProviderSvcReport(int providerID, ProviderReport report)
+	{
+		if(report == null)
+		{
+			System.err.println("Must provide initialized ProviderReport object");
+			return false;
+		}
 
 		// Obtain a reference to the provider
 		Provider provider = PizzaAnonymous.getInstance().getProvider(providerID);
@@ -181,6 +260,22 @@ public class ReportController {
 	{
 		/** The report object */
 		SummaryReport report = new SummaryReport();
+		
+		return makeSummaryReport(report);
+	}
+	
+	/**
+	 * Create a Summary Report for this week. 
+	 * @param report The SummaryReport to put information into
+	 * @return True if the task is successful
+	 */
+	public boolean makeSummaryReport(SummaryReport report)
+	{
+		if(report == null)
+		{
+			System.err.println("Must provided initialized SummaryReport object");
+			return false;
+		}
 		
 		/** Mapping from provider ID to summary information. This array is in order: 
 		 *  String name, integer # consultations, double fee */
@@ -264,6 +359,22 @@ public class ReportController {
 	{
 		// Create an empty EFT report
 		EFTReport report = new EFTReport();
+
+		return makeEFTReport(report);
+	}
+	
+	/**
+	 * Create an EFT report for this week
+	 * @param report The EFTReport to place information into
+	 * @return True if the task is successful
+	 */
+	public boolean makeEFTReport(EFTReport report)
+	{
+		if(report == null)
+		{
+			System.err.println("Must provide initialized EFTReport object");
+			return false;
+		}
 
 		// Look through all of the providers
 		Iterator<Provider> providerIt = PizzaAnonymous.getInstance().getProviderList();
