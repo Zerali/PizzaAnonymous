@@ -168,7 +168,7 @@ public class PizzaAnonymous {
 	 */
 	public Iterator<ServiceOccasion> getServiceOccasions()
 	{
-		return serviceController.getOccasionList().getServiceOccasionIterator();
+		return serviceController.getServiceOccasionList().getServiceOccasionIterator();
 	}
 	
 	/**

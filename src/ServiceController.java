@@ -1,6 +1,3 @@
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * This class controls the happening of the services and service occasion list classes

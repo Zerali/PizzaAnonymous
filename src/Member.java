@@ -29,7 +29,7 @@ public class Member
 		this.city = city;
 		this.state = state;
 		this.ZIP = ZIP;
-		this.validStatus = validStatus;
+		this.validstatus = validStatus;
 	}
 
 	/**
@@ -170,13 +170,5 @@ public class Member
 	public void setZIP(int zip)
 	{
 		ZIP = zip;
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 }

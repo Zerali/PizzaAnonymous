@@ -71,7 +71,7 @@ public class ReportController {
 		report.setAddress(member.getAddress());
 		report.setCity(member.getCity());
 		report.setState(member.getState());
-		report.setZip(member.getZip());
+		report.setZip(String.valueOf(member.getZIP()));
 
 		// Look through service occasions for ones provided to the member
 		Iterator<ServiceOccasion> serviceOccasionIt = PizzaAnonymous.getInstance().getServiceOccasions();
@@ -132,7 +132,7 @@ public class ReportController {
 		report.setAddress(provider.getAddress());
 		report.setCity(provider.getCity());
 		report.setState(provider.getState());
-		report.setZip(provider.getZip());
+		report.setZip(String.valueOf(provider.getZIP()));
 
 		// Look through the services for ones provided by the provider
 		Iterator<ServiceOccasion> serviceOccasionIt = PizzaAnonymous.getInstance().getServiceOccasions();
@@ -166,7 +166,7 @@ public class ReportController {
 					member.getName(), 
 					occasion.getMemberID(), 
 					occasion.getServiceID(), 
-					service.getFee());
+					service.getCost());
 		}
 
 		// Finally save the report to file
@@ -202,7 +202,7 @@ public class ReportController {
 			Provider provider = PizzaAnonymous.getInstance().getProvider(occasion.getProviderID());
 			
 			// Also get a reference to the plain Service
-			Service service = PizzaAnonymous.getService(occasion.getServiceID());
+			Service service = PizzaAnonymous.getInstance().getService(occasion.getServiceID());
 			
 			// Make sure the Provider is still around
 			if(provider == null)
@@ -236,7 +236,7 @@ public class ReportController {
 			totalConsults++;
 
 			// Update the fee information
-			value[2] += service.getCost();
+			value[2] = ((Double) value[2]).doubleValue() + service.getCost();
 			totalFee += service.getCost();
 		}
 

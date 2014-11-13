@@ -2,6 +2,7 @@
  * Still working on this. Not done ompletely.
  */
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * @author Amila DeSilva
@@ -34,11 +35,15 @@ public class MemberController
 		//check to see if there is an existing Member with same details; if not, create new
 		//Member
 		if (getMember(ID) == null)
+		{
 			members.add(new Member(name, ID, address, city, state, ZIP, validStatus));
 			return true;
+		}
 		//if member exists, this function should fail
 		else
+		{
 			return false;
+		}
 	}
 
 	//This method adds a member if it does not exist, given the Member’s ID and returns true, //otherwise returns false
@@ -61,27 +66,17 @@ public class MemberController
 	public Member getMember(int memberID)
 	{
 		//check to see if such a member exists. If so return the member
-		for (Member m : Members)
+		for (Member m : members)
 			if (m.getID() == memberID)
 				return m;
 		//if a member with such an ID does not exists, return NULL
-		return NULL;
+		return null;
 	}
 
 	//This method returns the member list that has been created and updated till current time
 	public Iterator<Member> getMemberList()
 	{
-		Iterator<Member> m = new Iterator<Member>(members);
-				return m;	
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) 
-	{
-		// TODO Auto-generated method stub
-
+		return members.iterator();
 	}
 
 }

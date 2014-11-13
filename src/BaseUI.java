@@ -70,7 +70,7 @@ public class BaseUI {
 			new MaintenanceUI(userInputStream);
 			break;
 		case PROVIDER_OPTION:
-
+			new ProviderUI(userInputStream);
 			break;
 		case REPORT_OPTION:
 			new ReportUI(userInputStream);

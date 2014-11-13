@@ -34,12 +34,7 @@ public class ServiceDirectory {
 		nextServiceID++;
 		
 		//Add the service to the list
-		try {
-			servicesList.add(serviceToAdd);
-			return true;
-		} finally {
-			return false;
-		}
+		return servicesList.add(serviceToAdd);
 	}
 	
 	//Returns an iterator of the provider directory
