@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
 	MemberReportTest.class,
 	ProviderReportTest.class,
 	EFTReportTest.class,
-	SummaryReportTest.class
+	SummaryReportTest.class,
+	ReportControllerTest.class
 })
 public class TestSuite {
 

@@ -68,23 +68,25 @@ public class ReportController {
 		
 		// Make a member report for each member
 		Iterator<Member> memberIt = PizzaAnonymous.getInstance().getMemberList();
-		while(memberIt.hasNext())
+		Iterator<MemberReport> memberReportIt = memberReports.iterator();
+		while(memberIt.hasNext() && memberReportIt.hasNext())
 		{
-			success &= makeMemberSvcReport(memberIt.next().getID());
+			success &= makeMemberSvcReport(memberIt.next().getID(), memberReportIt.next());
 		}
 		
 		// Make a provider report for each provider
 		Iterator<Provider> providerIt = PizzaAnonymous.getInstance().getProviderList();
-		while(providerIt.hasNext())
+		Iterator<ProviderReport> providerReportIt = providerReports.iterator();
+		while(providerIt.hasNext() && providerReportIt.hasNext())
 		{
-			success &= makeProviderSvcReport(providerIt.next().getID());
+			success &= makeProviderSvcReport(providerIt.next().getID(), providerReportIt.next());
 		}
 		
 		// Make the EFT report
-		success &= makeEFTReport();
+		success &= makeEFTReport(eftReport);
 		
 		// Make the summary report
-		success &= makeSummaryReport();
+		success &= makeSummaryReport(summaryReport);
 		
 		return success;
 	}
