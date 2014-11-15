@@ -20,7 +20,10 @@ public class ProviderUI {
 	private PizzaAnonymous PAinstance;
 	
 	// The input stream that user input is taken from
-	InputStream userInputStream;
+	private InputStream userInputStream;
+	
+	// Whether we want to stay in the Provider UI or not
+	private boolean stayInProvider = true;
 
 	public ProviderUI(InputStream userInputStream) {
 		this.userInputStream = userInputStream;
@@ -37,14 +40,17 @@ public class ProviderUI {
 			return;
 		}
 		
-		// Show the menu options
-		runUI();
-		
-		// Get the user's menu option
-		menuOption = BaseUI.getMenuInput(userInputStream, REQUEST_SERVICE_DIRECTORY, EXIT_OPTION);
-		
-		// Handle that option
-		handleMenuOption(menuOption);
+		while(stayInProvider)
+		{
+			// Show the menu options
+			runUI();
+
+			// Get the user's menu option
+			menuOption = BaseUI.getMenuInput(userInputStream, REQUEST_SERVICE_DIRECTORY, EXIT_OPTION);
+
+			// Handle that option
+			handleMenuOption(menuOption);
+		}
 	}
 	
 	/**
@@ -89,6 +95,7 @@ public class ProviderUI {
 			
 		case EXIT_OPTION:
 			// Return to the base UI
+			stayInProvider = false;
 			new BaseUI(userInputStream);
 			break;
 			

@@ -18,6 +18,9 @@ public class BaseUI {
 	
 	// The input stream that user input is taken from
 	InputStream userInputStream;
+	
+	// Whether we want to keep using the UI or not
+	private boolean stayInUI = true;
 
 	public static void main(String[] args) {
 		new BaseUI(System.in);
@@ -31,14 +34,17 @@ public class BaseUI {
 		this.userInputStream = userInputStream;
 		int menuOption; // The user's menu option
 		
-		// Show the menu options
-		runUI();
-		
-		// Get the user's menu option
-		menuOption = getMenuInput(userInputStream, MAINTENANCE_OPTION, EXIT_OPTION);
-		
-		// Handle that option
-		handleMenuOption(menuOption);
+		while(stayInUI)
+		{
+			// Show the menu options
+			runUI();
+
+			// Get the user's menu option
+			menuOption = getMenuInput(userInputStream, MAINTENANCE_OPTION, EXIT_OPTION);
+
+			// Handle that option
+			handleMenuOption(menuOption);
+		}
 	}
 	
 	/**
@@ -80,6 +86,7 @@ public class BaseUI {
 			break;
 		case SAVE_OPTION:
 			PizzaAnonymous.getInstance().saveData();
+			System.out.println("Saved data.");
 			break;
 		case EXIT_OPTION:
 			System.exit(0);
@@ -100,6 +107,7 @@ public class BaseUI {
 	 */
 	public static int getMenuInput(InputStream userInput, int lowerBound, int upperBound)
 	{
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(userInput); // Scanner to read input
 		int input = -1; // The menu option
 		
@@ -137,8 +145,6 @@ public class BaseUI {
 			}
 		}
 		
-		scanner.close();
-		
 		return input;
 	}
 	
@@ -150,6 +156,7 @@ public class BaseUI {
 	 */
 	public static int getIntegerInput(InputStream userInput, String prompt)
 	{
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(userInput); // Scanner to read input
 		int input = -1; // The integer the user inputs
 		
@@ -177,8 +184,6 @@ public class BaseUI {
 			}
 		}
 		
-		scanner.close();
-		
 		return input;
 	}
 	
@@ -191,6 +196,7 @@ public class BaseUI {
 	 */
 	public static boolean getConfirmation(InputStream userInput, String prompt)
 	{
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(userInput); // Scanner to read input
 		boolean confirmed = false; // The user choice
 		
@@ -228,8 +234,6 @@ public class BaseUI {
 			}
 		}
 		
-		scanner.close();
-		
 		return confirmed;
 	}
 	
@@ -241,6 +245,7 @@ public class BaseUI {
 	 */
 	public static String getStringInput(InputStream userInput, String prompt)
 	{
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(userInput); // Scanner to read input
 		String input; // The integer the user inputs
 		
@@ -251,8 +256,6 @@ public class BaseUI {
 		// Get the user's input
 
 		input = scanner.nextLine();
-
-		scanner.close();
 		
 		return input;
 	}
@@ -265,6 +268,7 @@ public class BaseUI {
 	 */
 	public static float getFloatInput(InputStream userInput, String prompt)
 	{
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(userInput); // Scanner to read input
 		float input = -1; // The float the user inputs
 		
@@ -291,8 +295,6 @@ public class BaseUI {
 				continue;
 			}
 		}
-		
-		scanner.close();
 		
 		return input;
 	}

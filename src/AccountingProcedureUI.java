@@ -14,20 +14,26 @@ public class AccountingProcedureUI {
 	public static final int EXIT_OPTION = 2;
 	
 	// The input stream that user input is taken from
-	InputStream userInputStream;
+	private InputStream userInputStream;
+	
+	// Whether we want to stay in the AccountingProcedureUI
+	private boolean stayInAccounting = true;
 	
 	public AccountingProcedureUI(InputStream userInputStream) {
 		this.userInputStream = userInputStream;
 		int menuOption; // The user's menu option
 		
-		// Show the menu options
-		runUI();
-		
-		// Get the user's menu option
-		menuOption = BaseUI.getMenuInput(userInputStream, WEEKLY_OPTION, EXIT_OPTION);
-		
-		// Handle that option
-		handleMenuOption(menuOption);
+		while(stayInAccounting)
+		{
+			// Show the menu options
+			runUI();
+
+			// Get the user's menu option
+			menuOption = BaseUI.getMenuInput(userInputStream, WEEKLY_OPTION, EXIT_OPTION);
+
+			// Handle that option
+			handleMenuOption(menuOption);
+		}
 	}
 	
 	/**
@@ -57,6 +63,7 @@ public class AccountingProcedureUI {
 			
 		case EXIT_OPTION:
 			// Return to the base UI
+			stayInAccounting = false;
 			new BaseUI(userInputStream);
 			break;
 			
