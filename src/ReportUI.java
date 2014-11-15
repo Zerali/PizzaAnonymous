@@ -17,20 +17,26 @@ public class ReportUI {
 	public static final int EXIT_OPTION = 6;
 	
 	// The input stream that user input is taken from
-	InputStream userInputStream;
+	private InputStream userInputStream;
+	
+	// Whether we want to stay in the report sub-menu or go back to the base UI
+	private boolean stayInReport = true;
 
 	public ReportUI(InputStream userInputStream) {
 		this.userInputStream = userInputStream;
 		int menuOption; // The user's menu option
 		
-		// Show the menu options
-		runUI();
-		
-		// Get the user's menu option
-		menuOption = BaseUI.getMenuInput(userInputStream, WEEKLY_OPTION, EXIT_OPTION);
-		
-		// Handle that option
-		handleMenuOption(menuOption);
+		while(stayInReport)
+		{
+			// Show the menu options
+			runUI();
+
+			// Get the user's menu option
+			menuOption = BaseUI.getMenuInput(userInputStream, WEEKLY_OPTION, EXIT_OPTION);
+
+			// Handle that option
+			handleMenuOption(menuOption);
+		}
 	}
 	
 	/**
@@ -80,6 +86,7 @@ public class ReportUI {
 			
 		case EXIT_OPTION:
 			// Return to the base UI
+			stayInReport = false;
 			new BaseUI(userInputStream);
 			break;
 			

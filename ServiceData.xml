@@ -1,0 +1,15 @@
+<ServiceController>
+  <serviceDirectory>
+    <servicesList class="linked-list">
+      <Service>
+        <ID>1</ID>
+        <name>test_service</name>
+        <cost>123.0</cost>
+      </Service>
+    </servicesList>
+    <nextServiceID>2</nextServiceID>
+  </serviceDirectory>
+  <serviceOccasionList>
+    <serviceOccasions class="linked-list"/>
+  </serviceOccasionList>
+</ServiceController>

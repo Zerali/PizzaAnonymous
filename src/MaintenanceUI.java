@@ -24,7 +24,10 @@ public class MaintenanceUI {
 	public static final int EDIT_OPTION = 3;
 	
 	// The input stream that user input is taken from
-	InputStream userInputStream;
+	private InputStream userInputStream;
+	
+	// Whether we want to stay in the Maintenance UI
+	private boolean stayInMaintenance = true;
 	
 	/**
 	 * Create and show the maintenance interface
@@ -34,14 +37,17 @@ public class MaintenanceUI {
 		this.userInputStream = userInputStream;
 		int menuOption; // The user's menu option
 		
-		// Show the menu options
-		runUI();
-		
-		// Get the user's menu option
-		menuOption = BaseUI.getMenuInput(userInputStream, MEMBER_OPTION, EXIT_OPTION);
-		
-		// Handle that option
-		handleMenuOption(menuOption);
+		while(stayInMaintenance)
+		{
+			// Show the menu options
+			runUI();
+
+			// Get the user's menu option
+			menuOption = BaseUI.getMenuInput(userInputStream, MEMBER_OPTION, EXIT_OPTION);
+
+			// Handle that option
+			handleMenuOption(menuOption);
+		}
 	}
 	
 	public void runUI()
@@ -49,7 +55,7 @@ public class MaintenanceUI {
 		System.out.println("The following menus are available:");
 		System.out.println(MEMBER_OPTION + ": Add, edit, or delete a member");
 		System.out.println(PROVIDER_OPTION + ": Add, edit, or delete a provider");
-		System.out.println(SERVICE_OPTION + ":Add or delete a service");
+		System.out.println(SERVICE_OPTION + ": Add or delete a service");
 		System.out.println(EXIT_OPTION + ": Exit");
 	}
 	
@@ -77,6 +83,7 @@ public class MaintenanceUI {
 			
 		case EXIT_OPTION:
 			// Return to the base UI
+			stayInMaintenance = false;
 			new BaseUI(userInputStream);
 			break;
 			
