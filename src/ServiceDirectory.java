@@ -37,6 +37,20 @@ public class ServiceDirectory {
 		return servicesList.add(serviceToAdd);
 	}
 	
+	//Function to delete a service
+	public boolean deleteService(int serviceID)
+	{
+		for(int i = 0; i < servicesList.size(); i++)
+		{
+			if(servicesList.get(i).getID() == serviceID)
+			{
+				servicesList.remove(i);
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	//Returns an iterator of the provider directory
 	public Iterator<Service> getDirectoryIterator(){
 		//create Iterator and send it
