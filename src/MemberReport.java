@@ -5,13 +5,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-
 /**
- * A Member Report serves as a record of services provided to a member 
- * of Pizza Anonymous.
+ * A Member Report serves as a record of services provided to a member of Pizza
+ * Anonymous.
  * 
  * @author Blake
- *
  */
 public class MemberReport extends Report {
 	
@@ -24,15 +22,22 @@ public class MemberReport extends Report {
 	private String zip;
 	
 	/**
-	 * A list of service records. Each service occasion is stored as a string array.
-	 * The array consists of: The date of service, provider name, and service name.
+	 * A list of service records. Each service occasion is stored as a string
+	 * array. The array consists of: The date of service, provider name, and
+	 * service name.
 	 */
 	private List<String[]> serviceInfo = new LinkedList<String[]>();
 
+	/**
+	 * TODO Documentation(Blake)
+	 */
 	public MemberReport() {
 		super();
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 */
 	@Override
 	public String getFileName() {
 		// Get the current date to append to the filename
@@ -44,8 +49,8 @@ public class MemberReport extends Report {
 	}
 	
 	/**
-	 * Returns what the contents of the file should be. 
-	 * Relies on the data information being set before this happens.
+	 * Returns what the contents of the file should be. Relies on the data
+	 * information being set before this happens.
 	 */
 	@Override
 	public String toString()
@@ -86,54 +91,132 @@ public class MemberReport extends Report {
 	}
 
 	// Begin accessors & mutators
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getAddress() {
 		return address;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param address
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getCity() {
 		return city;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param city
+	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getState() {
 		return state;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param state
+	 */
 	public void setState(String state) {
 		this.state = state;
 	}
 	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getZip() {
 		return state;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param zip
+	 */
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public List<String[]> getServiceInfo() {
 		return serviceInfo;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param date
+	 * @param providerName
+	 * @param serviceName
+	 */
 	public void addServiceInfo(String date, String providerName, String serviceName) {
 		serviceInfo.add(new String[] {date, providerName, serviceName});
 	}
 	// End accessors & mutators
-	
 }

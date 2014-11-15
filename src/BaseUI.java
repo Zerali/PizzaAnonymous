@@ -4,6 +4,7 @@ import java.util.Scanner;
 /**
  * Initial User Interface that shows options to switch to the 
  * four other sub interfaces.
+ * 
  * @author Blake, Nick, Adam
  */
 public class BaseUI {
@@ -27,7 +28,9 @@ public class BaseUI {
 	}
 	
 	/**
-	 * @param userInputStream An InputStream which provides user input (can be System.in)
+	 * TODO Documentation(Blake, Nick, Adam)
+	 * 
+	 * @param userInputStream An InputStream which provides user input
 	 */
 	public BaseUI(InputStream userInputStream)
 	{
@@ -48,23 +51,25 @@ public class BaseUI {
 	}
 	
 	/**
-	 * Show the interface.
-	 * Presents the options
+	 * Prints out the interface options
 	 */
 	public void runUI()
 	{
-		System.out.println("The following menus are available:");
+		System.out.println("------------------------------");
+		System.out.println("Menu Options:");
 		System.out.println(MAINTENANCE_OPTION + ": Maintenance");
 		System.out.println(PROVIDER_OPTION + ": Provider");
 		System.out.println(REPORT_OPTION + ": Report");
 		System.out.println(ACCOUNT_OPTION + ": Accounting Procedure");
 		System.out.println(SAVE_OPTION + ": Save Data");
 		System.out.println(EXIT_OPTION + ": Exit");
+		System.out.println("------------------------------");
 	}
 	
 	/**
-	 * Handle a menu option chosen by the user. 
-	 * This method will accept an option assumed to be valid
+	 * Handle a menu option chosen by the user.This method will accept an
+	 * option assumed to be valid
+	 * 
 	 * @param option The user's menu option
 	 */
 	private void handleMenuOption(int option)
@@ -100,6 +105,7 @@ public class BaseUI {
 	/**
 	 * Get a user's choice for a menu option. 
 	 * This is a numerical value bounded on the possible options.
+	 * 
 	 * @param userInput The InputStream that user input is accepted from
 	 * @param lowerBound The lowest possible menu option
 	 * @param upperBound The highest possible menu option
@@ -149,7 +155,9 @@ public class BaseUI {
 	}
 	
 	/**
-	 * Prompt the user for an integer.  Validates that the input is indeed an integer. 
+	 * Prompt the user for an integer.  Validates that the input is indeed an
+	 * integer.
+	 * 
 	 * @param userInput The InputStream user input is accepted from
 	 * @param prompt The message to display to the user, asking for input
 	 * @return An integer of the user's choosing
@@ -188,8 +196,9 @@ public class BaseUI {
 	}
 	
 	/**
-	 * Get user confirmation for an action. 
-	 * Will display the prompt message and ask for a yes/no response. 
+	 * Get user confirmation for an action. Will display the prompt message and
+	 * ask for a yes/no response.
+	 * 
 	 * @param userInput The InputStream user input is accepted from
 	 * @param prompt The prompt message
 	 * @return True if the answer is yes (confirmed)
@@ -238,7 +247,8 @@ public class BaseUI {
 	}
 	
 	/**
-	 * Prompt the user for a string.  
+	 * Prompt the user for a string.
+	 * 
 	 * @param userInput The InputStream user input is accepted from
 	 * @param prompt The message to display to the user, asking for input
 	 * @return An string of the user's choosing
@@ -261,7 +271,8 @@ public class BaseUI {
 	}
 	
 	/**
-	 * Prompt the user for an float.  Validates that the input is indeed an float. 
+	 * Prompt the user for a float and validates input
+	 * 
 	 * @param userInput The InputStream user input is accepted from
 	 * @param prompt The message to display to the user, asking for input
 	 * @return An float of the user's choosing
@@ -298,5 +309,4 @@ public class BaseUI {
 		
 		return input;
 	}
-
 }

@@ -63,6 +63,7 @@ public class MaintenanceUI {
 	 * Handle a menu option chosen by the user. 
 	 * This method will accept an option assumed to be valid
 	 * @param option The user's menu option
+	 * @param none
 	 */
 	private void handleMenuOption(int option)
 	{
@@ -224,26 +225,32 @@ public class MaintenanceUI {
 	{
 		//TODO
 	}
+	
 	public void editMember()
 	{
 		//TODO
 	}
+	
 	public void deleteMember()
 	{
 		//TODO
 	}
+	
 	public void addProvider()
 	{
 		//TODO
 	}
+	
 	public void editProvider()
 	{
 		//TODO
 	}
+	
 	public void deleteProvider()
 	{
 		//TODO
 	}
+	
 	public void requestAddService()
 	{
 		String serviceName;

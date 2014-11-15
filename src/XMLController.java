@@ -10,7 +10,6 @@ import com.thoughtworks.xstream.XStreamException;
  * This controller is responsible for saving and loading the XML data
  * 
  * @author Blake
- *
  */
 public class XMLController {
 	
@@ -21,6 +20,7 @@ public class XMLController {
 
 	/**
 	 * Serialize member data to XML
+	 * 
 	 * @param object The MemberController which will be stored
 	 */
 	public void saveMembers(MemberController object)
@@ -31,6 +31,7 @@ public class XMLController {
 
 	/**
 	 * Serialize provider data to XML
+	 * 
 	 * @param object The ProviderController which will be stored
 	 */
 	public void saveProviders(ProviderController object)
@@ -41,6 +42,7 @@ public class XMLController {
 
 	/**
 	 * Serialize service data to XML
+	 * 
 	 * @param object The ServiceController which will be stored
 	 */
 	public void saveServices(ServiceController object)
@@ -51,7 +53,9 @@ public class XMLController {
 
 	/**
 	 * Deserialize the member data from XML
-	 * @return A MemberController object from the XML data, with its data fields restored
+	 * 
+	 * @return A MemberController object from the XML data, with its data fields
+	 *         restored
 	 */
 	public MemberController loadMembers()
 	{
@@ -67,7 +71,9 @@ public class XMLController {
 
 	/**
 	 * Deserialize the provider data from XML
-	 * @return A ProviderController object from the XML data, with its data fields restored
+	 * 
+	 * @return A ProviderController object from the XML data, with its data
+	 *         fields restored
 	 */
 	public ProviderController loadProviders()
 	{
@@ -83,7 +89,9 @@ public class XMLController {
 
 	/**
 	 * Deserialize the service data from XML
-	 * @return A ServiceController object from the XML data, with its data fields restored
+	 * 
+	 * @return A ServiceController object from the XML data, with its data
+	 *         fields restored
 	 */
 	public ServiceController loadServices()
 	{
@@ -98,8 +106,8 @@ public class XMLController {
 	}
 	
 	/**
-	 * Actually create and write to the file. 
-	 * Helper method to alleviate redundancy
+	 * Create and write to the file
+	 * 
 	 * @param object The object to serialize
 	 * @param filename The name of the file to write to
 	 */

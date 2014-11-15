@@ -11,12 +11,12 @@ import java.util.List;
  * should be sent where.
  * 
  * @author Blake
- *
  */
 public class EFTReport extends Report {
 	
 	/**
-	 * A list of EFT data records.
+	 * A list of EFT data records
+	 * 
 	 * The array consists of:
 	 * <li>Provider Name</li>
 	 * <li>Provider Number</li>
@@ -28,6 +28,9 @@ public class EFTReport extends Report {
 		super();
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 */
 	@Override
 	public String getFileName() {
 		// Get the current date to append to the filename
@@ -39,8 +42,8 @@ public class EFTReport extends Report {
 	}
 	
 	/**
-	 * Returns what the contents of the file should be. 
-	 * Relies on the data information being set before this happens.
+	 * Returns what the contents of the file should be. Relies on the data
+	 * information being set before this happens.
 	 */
 	@Override
 	public String toString()
@@ -71,15 +74,30 @@ public class EFTReport extends Report {
 		return content.toString();
 	}
 	
-	// Begin accessors & mutators //
+	// Begin accessors & mutators
+	
+	/**
+	 *  TODO Documentation(Blake)
+	 *  Begin accessors & mutators
+	 *  
+	 * @param providerName
+	 * @param providerID
+	 * @param amount
+	 */
 	public void addLine(String providerName, int providerID, double amount)
 	{
 		eftInfo.add(new String[] {providerName, String.valueOf(providerID), Report.FEE_FORMAT.format(amount)});
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public List<String[]> getEftInfo()
 	{
 		return eftInfo;
 	}
-	// End accessors & mutators //
-
+	
+	// End accessors & mutators
 }
