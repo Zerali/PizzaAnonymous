@@ -117,7 +117,7 @@ public class ProviderUI {
 		while(true)
 		{
 			// Get the user's input as an integer
-			input = BaseUI.getIntegerInput(userInputStream, "Provider Login. Enter ID or -1 to quit");
+			input = BaseUI.getIntegerInput(userInputStream, "Provider Login. Enter ID or -1 to quit: ");
 			
 			// if exit option (-1) break
 			if(input == -1)
