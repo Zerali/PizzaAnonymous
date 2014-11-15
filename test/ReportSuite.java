@@ -12,7 +12,7 @@ import org.junit.runners.Suite;
 	SummaryReportTest.class,
 	ReportControllerTest.class
 })
-public class TestSuite {
+public class ReportSuite {
 
 	// There's nothing here.
 	// All this class is used for is the above annotations.
