@@ -24,11 +24,22 @@ public class ServiceDirectory {
 	/** Methods **/
 	
 	//Function to add a service to the list
-	public boolean addService(String name, float cost){
+	public boolean addService(String name, double cost){
 		//Create the new service and give it its attributes
 		Service serviceToAdd = new Service();
-		serviceToAdd.setCost(cost);
-		serviceToAdd.setName(name);
+		
+		//ensure cost is a positive number
+		if(cost < 0)
+			serviceToAdd.setCost(cost);
+		else
+			return false;
+		
+		//ensure name is 20 characters or less
+		if(name.length() < 21)
+			serviceToAdd.setName(name);
+		else
+			return false;
+					
 		serviceToAdd.setID(nextServiceID);
 		//increment nextServiceID so we don't overlap numbers
 		nextServiceID++;
@@ -60,9 +71,7 @@ public class ServiceDirectory {
 	
 	//Returns a service from the list by service ID
 	public Service getService(int serviceID){
-		//if empty list return nothing
-		if(servicesList.isEmpty())
-			return null;
+	
 		//find the service by ID within the list and return it
 		for(int i = 0; i < servicesList.size(); i++){
 			if(servicesList.get(i).getID() == serviceID){

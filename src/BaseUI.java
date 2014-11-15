@@ -263,10 +263,10 @@ public class BaseUI {
 	 * @param prompt The message to display to the user, asking for input
 	 * @return An float of the user's choosing
 	 */
-	public static float getFloatInput(InputStream userInput, String prompt)
+	public static double getDoubleInput(InputStream userInput, String prompt)
 	{
 		Scanner scanner = new Scanner(userInput); // Scanner to read input
-		float input = -1; // The float the user inputs
+		double input = -1; // The float the user inputs
 		
 		// Show a prompt
 		System.out.print(prompt);

@@ -106,7 +106,7 @@ public class PizzaAnonymous {
 	 * @param cost the cost of the service
 	 * @return True if the service was added and false if it was not
 	 */
-	public boolean addService(String name, float cost)
+	public boolean addService(String name, double cost)
 	{
 		return serviceController.getServiceDirectory().addService(name, cost);
 	}

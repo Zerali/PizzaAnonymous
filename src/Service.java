@@ -7,7 +7,7 @@
 public class Service {
 	private int ID;				//Unique identifier number for service
 	private String name;		//Name of the service
-	private float cost;			//Service fee
+	private double cost;			//Service fee
 	
 	//Basic set and get functions for a base entity class
 	
@@ -22,7 +22,7 @@ public class Service {
 	}
 	
 	/** Returns the Cost of the Service **/
-	public float getCost(){
+	public double getCost(){
 		return cost;
 	}
 	
@@ -32,7 +32,7 @@ public class Service {
 	}
 	
 	/** Sets the cost attribute of the service **/
-	public void setCost(float newCost){
+	public void setCost(double newCost){
 		this.cost = newCost;
 	}
 	

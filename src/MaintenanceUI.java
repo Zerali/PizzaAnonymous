@@ -241,10 +241,10 @@ public class MaintenanceUI {
 	{
 		String serviceName;
 		float serviceCost;
-		
-		//Get service information
+
 		serviceName = BaseUI.getStringInput(userInputStream, "Enter service name: ");
 		serviceCost = BaseUI.getFloatInput(userInputStream, "Enter service cost: ");
+	
 		
 		//Try to add the service
 		if(PizzaAnonymous.getInstance().addService(serviceName, serviceCost))
