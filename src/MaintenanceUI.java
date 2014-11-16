@@ -418,10 +418,10 @@ public class MaintenanceUI {
 	public void requestAddService()
 	{
 		String serviceName;
-		float serviceCost;
+		double serviceCost;
 
 		serviceName = BaseUI.getStringInput(userInputStream, "Enter service name: ");
-		serviceCost = BaseUI.getFloatInput(userInputStream, "Enter service cost: ");
+		serviceCost = BaseUI.getDoubleInput(userInputStream, "Enter service cost: ");
 	
 		
 		//Try to add the service

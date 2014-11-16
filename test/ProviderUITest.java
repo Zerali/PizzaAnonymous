@@ -1,8 +1,5 @@
 import static org.junit.Assert.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,14 +8,10 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
 
 public class ProviderUITest {
-	
-	@Rule
 	
 	// Objects we need to create an artificial service occasion through & through
 	private static Member testMember;
@@ -62,18 +55,11 @@ public class ProviderUITest {
 		clearProviders();
 		clearServices();
 		clearServiceOccasions();
-		
-		// Create a temporary folder for the test
-		if(tmpFolder == null)
-		{
-			tmpFolder = folder.newFolder("tmp_report");
-		}
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		// Runs after each test. Remove the temporary folder
-		tmpFolder = null;
+		// Runs after each test.
 	}
 	
 	/**
