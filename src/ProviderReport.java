@@ -40,6 +40,10 @@ public class ProviderReport extends Report {
 	// The total fee this provider is owed by PA
 	private double totalFee = 0.0;
 	
+	/**
+	 * Create an empty ProviderReport object. 
+	 * All information fields are blank to begin with.
+	 */
 	public ProviderReport() {
 		super();
 	}
@@ -106,51 +110,95 @@ public class ProviderReport extends Report {
 	}
 
 	// Begin accessor & mutators //
+	
+	/**
+	 * @return Name of the provider this report is about
+	 */
 	public String getName() {
 		return name;
 	}
+	
+	/**
+	 * @param name The name of the provider this report is about
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * @return ID of the provider this report is about
+	 */
 	public int getId() {
 		return id;
 	}
+	
+	/**
+	 * @param id ID of the provider this report is about
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * @return Address describing physical location of provider
+	 */
 	public String getAddress() {
 		return address;
 	}
+	
+	/**
+	 * @param address Address describing physical location of provider
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+	/**
+	 * @return City the provider is located in
+	 */
 	public String getCity() {
 		return city;
 	}
+	
+	/**
+	 * @param city City the provider is located in
+	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 
+	/**
+	 * @return State the provider is located in
+	 */
 	public String getState() {
 		return state;
 	}
+	
+	/**
+	 * @param state State the provider is located in
+	 */
 	public void setState(String state) {
 		this.state = state;
 	}
 
+	/**
+	 * @return ZIP code for the provider
+	 */
 	public String getZip() {
 		return zip;
 	}
+	
+	/**
+	 * @param zip ZIP code for the provider
+	 */
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
-	public List<String[]> getServiceInfo() {
-		return serviceInfo;
-	}
+	/**
+	 * Add information about a service provided by the Provider this report 
+	 * is reflecting.
+	 */
 	public void addServiceInfo(String dateOfService, 
 			String dateEntered, 
 			String memberName,
@@ -166,20 +214,34 @@ public class ProviderReport extends Report {
 				Report.FEE_FORMAT.format(fee)});
 	}
 
-
+	/**
+	 * @return The total consults this provider has given
+	 */
 	public int getTotalConsultations() {
 		return totalConsultations;
 	}
+	
+	/**
+	 * @param totalConsultations The total consults this provider has given
+	 */
 	public void setTotalConsultations(int totalConsultations) {
 		this.totalConsultations = totalConsultations;
 	}
 
+	/**
+	 * @return The total fee this provider is owed
+	 */
 	public double getTotalFee() {
 		return totalFee;
 	}
+	
+	/**
+	 * @param totalFee The total fee this provider is owed
+	 */
 	public void setTotalFee(double totalFee) {
 		this.totalFee = totalFee;
 	}
+	
 	// End accessors & mutators //
 
 }

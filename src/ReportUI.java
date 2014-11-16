@@ -22,6 +22,13 @@ public class ReportUI {
 	// Whether we want to stay in the report sub-menu or go back to the base UI
 	private boolean stayInReport = true;
 
+	/**
+	 * Create and show a submenu dealing with report actions. 
+	 * Will repeatedly ask for and handle user input
+	 * 
+	 * @param userInputStream An open input stream, providing user input
+	 * This stream is not closed by this class
+	 */
 	public ReportUI(InputStream userInputStream) {
 		this.userInputStream = userInputStream;
 		int menuOption; // The user's menu option

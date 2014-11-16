@@ -5,7 +5,6 @@ import java.io.InputStream;
  * In other words, an interface for the scheduler to run weekly reports.
  * 
  * @author Blake
- *
  */
 public class AccountingProcedureUI {
 	
@@ -19,6 +18,13 @@ public class AccountingProcedureUI {
 	// Whether we want to stay in the AccountingProcedureUI
 	private boolean stayInAccounting = true;
 	
+	/**
+	 * Create a submenu for working with the Accounting Procedure.
+	 * Presents the menu, asks for input, and handles the input. 
+	 * 
+	 * @param userInputStream An opened input stream for user input. 
+	 * Is not closed afterwards.
+	 */
 	public AccountingProcedureUI(InputStream userInputStream) {
 		this.userInputStream = userInputStream;
 		int menuOption; // The user's menu option
@@ -50,6 +56,7 @@ public class AccountingProcedureUI {
 	/**
 	 * Handle a menu option chosen by the user. 
 	 * This method will accept an option assumed to be valid
+	 * 
 	 * @param option The user's menu option
 	 */
 	private void handleMenuOption(int option)
@@ -95,5 +102,4 @@ public class AccountingProcedureUI {
 			}
 		}
 	}
-
 }

@@ -3,8 +3,8 @@
  */
 
 /**
+ * TODO Documentation(Amila)
  * @author Amila DeSilva
- *
  */
 public class Member 
 {
@@ -18,11 +18,18 @@ public class Member
 	private boolean validstatus;
 	
 	/**
+	 * Constructor to create a Member
 	 * 
+	 * @param name Name of the Member
+	 * @param ID Identification number of the member
+	 * @param address Address of the member
+	 * @param city City of the member
+	 * @param state State of the member
+	 * @param ZIP Zip code of the member
+	 * @param validStatus Status of the member
 	 */
 	public Member(String name, int ID, String address, String city, String state, int ZIP, boolean validStatus) 
 	{
-		// TODO Auto-generated constructor stub
 		this.name = name;
 		this.ID = ID;
 		this.address = address;
@@ -33,7 +40,7 @@ public class Member
 	}
 
 	/**
-	 * 
+	 * TODO Documentation(Amila)
 	 * @return name
 	 */
 	//Accessor method to return the value of the private data member name
@@ -43,7 +50,7 @@ public class Member
 	}
 		
 	/**
-	 * 
+	 * TODO Documentation(Amila)
 	 * @return ID
 	 */
 	//Accessor method to return the value of the private data member ID	
@@ -53,7 +60,7 @@ public class Member
 	}
 
 	/**
-	 * 
+	 * TODO Documentation(Amila)
 	 * @return address
 	 */
 	//Accessor method to return the value of the private data member address
@@ -63,7 +70,7 @@ public class Member
 	}
 
 	/**
-	 * 
+	 * TODO Documentation(Amila)
 	 * @return city
 	 */
 	//Accessor method to return the value of the private data member city
@@ -73,7 +80,7 @@ public class Member
 	}
 
 	/**
-	 * 
+	 * TODO Documentation(Amila)
 	 * @return state
 	 */
 	//Accessor method to return the value of the private data member state
@@ -83,7 +90,7 @@ public class Member
 	}
 
 	/**
-	 * 
+	 * TODO Documentation(Amila)
 	 * @return ZIP
 	 */
 	//Accessor method to return the value of the private data member ZIP

@@ -91,35 +91,61 @@ public class SummaryReport extends Report {
 	}
 
 	// Begin accessors & mutators //
-	public List<String[]> getProviderLines() {
-		return providerLines;
-	}
+	
+	/**
+	 * Add a summary of some provider's activities. 
+	 * @param providerName Name of the provider
+	 * @param consults How many consultations they had
+	 * @param fee The total fee they are to be paid
+	 */
 	public void addLine(String providerName, int consults, double fee)
 	{
 		// Add the data to the list of string arrays
 		providerLines.add(new String[] {providerName, String.valueOf(consults), Report.FEE_FORMAT.format(fee)});
 	}
 
+	/**
+	 * @return Total number of providers that have given services
+	 */
 	public int getTotalProviders() {
 		return totalProviders;
 	}
+	
+	/**
+	 * @param totalProviders Total number of providers that have given services
+	 */
 	public void setTotalProviders(int totalProviders) {
 		this.totalProviders = totalProviders;
 	}
 
+	/**
+	 * @return Total number of consultations given by all providers, combined
+	 */
 	public int getTotalConsultations() {
 		return totalConsultations;
 	}
+	
+	/**
+	 * @param totalConsultations Total number of consultations given by all providers, combined
+	 */
 	public void setTotalConsultations(int totalConsultations) {
 		this.totalConsultations = totalConsultations;
 	}
 
+	/**
+	 * @return Total fee to be paid to all providers, combined
+	 */
 	public double getTotalFee() {
 		return totalFee;
 	}
+	
+	/**
+	 * @param totalFee Total fee to be paid to all providers, combined
+	 */
 	public void setTotalFee(double totalFee) {
 		this.totalFee = totalFee;
 	}
+	
 	// End accessors & mutators //
 
 }

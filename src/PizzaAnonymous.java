@@ -4,7 +4,6 @@ import java.util.Iterator;
  * Facade class between user interfaces and controllers
  * 
  * @author Neil, Blake
- *
  */
 public class PizzaAnonymous {
 	
@@ -47,6 +46,7 @@ public class PizzaAnonymous {
 	/**
 	 * Return the single instance of this class.
 	 * Create it if it has not been created yet.
+	 * 
 	 * @return A reference to the PizzaAnonymous facade
 	 */
 	public static PizzaAnonymous getInstance()
@@ -73,6 +73,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Get a member based on their ID number
+	 * 
 	 * @param memberID The unique ID number of the member
 	 * @return A reference to the Member object, or null if nonexistant member
 	 */
@@ -83,6 +84,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Get a member based on its service code
+	 * 
 	 * @param serviceID The unique service code
 	 * @return A reference to the Service object, or null if nonexistant service
 	 */
@@ -93,6 +95,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Get the service directory as an Iterator
+	 * 
 	 * @return Service directory as an Iterator
 	 */
 	public Iterator<Service> lookupServiceDirectory()
@@ -102,6 +105,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Add a service to the system
+	 * 
 	 * @param name the name of the service
 	 * @param cost the cost of the service
 	 * @return True if the service was added and false if it was not
@@ -113,6 +117,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Add a service occasion to the system
+	 * 
 	 * @param date when the provider provided the service
 	 * @param provider ID of the provider adding the occasion
 	 * @param member ID of the member that did the service
@@ -125,7 +130,8 @@ public class PizzaAnonymous {
 	}
 	
 	/**
-	 * delete service from the system
+	 * Delete service from the system
+	 * 
 	 * @param serviceID the ID of the service
 	 * @return True if the service was deleted and false if it was not
 	 */
@@ -135,7 +141,19 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 * Delete provider from the system
+	 * 
+	 * @param providerID the ID of the provider
+	 * @return True if the service was deleted and false if it was not
+	 */
+	public boolean deleteProvider(int providerID)
+	{
+		return providerController.deleteProvider(providerID);
+	}
+	
+	/**
 	 * Get a provider based on their ID number
+	 * 
 	 * @param providerID The unique ID number of the provider
 	 * @return A reference to the Provider object, or null if nonexistant provider
 	 */
@@ -145,7 +163,24 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 *  this adds a provider by ID to providerDirectory
+	 * @param ID
+	 * @param name
+	 * @param address
+	 * @param city
+	 * @param state
+	 * @param ZIP
+	 * @return boolean if successfully added which can only fail if there is already
+	 * 											a provider with the passed ID
+	 */
+	public boolean addProvider(int ID, String name, String address, String city, String state, int ZIP)
+	{
+		return providerController.addProvider(ID, name, address, city, state, ZIP);
+	}
+	
+	/**
 	 * Obtain an iterator view of the Pizza Anonymous members
+	 * 
 	 * @return An iterator over all of the Members
 	 */
 	public Iterator<Member> getMemberList()
@@ -155,6 +190,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Obtain an iterator view of the Pizza Anonymous providers
+	 * 
 	 * @return An iterator over all of the Providers
 	 */
 	public Iterator<Provider> getProviderList()
@@ -164,6 +200,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Obtain an iterator view of the ServiceOccasion records
+	 * 
 	 * @return An iterator over all of the ServiceOccasions
 	 */
 	public Iterator<ServiceOccasion> getServiceOccasions()
@@ -173,6 +210,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Create the weekly reports - ie the four types of reports
+	 * 
 	 * @return True if the report creation was successful
 	 */
 	public boolean createWeeklyReports()
@@ -182,6 +220,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Create a report of services provided to the given member
+	 * 
 	 * @return True if the report creation was successful
 	 */
 	public boolean createMemberSvcReport(int memberID)
@@ -191,6 +230,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Create a report of services provided by the given provider
+	 * 
 	 * @return True if the report creation was successful
 	 */
 	public boolean createProviderSvcReport(int providerID)
@@ -200,6 +240,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Create an EFT report
+	 * 
 	 * @return True if the report creation was successful
 	 */
 	public boolean createEFTReport()
@@ -209,6 +250,7 @@ public class PizzaAnonymous {
 	
 	/**
 	 * Create a report summarizing activities for the past week
+	 * 
 	 * @return True if the report creation was successful
 	 */
 	public boolean createSummaryReport()
