@@ -141,6 +141,17 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 * Delete provider from the system
+	 * 
+	 * @param providerID the ID of the provider
+	 * @return True if the service was deleted and false if it was not
+	 */
+	public boolean deleteProvider(int providerID)
+	{
+		return providerController.deleteProvider(providerID);
+	}
+	
+	/**
 	 * Get a provider based on their ID number
 	 * 
 	 * @param providerID The unique ID number of the provider
