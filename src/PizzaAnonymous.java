@@ -152,6 +152,22 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 *  this adds a provider by ID to providerDirectory
+	 * @param ID
+	 * @param name
+	 * @param address
+	 * @param city
+	 * @param state
+	 * @param ZIP
+	 * @return boolean if successfully added which can only fail if there is already
+	 * 											a provider with the passed ID
+	 */
+	public boolean addProvider(int ID, String name, String address, String city, String state, int ZIP)
+	{
+		return providerController.addProvider(ID, name, address, city, state, ZIP);
+	}
+	
+	/**
 	 * Obtain an iterator view of the Pizza Anonymous members
 	 * 
 	 * @return An iterator over all of the Members
