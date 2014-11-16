@@ -96,7 +96,7 @@ public class PizzaAnonymous {
 	/**
 	 * Get the service directory as an Iterator
 	 * 
-	 * @return Service directory as an Iterator
+	 * @return Iterator of the service directory
 	 */
 	public Iterator<Service> lookupServiceDirectory()
 	{

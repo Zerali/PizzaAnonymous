@@ -12,13 +12,22 @@ public class ServiceController {
 	private ServiceDirectory serviceDirectory = new ServiceDirectory();
 	private ServiceOccasionList serviceOccasionList = new ServiceOccasionList();
 	
-	/**Methods**/
-	//this method returns service directory
+	// Methods
+	
+	/**
+	 * returns the Service Directory of the system
+	 * 
+	 * @return the service directory
+	 */
 	public ServiceDirectory getServiceDirectory(){
 		return serviceDirectory;
 	}
 	
-	//this method returns the service occasion list
+	/**
+	 * returns the service occasion list of the system
+	 * 
+	 * @return the service occasions list
+	 */
 	public ServiceOccasionList getServiceOccasionList(){
 		return serviceOccasionList;
 	}

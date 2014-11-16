@@ -13,7 +13,9 @@ public class ServiceDirectory {
 	private List<Service> servicesList = new LinkedList<Service>();		//List of all the services aka "Provider Directory"
 	private int nextServiceID;											//Integer that keeps the next ID of created Service
 	
-	/** Constructor **/
+	/** 
+	 * Constructor
+	 */
 	public ServiceDirectory()
 	{
 		//Set the first ID number on creation
@@ -21,9 +23,15 @@ public class ServiceDirectory {
 	}
 	
 	
-	/** Methods **/
+	// Methods
 	
-	//Function to add a service to the list
+	/**
+	 * function that adds a service to the system by creating the service, incrementing the ID count
+	 * then putting in the list of services held by this object
+	 * @param name the name of the service to be added
+	 * @param cost the cost of the service to be added
+	 * @return return false if the service was not added for any reason, true if it was succesfully added
+	 */
 	public boolean addService(String name, double cost){
 		//Create the new service and give it its attributes
 		Service serviceToAdd = new Service();
@@ -48,7 +56,12 @@ public class ServiceDirectory {
 		return servicesList.add(serviceToAdd);
 	}
 	
-	//Function to delete a service
+	/**
+	 * Function iterates through the list of services until it finds the designate
+	 * service, then deletes that service from the list
+	 * @param serviceID the ID of the service to be deleted
+	 * @return true if the service was succesfully deleted, false if it was not
+	 */
 	public boolean deleteService(int serviceID)
 	{
 		for(int i = 0; i < servicesList.size(); i++)
@@ -62,14 +75,21 @@ public class ServiceDirectory {
 		return false;
 	}
 	
-	//Returns an iterator of the provider directory
+	/**
+	 * This function makes the list of services into an iterator, and send that iterator off
+	 * @return an iterator of the services in the system
+	 */
 	public Iterator<Service> getDirectoryIterator(){
 		//create Iterator and send it
 		Iterator<Service> serviceIt = servicesList.iterator();
 		return serviceIt;
 	}
 	
-	//Returns a service from the list by service ID
+	/**
+	 * this functions finds a service in the list and returns that object
+	 * @param serviceID the ID of the service to be found
+	 * @return null if the service was not found, the service if it was successfully found
+	 */
 	public Service getService(int serviceID){
 	
 		//find the service by ID within the list and return it

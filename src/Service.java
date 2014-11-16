@@ -11,32 +11,50 @@ public class Service {
 	
 	//Basic set and get functions for a base entity class
 	
-	/** Returns the ID of the service **/
+	/** Returns
+	 * returns the ID of the service
+	 * @return ID the ID of the particular service
+	 */
 	public int getID(){
 		return ID;
 	}
 	
-	/** Returns the Name of the service**/
+	/** 
+	 * returns the name field of the service
+	 * @return name the name of the service (20 characters or less)
+	 */
 	public String getName(){
 		return name;
 	}
 	
-	/** Returns the Cost of the Service **/
+	/** 
+	 * returns the cost field of the service
+	 * @return cost the cost of the particular service
+	 */
 	public double getCost(){
 		return cost;
 	}
 	
-	/** Sets the name attribute of the service **/
+	/** 
+	 * function to set the name of the service
+	 * @param newName the new name to be changed in the service
+	 */
 	public void setName(String newName){
 		this.name = newName;
 	}
 	
-	/** Sets the cost attribute of the service **/
+	/** 
+	 * function to set the cost of a service
+	 * @param newCost the new cost of the service
+	 */
 	public void setCost(double newCost){
 		this.cost = newCost;
 	}
 	
-	/** Sets the ID of the service, should only be accessed by directory **/
+	/**
+	 * function to set the ID field of the service
+	 * @param newID the new ID of the service
+	 */
 	public void setID(int newID){
 		this.ID = newID;
 	}

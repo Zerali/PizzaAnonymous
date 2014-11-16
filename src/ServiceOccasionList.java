@@ -16,8 +16,17 @@ public class ServiceOccasionList {
 	private List<ServiceOccasion> serviceOccasions = new LinkedList<ServiceOccasion>();
 	
 	
-	/**Methods**/
-	//This adds a service occasion to the list
+	// Methods
+	
+	/**
+	 * creates a new service occasion and adds it to the list of occasions
+	 * 
+	 * @param date the date the service was provided
+	 * @param provider the provider that provided the service
+	 * @param member the member that received the service
+	 * @param service the service that was provided
+	 * @param comments and comments about the service (100 chars or less)
+	 */
 	public void addServiceOccasion(String date, int provider, int member, int service, String comments){
 		
 		Date currDate = new Date();
@@ -33,7 +42,11 @@ public class ServiceOccasionList {
 		serviceOccasions.add(newOccasion);
 	}
 	
-	//This returns an iterator of the occasions list
+	/**
+	 * creates an Iterator of the service occasions list and sends it off
+	 * 
+	 * @return an Iterator of serviceOccasions
+	 */
 	public Iterator<ServiceOccasion> getServiceOccasionIterator(){
 		Iterator<ServiceOccasion> occasionIt = serviceOccasions.iterator();
 		return occasionIt;
