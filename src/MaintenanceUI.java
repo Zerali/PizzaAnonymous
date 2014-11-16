@@ -236,9 +236,53 @@ public class MaintenanceUI {
 		//TODO
 	}
 	
+	/**
+	 * Add a provider to providerList by taking in input
+	 */
 	public void addProvider()
 	{
-		//TODO
+		// get needed provider information
+		String name;
+		int ID;
+		
+		// loop getting Strings until appropriate String is entered
+		while(name.length() > 25 || name.length() < 1)
+		{
+			BaseUI.getStringInput(name, "Enter name (25 char max): ");
+			if (name.length() > 25 || name.length() < 1)
+				System.out.println ("Error! Name not valid!");
+		}
+		while(ID > 999999999 || ID < 1)
+		{
+			BaseUI.getStringID(ID, "Enter ID (9 digit max): ");
+			read ID;
+			if (ID > 9 digits)
+				print (“Error! ID too long”)
+		}
+			while(address > 25 chars)
+				print (“Enter address (25 char max)”);
+		read address;
+		if (address > 25 chars)
+			print (“Error! Address too long”)
+			while(city > 14 chars)
+				print (“Enter city (14 char max)”);
+		read city;
+		if (city > 14 chars)
+			print (“Error! City too long”)
+			while(state > 2 chars)
+				print (“Enter state (2 char max)”);
+		read state;
+		if (state > 2 chars)
+			print (“Error! State too long”)
+			while(ZIP > 5 digits)
+				print (“Enter ZIP (5 digit max)”);
+		read ZIP;
+		if (ZIP > 5 digits)
+			print (“Error! ZIP too long”)
+
+	// send information to PA using .addProvider(), enter fail condition on fail
+	if(!PizzaAnonymous.addProvider (ID, name, address, city, state, ZIP))
+		print (“Error! Provider with same ID already exists!”)
 	}
 	
 	public void editProvider()
