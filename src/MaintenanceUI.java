@@ -294,8 +294,7 @@ public class MaintenanceUI {
 		}
 
 		// send information to PA using .addProvider(), enter fail condition on fail
-		if(!PizzaAnonymous.getInstance().addProvider(ID, name, address, city, state, ZIP) )
-			System.out.println ("Error! Provider with same ID already exists!");
+		PizzaAnonymous.getInstance().addProvider(ID, name, address, city, state, ZIP);
 	}
 	
 	/**
