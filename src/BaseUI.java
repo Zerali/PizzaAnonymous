@@ -28,9 +28,11 @@ public class BaseUI {
 	}
 	
 	/**
-	 * TODO Documentation(Blake, Nick, Adam)
+	 * Create the main program menu. From this menu, launch into other submenus. 
+	 * Will repeatedly ask for a menu option and perform that action. 
 	 * 
-	 * @param userInputStream An InputStream which provides user input
+	 * @param userInputStream An opened input stream for user input. 
+	 * Is not closed afterwards.
 	 */
 	public BaseUI(InputStream userInputStream)
 	{

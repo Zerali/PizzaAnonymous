@@ -19,9 +19,11 @@ public class AccountingProcedureUI {
 	private boolean stayInAccounting = true;
 	
 	/**
-	 * TODO Documenation(Blake)
+	 * Create a submenu for working with the Accounting Procedure.
+	 * Presents the menu, asks for input, and handles the input. 
 	 * 
-	 * @param userInputStream
+	 * @param userInputStream An opened input stream for user input. 
+	 * Is not closed afterwards.
 	 */
 	public AccountingProcedureUI(InputStream userInputStream) {
 		this.userInputStream = userInputStream;

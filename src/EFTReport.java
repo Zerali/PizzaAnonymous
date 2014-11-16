@@ -28,9 +28,6 @@ public class EFTReport extends Report {
 		super();
 	}
 
-	/**
-	 * TODO Documentation(Blake)
-	 */
 	@Override
 	public String getFileName() {
 		// Get the current date to append to the filename
@@ -77,26 +74,17 @@ public class EFTReport extends Report {
 	// Begin accessors & mutators
 	
 	/**
-	 *  TODO Documentation(Blake)
-	 *  Begin accessors & mutators
+	 *  Add a line of EFT information to this report. The line contains the 
+	 *  name of a provider, the ID of that provider, and the amount 
+	 *  that Pizza Anonymous will be paying to that provider. 
 	 *  
-	 * @param providerName
-	 * @param providerID
-	 * @param amount
+	 * @param providerName The name of the Provider
+	 * @param providerID The ID of the provider
+	 * @param amount The amount to be paid to the provider
 	 */
 	public void addLine(String providerName, int providerID, double amount)
 	{
 		eftInfo.add(new String[] {providerName, String.valueOf(providerID), Report.FEE_FORMAT.format(amount)});
-	}
-	
-	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @return
-	 */
-	public List<String[]> getEftInfo()
-	{
-		return eftInfo;
 	}
 	
 	// End accessors & mutators

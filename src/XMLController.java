@@ -16,8 +16,6 @@ public class XMLController {
 	/** The XStream instance from the XStream library */
 	private static XStream xStream = new XStream();
 	
-	//TODO: More than likely some alias calls in a static initializer block
-
 	/**
 	 * Serialize member data to XML
 	 * 
