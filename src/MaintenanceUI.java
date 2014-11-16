@@ -242,57 +242,177 @@ public class MaintenanceUI {
 	public void addProvider()
 	{
 		// get needed provider information
-		String name;
-		int ID;
-		
-		// loop getting Strings until appropriate String is entered
+		String name = "";
+		int ID = 0;
+		String address = "";
+		String city = "";
+		String state = "";
+		int ZIP = 0;
+
+		// loop getting inputs until appropriate length is entered for all values
 		while(name.length() > 25 || name.length() < 1)
 		{
-			BaseUI.getStringInput(name, "Enter name (25 char max): ");
+			name = BaseUI.getStringInput(userInputStream, "Enter name (25 char max): ");
 			if (name.length() > 25 || name.length() < 1)
 				System.out.println ("Error! Name not valid!");
 		}
 		while(ID > 999999999 || ID < 1)
 		{
-			BaseUI.getStringID(ID, "Enter ID (9 digit max): ");
-			read ID;
-			if (ID > 9 digits)
-				print (“Error! ID too long”)
+			ID = BaseUI.getIntegerInput(userInputStream, "Enter ID (9 digit max): ");
+			if (ID > 999999999 || ID < 1)
+				System.out.println ("Error! ID not valid");
+			// IDs are unique
+			if (PizzaAnonymous.getInstance().getService(ID) != null)
+			{
+				System.out.println ("Error! ID already taken!");
+				continue;
+			}
 		}
-			while(address > 25 chars)
-				print (“Enter address (25 char max)”);
-		read address;
-		if (address > 25 chars)
-			print (“Error! Address too long”)
-			while(city > 14 chars)
-				print (“Enter city (14 char max)”);
-		read city;
-		if (city > 14 chars)
-			print (“Error! City too long”)
-			while(state > 2 chars)
-				print (“Enter state (2 char max)”);
-		read state;
-		if (state > 2 chars)
-			print (“Error! State too long”)
-			while(ZIP > 5 digits)
-				print (“Enter ZIP (5 digit max)”);
-		read ZIP;
-		if (ZIP > 5 digits)
-			print (“Error! ZIP too long”)
+		while(address.length() > 25 || address.length() < 1)
+		{
+			address = BaseUI.getStringInput(userInputStream, "Enter address (25 char max): ");
+			if (address.length() > 25 || address.length() < 1)
+				System.out.println ("Error! Address not valid");
+		}
+		while(city.length() > 14 || city.length() < 1)
+		{
+			city = BaseUI.getStringInput(userInputStream, "Enter city (14 char max): ");
+			if (city.length() > 14 || city.length() < 1)
+				System.out.println ("Error! City not valid");
+		}
+		while(state.length() > 2 || state.length() < 1)
+		{
+			state = BaseUI.getStringInput(userInputStream, "Enter state (2 char max): ");
+			if (state.length() > 2 || state.length() < 1)
+				System.out.println ("Error! State not valid");
+		}
+		while(ZIP > 99999 || ZIP < 1)
+		{
+			ZIP = BaseUI.getIntegerInput(userInputStream, "Enter ZIP (5 digit max): ");
+			if (ZIP > 99999 || ZIP < 1)
+				System.out.println ("Error! ZIP not valid");
+		}
 
-	// send information to PA using .addProvider(), enter fail condition on fail
-	if(!PizzaAnonymous.addProvider (ID, name, address, city, state, ZIP))
-		print (“Error! Provider with same ID already exists!”)
+		// send information to PA using .addProvider(), enter fail condition on fail
+		if(!PizzaAnonymous.getInstance().addProvider(ID, name, address, city, state, ZIP) )
+			System.out.println ("Error! Provider with same ID already exists!");
 	}
 	
+	/**
+	 * take in ID to find provider
+	 * loop taking in options of a provider to edit
+	 */
 	public void editProvider()
 	{
-		//TODO
+		String attributeInput = "";
+		int ID;
+		Provider provider;
+		String name = "";
+		String address = "";
+		String city = "";
+		String state = "";
+		int ZIP = 0;
+
+		// get provider ID
+		ID = BaseUI.getIntegerInput(userInputStream, "Enter ID: ");
+
+		// create pointer to provider
+		provider = PizzaAnonymous.getInstance().getProvider(ID);
+
+		// check if no provider of ID in providerList
+		if (provider == null)
+		{
+			System.out.println ("Error! No provider with that ID!");
+			return;
+		}
+
+		// loop taking in attributes to edit until exit is entered
+		while (attributeInput != "exit")
+		{
+			// provider exists, get input on what to edit
+			attributeInput = BaseUI.getStringInput(userInputStream, "Enter which attribute to edit (Name, Address, City, State, ZIP, exit): ");
+
+			// enter new value for attributeInput
+			switch (attributeInput)
+			{
+			case "Name":	// get needed provider information
+				do
+				{
+					name = BaseUI.getStringInput(userInputStream, "Enter name (25 char max): ");
+					if (name.length() > 25 || name.length() < 1)
+						System.out.println ("Error! Name not valid!");
+				} while(name.length() > 25 || name.length() < 1);
+				// set new value for name
+				provider.setName(name);
+				break;
+			case "Address": // get needed provider information
+				do
+				{
+					address = BaseUI.getStringInput(userInputStream, "Enter address (25 char max): ");
+					if (address.length() > 25 || address.length() < 1)
+						System.out.println ("Error! Address not valid");
+				} while(address.length() > 25 || address.length() < 1);
+				// set new value for address
+				provider.setAddress(address);
+				break;
+			case "City":	// get needed provider information
+				do 
+				{
+					city = BaseUI.getStringInput(userInputStream, "Enter city (14 char max): ");
+					if (city.length() > 14 || city.length() < 1)
+						System.out.println ("Error! City not valid");
+				}while(city.length() > 14 || city.length() < 1);
+				// set new value for City
+				provider.setCity(city);
+				break;
+			case "State":	// get needed provider information
+				do
+				{
+					state = BaseUI.getStringInput(userInputStream, "Enter state (2 char max): ");
+					if (state.length() > 2 || state.length() < 1)
+						System.out.println ("Error! State not valid");
+				} while(state.length() > 2 || state.length() < 1);
+				// set new value for state
+				provider.setState(state);
+				break;
+			case "ZIP":	// get needed provider information
+				do
+				{
+					ZIP = BaseUI.getIntegerInput(userInputStream, "Enter ZIP (5 digit max): ");
+					if (ZIP > 99999 || ZIP < 1)
+						System.out.println ("Error! ZIP not valid");
+				} while(ZIP > 99999 || ZIP < 1);
+				// set new value for ZIP
+				provider.setZIP(ZIP);
+				break;
+			case "exit": 	// don’t display anything, just exit
+				break;
+			default:	//error: invalid input
+				System.out.println ("Error! Invalid input");
+				break;
+			}
+		}
+
 	}
 	
+	/**
+	 * this puts in a request to delete a provider by ID
+	 */
 	public void deleteProvider()
 	{
-		//TODO
+		int ID = 0;
+
+		// get provider ID
+		while(ID > 999999999 || ID < 1)
+		{
+			ID = BaseUI.getIntegerInput(userInputStream, "Enter ID (9 digit max): ");
+			if (ID > 999999999 || ID < 1)
+				System.out.println ("Error! ID not valid");
+		}
+
+		// send information to PA using .deleteProvider(), enter fail condition on fail
+		if(!PizzaAnonymous.getInstance().deleteProvider(ID))
+			System.out.println ("Error! No provider with that ID exists!");
 	}
 	
 	public void requestAddService()

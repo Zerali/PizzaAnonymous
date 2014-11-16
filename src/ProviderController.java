@@ -1,6 +1,6 @@
 /**
  * 
- * Controlls the list of providers and handles all logic on the list
+ * Controls the list of providers and handles all logic on the list
  * 
  * @author nick
  * 
@@ -20,7 +20,7 @@ public class ProviderController {
 	}
 	
 	/**
-	 *  intialize with a list
+	 *  Initialize with a list
 	 * @param providers
 	 */
 	public ProviderController(ArrayList<Provider> providers)
