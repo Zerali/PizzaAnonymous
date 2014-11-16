@@ -37,7 +37,7 @@ public class ServiceDirectory {
 		Service serviceToAdd = new Service();
 		
 		//ensure cost is a positive number
-		if(cost < 0)
+		if(cost >= 0)
 			serviceToAdd.setCost(cost);
 		else
 			return false;
@@ -47,8 +47,11 @@ public class ServiceDirectory {
 			serviceToAdd.setName(name);
 		else
 			return false;
-					
-		serviceToAdd.setID(nextServiceID);
+		
+		if(nextServiceID < 1000000)
+			serviceToAdd.setID(nextServiceID);
+		else
+			return false;
 		//increment nextServiceID so we don't overlap numbers
 		nextServiceID++;
 		

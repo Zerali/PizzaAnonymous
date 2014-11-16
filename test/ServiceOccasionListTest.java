@@ -4,22 +4,23 @@ import java.lang.reflect.Field;
 import java.util.Iterator;
 
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import static org.hamcrest.CoreMatchers.*;
 
 
 public class ServiceOccasionListTest {
 
-	@Rule
-	private static ServiceController serviceController;
+	public ServiceOccasionList testOccasions = new ServiceOccasionList();
 	
-	@BeforeClass
+	/**@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
 		// Get the reference to the service controller (so we can call methods on it)
 		Field serviceControllerField = PizzaAnonymous.getInstance().getClass().getDeclaredField("serviceController");
 		serviceControllerField.setAccessible(true);
 		serviceController = (ServiceController) serviceControllerField.get(PizzaAnonymous.getInstance());
-	}
+	}**/
 	
 	@Test
 	public void testAddServiceOccasion() {
@@ -34,13 +35,13 @@ public class ServiceOccasionListTest {
 		ServiceOccasion testOccasion;
 		
 		//add an occasion to the list
-		serviceController.getServiceOccasionList().addServiceOccasion(date, provider, member, service, comments);
+		testOccasions.addServiceOccasion(date, provider, member, service, comments);
 		
 		comments = "MtabxInBkHf0CYaBFHcVboetBajrHsZ60xF4kTSikKXAMiGXaTReYm7vH7GUPo57mWytwuG2nlJ8XjoF5LW8IJXEXreB4tzrV8ZEh";
 		//add an occasion with comments > 100 char
-		serviceController.getServiceOccasionList().addServiceOccasion(date, provider, member, service, comments);
+		testOccasions.addServiceOccasion(date, provider, member, service, comments);
 		
-		testIter = serviceController.getServiceOccasionList().getServiceOccasionIterator();
+		testIter = testOccasions.getServiceOccasionIterator();
 		testOccasion = testIter.next();
 		
 		assertThat(testOccasion.getDateProvided(), containsString("4/19/1931"));

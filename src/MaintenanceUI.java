@@ -4,7 +4,7 @@ import java.io.InputStream;
 /**
  * The front end user interface for report related actions.
  * 
- * @author Amila DeSilva, Adam Defoe
+ * @author Amila DeSilva, Adam Defoe, Nick Anderson
  *
  */
 
