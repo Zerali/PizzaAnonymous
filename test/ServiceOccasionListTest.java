@@ -1,10 +1,7 @@
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Field;
 import java.util.Iterator;
 
-import org.junit.BeforeClass;
-import org.junit.Rule;
 import org.junit.Test;
 import static org.hamcrest.CoreMatchers.*;
 

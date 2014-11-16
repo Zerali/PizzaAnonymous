@@ -5,12 +5,8 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
-	BaseUITest.class,
-	BaseUITest2.class,
-	ReportSuite.class,
-	ProviderSuite.class,
-	ServiceSuite.class
-	})
-public class AllTests {
+	ServiceDirectoryTest.class, 
+	ServiceOccasionListTest.class })
+public class ServiceSuite {
 
 }
