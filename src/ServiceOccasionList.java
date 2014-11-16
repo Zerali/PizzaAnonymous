@@ -23,6 +23,10 @@ public class ServiceOccasionList {
 		Date currDate = new Date();
 		DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH-mm-ss");
 		
+		//check if comments string is too long
+		if(comments.length > 100)
+			comments = comments.substring(0, 99);
+		
 		//Create new service occasion
 		ServiceOccasion newOccasion = new ServiceOccasion(service, member, provider, date, dateFormat.format(currDate), comments);
 		
