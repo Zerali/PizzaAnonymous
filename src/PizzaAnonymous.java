@@ -104,6 +104,34 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 * 
+	 * @param name : the name of the member
+	 * @param ID : the id of the member
+	 * @param address : the address of the member
+	 * @param city : the city of the member
+	 * @param state : the state of the member
+	 * @param ZIP : the zip code of the member
+	 * @param validStatus : whether the member is valid or not
+	 * @return returns true if the add was successful, otherwise false
+	 */
+	public boolean addMember(String name, int ID, String address, String city, String state, int ZIP, boolean validStatus)
+	// Add a member to the database
+	{
+		return memberController.addMember(name, ID, address, city, state, ZIP, validStatus);
+	}
+	
+	/**
+	 * Delete a member from the database
+	 * @param ID : the ID of the member to be deleted
+	 * @return returns a boolean value
+	 */
+	public boolean deleteMember(int ID)
+	{
+		return memberController.deleteMember(ID);
+	}
+	
+	
+	/**
 	 * Add a service to the system
 	 * 
 	 * @param name the name of the service

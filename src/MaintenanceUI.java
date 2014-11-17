@@ -219,27 +219,216 @@ public class MaintenanceUI {
 	}
 	
 	/**
-	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 * Gets the member's information from the user and sends it through the facade onto the member class
+	 * to create a new member
+	 * Prints Success / Failure message
 	 */
 	public void addMember()
 	{
-		//TODO
+		//DONE
+		String name = "";
+		int ID = 0;
+		String address = "";
+		String city = "";
+		String state = "";
+		int ZIP = 0;
+		boolean validstatus = true;
+		
+		// Ask for necessary information (Repeat for all needed data fields)
+		System.out.println("Enter member information");
+		
+		// loop getting inputs until appropriate length is entered for all values
+		while(name.length() > 25 || name.length() < 1)
+		{
+			name = BaseUI.getStringInput(userInputStream, "Enter name (25 char max): ");
+			if (name.length() > 25 || name.length() < 1)
+				System.out.println ("Error! Name not valid!");
+		}
+		while(ID > 999999999 || ID < 1)
+		{
+			ID = BaseUI.getIntegerInput(userInputStream, "Enter ID (9 digit max): ");
+			if (ID > 999999999 || ID < 1)
+				System.out.println ("Error! ID not valid");
+			// IDs are unique
+			if (PizzaAnonymous.getInstance().getService(ID) != null)
+			{
+				System.out.println ("Error! ID already taken!");
+				continue;
+			}
+		}
+		while(address.length() > 25 || address.length() < 1)
+		{
+			address = BaseUI.getStringInput(userInputStream, "Enter address (25 char max): ");
+			if (address.length() > 25 || address.length() < 1)
+				System.out.println ("Error! Address not valid");
+		}
+		while(city.length() > 14 || city.length() < 1)
+		{
+			city = BaseUI.getStringInput(userInputStream, "Enter city (14 char max): ");
+			if (city.length() > 14 || city.length() < 1)
+				System.out.println ("Error! City not valid");
+		}
+		while(state.length() > 2 || state.length() < 1)
+		{
+			state = BaseUI.getStringInput(userInputStream, "Enter state (2 char max): ");
+			if (state.length() > 2 || state.length() < 1)
+				System.out.println ("Error! State not valid");
+		}
+		while(ZIP > 99999 || ZIP < 1)
+		{
+			ZIP = BaseUI.getIntegerInput(userInputStream, "Enter ZIP (5 digit max): ");
+			if (ZIP > 99999 || ZIP < 1)
+				System.out.println ("Error! ZIP not valid");
+		}			
+
+		// Pass request on, report the result
+		if(PizzaAnonymous.getInstance().addMember(name, ID, address, city, state, ZIP, validstatus))
+		{
+			System.out.println("Success");
+		} 
+		else 
+		{
+			System.out.println("Failure");
+		}
 	}
 	
+	
 	/**
-	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 * Modifies existing member's attributes
+	 * Asks user which member attribute to edit until user decides to exit
 	 */
 	public void editMember()
 	{
-		//TODO
+		//DONE
+		String attributeInput = "";
+		Member member;
+		int ID;
+		String name = "";
+		String address = "";
+		String city = "";
+		String state = "";
+		int ZIP = 0;
+		
+		//Get the ID of the member to edit
+		int memberID = BaseUI.getIntegerInput(userInputStream, "Enter Member's ID: ");
+
+		member = PizzaAnonymous.getInstance().getMember(memberID);
+		
+		//Verify the ID
+		if(member == null)
+		{
+			System.out.println("No such member with this ID.");
+			return;
+		}
+
+		//Loop until user done editing
+		while(attributeInput != "exit")
+		{
+			//ask which attribute to edit
+			attributeInput = BaseUI.getStringInput(userInputStream, "Enter which attribute to edit (Name, Address, City, State, ZIP, exit): ");
+
+			//go to option corresponding to the user
+			switch (attributeInput)
+			{
+				case "Name":
+					do
+					{
+						//get member's new Name
+						name = BaseUI.getStringInput(userInputStream, "Enter name (25 char max): ");
+						if (name.length() > 25 || name.length() < 1)
+							System.out.println ("Error! Name not valid!");
+					} 
+					while(name.length() > 25 || name.length() < 1);
+					
+					member.setName(name); //set new value for name
+					break;
+				
+				case "Address": 
+					do
+					{
+						//get member's new Address
+						address = BaseUI.getStringInput(userInputStream, "Enter address (25 char max): ");
+						if (address.length() > 25 || address.length() < 1)
+							System.out.println ("Error! Address not valid");
+					} 
+					while(address.length() > 25 || address.length() < 1);
+					
+					member.setAddress(address); //set new value for address
+					break;
+				
+				case "City":	
+					do 
+					{
+						//get member's new City
+						city = BaseUI.getStringInput(userInputStream, "Enter city (14 char max): ");
+						if (city.length() > 14 || city.length() < 1)
+							System.out.println ("Error! City not valid");
+					}
+					while(city.length() > 14 || city.length() < 1);
+					
+					member.setCity(city); // set new value for City
+					break;
+					
+				case "State":	
+					do
+					{
+						//get member's new State
+						state = BaseUI.getStringInput(userInputStream, "Enter state (2 char max): ");
+						if (state.length() > 2 || state.length() < 1)
+							System.out.println ("Error! State not valid");
+					} 
+					while(state.length() > 2 || state.length() < 1);
+					
+					member.setState(state); //set new value for state
+					break;
+					
+				case "ZIP":	
+					do
+					{
+						//get member ZIP code
+						ZIP = BaseUI.getIntegerInput(userInputStream, "Enter ZIP (5 digit max): ");
+						if (ZIP > 99999 || ZIP < 1)
+							System.out.println ("Error! ZIP not valid");
+					} 
+					while(ZIP > 99999 || ZIP < 1);
+					
+					member.setZIP(ZIP); //set new value for ZIP
+					break;
+					
+				case "exit": 	//Exit, if the user inputs "exit"
+					break;
+				
+				default:	//display this if input is invalid
+					System.out.println ("Error! Invalid input");
+					break;
+			}
+		}
 	}
 	
 	/**
-	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 * Deletes a Member given an ID
+	 * Prints a Success/Failure message
 	 */
 	public void deleteMember()
 	{
-		//TODO
+		//DONE
+		int ID = 0;
+		// Ask for ID of member to delete 
+		while(ID > 999999999 || ID < 1)
+		{
+			ID = BaseUI.getIntegerInput(userInputStream, "Enter ID (9 digit max): ");
+			if (ID > 999999999 || ID < 1)
+				System.out.println ("Error! ID not valid");
+		}
+
+		if(!PizzaAnonymous.getInstance().deleteMember(ID))
+		{
+			System.out.println ("Error! No member with that ID exists!");
+		} 
+		else 
+		{
+			System.out.println("Success");
+		}
 	}
 	
 	/**
