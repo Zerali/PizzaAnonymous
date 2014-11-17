@@ -1,6 +1,8 @@
 /**
  * Basic Provider entity class
  * 
+ * TODO Documentation(Nick) add more information
+ * 
  * @author Nick
  */
 public class Provider {

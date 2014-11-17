@@ -78,7 +78,6 @@ public class EFTReport extends Report {
 	
 	/**
 	 *  TODO Documentation(Blake)
-	 *  Begin accessors & mutators
 	 *  
 	 * @param providerName
 	 * @param providerID

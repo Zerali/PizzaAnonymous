@@ -4,7 +4,6 @@ import java.io.InputStream;
  * The front end user interface for report related actions.
  * 
  * @author Blake
- *
  */
 public class ReportUI {
 	
@@ -22,6 +21,11 @@ public class ReportUI {
 	// Whether we want to stay in the report sub-menu or go back to the base UI
 	private boolean stayInReport = true;
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param userInputStream
+	 */
 	public ReportUI(InputStream userInputStream) {
 		this.userInputStream = userInputStream;
 		int menuOption; // The user's menu option
@@ -55,8 +59,9 @@ public class ReportUI {
 	}
 	
 	/**
-	 * Handle a menu option chosen by the user. 
-	 * This method will accept an option assumed to be valid
+	 * Handle a menu option chosen by the user. This method will accept an
+	 * option assumed to be valid
+	 * 
 	 * @param option The user's menu option
 	 */
 	private void handleMenuOption(int option)
@@ -97,10 +102,9 @@ public class ReportUI {
 	}
 	
 	/**
-	 * Create the reports for the week. 
-	 * Will create reports for all members and providers.
-	 * Also will create the EFT and Summary report.
-	 * Status messages will be shown, and the files should be created.
+	 * Create the reports for the week. Will create reports for all members and
+	 * providers. Also will create the EFT and Summary report. Status messages
+	 * will be shown, and the files should be created.
 	 */
 	private void createWeeklyReports()
 	{
@@ -120,9 +124,8 @@ public class ReportUI {
 	}
 	
 	/**
-	 * Create a service report for a specific member. 
-	 * Prompts for the ID of the member.
-	 * On completion, a file should have been created
+	 * Create a service report for a specific member. Prompts for the ID of the
+	 * member. On completion, a file should have been created
 	 */
 	private void createMemberSvcReport()
 	{
@@ -145,9 +148,8 @@ public class ReportUI {
 	}
 	
 	/**
-	 * Create a service report for a specific provider. 
-	 * Prompts for the ID of the provider.
-	 * On completion, a file should have been created
+	 * Create a service report for a specific provider. Prompts for the ID of
+	 * the provider. On completion, a file should have been created
 	 */
 	private void createProviderSvcReport()
 	{
@@ -170,8 +172,7 @@ public class ReportUI {
 	}
 	
 	/**
-	 * Create an EFT report. 
-	 * On completion, a file should store the information.
+	 * Create an EFT report. On completion, a file should store the information.
 	 */
 	private void createEFTReport()
 	{
@@ -191,8 +192,8 @@ public class ReportUI {
 	}
 	
 	/**
-	 * Create a summary report for the past week.
-	 * On completion, a file should store the report
+	 * Create a summary report for the past week. On completion, a file should
+	 * store the report
 	 */
 	private void createSummaryReport()
 	{

@@ -6,14 +6,14 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.XStreamException;
 
 /**
- * Controller for XML functions. 
- * This controller is responsible for saving and loading the XML data
+ * Controller for XML functions. This controller is responsible for saving and
+ * loading the XML data
  * 
  * @author Blake
  */
 public class XMLController {
 	
-	/** The XStream instance from the XStream library */
+	// The XStream instance from the XStream library
 	private static XStream xStream = new XStream();
 	
 	//TODO: More than likely some alias calls in a static initializer block

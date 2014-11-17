@@ -3,6 +3,7 @@ import java.util.Iterator;
 
 /**
  * TODO Documentation(Amila)
+ * 
  * @author Amila DeSilva
  */
 public class MemberController 
@@ -30,8 +31,8 @@ public class MemberController
 
 	
 	/**
-	 * This method adds a member if it does not exist, given the details such as name, address, etc, 
-	 * and returns true, otherwise returns false
+	 * This method adds a member if it does not exist, given the details such
+	 * as name, address, etc, and returns true, otherwise returns false
 	 * 
 	 * @param name Name of the Member
 	 * @param ID Identification number of the member
@@ -56,8 +57,8 @@ public class MemberController
 	}
 
 	/**
-	 * This method adds a member if it does not exist, given the Member’s ID and returns true,
-	 * otherwise returns false
+	 * This method adds a member if it does not exist, given the Member’s ID
+	 * and returns true, otherwise returns false
 	 * 
 	 * @param ID Identification number of the member
 	 * @return True if member was added, otherwise false
@@ -79,8 +80,8 @@ public class MemberController
 	}
 	
 	/**
-	 * This method returns a member object given the member ID and if the member exists, 
-	 * otherwise returns NULL
+	 * This method returns a member object given the member ID and if the member
+	 * exists, otherwise returns NULL
 	 * 		
 	 * @param memberID
 	 * @return Member if memberID exists, otherwise null
@@ -101,7 +102,8 @@ public class MemberController
 	}
 
 	/**
-	 * This method returns the member list that has been created and updated till current time
+	 * This method returns the member list that has been created and updated
+	 * till current time
 	 * 
 	 * @return Iterator of the member list
 	 */

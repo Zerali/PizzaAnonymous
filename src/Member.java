@@ -4,11 +4,11 @@
 
 /**
  * TODO Documentation(Amila)
+ * 
  * @author Amila DeSilva
  */
 public class Member 
 {
-	
 	private String name;
 	private int ID;
 	private String address;
@@ -41,6 +41,7 @@ public class Member
 
 	/**
 	 * TODO Documentation(Amila)
+	 * 
 	 * @return name
 	 */
 	//Accessor method to return the value of the private data member name
@@ -51,6 +52,7 @@ public class Member
 		
 	/**
 	 * TODO Documentation(Amila)
+	 * 
 	 * @return ID
 	 */
 	//Accessor method to return the value of the private data member ID	
@@ -61,6 +63,7 @@ public class Member
 
 	/**
 	 * TODO Documentation(Amila)
+	 * 
 	 * @return address
 	 */
 	//Accessor method to return the value of the private data member address
@@ -71,6 +74,7 @@ public class Member
 
 	/**
 	 * TODO Documentation(Amila)
+	 * 
 	 * @return city
 	 */
 	//Accessor method to return the value of the private data member city
@@ -81,6 +85,7 @@ public class Member
 
 	/**
 	 * TODO Documentation(Amila)
+	 * 
 	 * @return state
 	 */
 	//Accessor method to return the value of the private data member state
@@ -91,6 +96,7 @@ public class Member
 
 	/**
 	 * TODO Documentation(Amila)
+	 * 
 	 * @return ZIP
 	 */
 	//Accessor method to return the value of the private data member ZIP
@@ -100,6 +106,7 @@ public class Member
 	}
 
 	/**
+	 * TODO Documentation(Amila)
 	 * 
 	 * @return validstatus
 	 */
@@ -110,6 +117,7 @@ public class Member
 	}
 
 	/**
+	 * TODO Documentation(Amila)
 	 * 
 	 * @param id
 	 */
@@ -120,6 +128,7 @@ public class Member
 	}
 
 	/**
+	 * TODO Documentation(Amila)
 	 * 
 	 * @param status
 	 */
@@ -130,6 +139,7 @@ public class Member
 	}
 
 	/**
+	 * TODO Documentation(Amila)
 	 * 
 	 * @param Name
 	 */
@@ -140,6 +150,7 @@ public class Member
 	}
 
 	/**
+	 * TODO Documentation(Amila)
 	 * 
 	 * @param Address
 	 */
@@ -150,6 +161,7 @@ public class Member
 	}
 
 	/**
+	 * TODO Documentation(Amila)
 	 * 
 	 * @param City
 	 */
@@ -160,6 +172,7 @@ public class Member
 	}
 
 	/**
+	 * TODO Documentation(Amila)
 	 * 
 	 * @param State
 	 */
@@ -170,6 +183,7 @@ public class Member
 	}
 
 	/**
+	 * TODO Documentation(Amila)
 	 * 
 	 * @param zip
 	 */

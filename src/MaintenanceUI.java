@@ -5,19 +5,16 @@ import java.io.InputStream;
  * The front end user interface for report related actions.
  * 
  * @author Amila DeSilva, Adam Defoe
- *
  */
 
 public class MaintenanceUI {
 
-	
 	// Constants for the menu options
 	public static final int MEMBER_OPTION = 1;
 	public static final int PROVIDER_OPTION = 2;
 	public static final int SERVICE_OPTION = 3;
 	public static final int EXIT_OPTION = 4;
-	
-	
+		
 	//Constants for secondary menu options delete = 2 because service only has two options
 	public static final int ADD_OPTION = 1;
 	public static final int DELETE_OPTION = 2;
@@ -221,36 +218,57 @@ public class MaintenanceUI {
 		
 	}
 	
+	/**
+	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 */
 	public void addMember()
 	{
 		//TODO
 	}
 	
+	/**
+	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 */
 	public void editMember()
 	{
 		//TODO
 	}
 	
+	/**
+	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 */
 	public void deleteMember()
 	{
 		//TODO
 	}
 	
+	/**
+	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 */
 	public void addProvider()
 	{
 		//TODO
 	}
 	
+	/**
+	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 */
 	public void editProvider()
 	{
 		//TODO
 	}
 	
+	/**
+	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 */
 	public void deleteProvider()
 	{
 		//TODO
 	}
 	
+	/**
+	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 */
 	public void requestAddService()
 	{
 		String serviceName;
@@ -267,6 +285,9 @@ public class MaintenanceUI {
 			System.out.println("Failed to add");
 	}
 	
+	/**
+	 * TODO Documentation(Amila DeSilva, Adam Defoe)
+	 */
 	public void requestDeleteService()
 	{
 		int serviceToDelete;

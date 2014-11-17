@@ -5,7 +5,6 @@ import java.io.InputStream;
  * The front end user interface for provider related actions.
  * 
  * @author Nick
- *
  */
 public class ProviderUI {
 	
@@ -25,6 +24,11 @@ public class ProviderUI {
 	// Whether we want to stay in the Provider UI or not
 	private boolean stayInProvider = true;
 
+	/**
+	 * TODO Documentation(Nick)
+	 * 
+	 * @param userInputStream
+	 */
 	public ProviderUI(InputStream userInputStream) {
 		this.userInputStream = userInputStream;
 		PAinstance = PizzaAnonymous.getInstance();
@@ -54,8 +58,7 @@ public class ProviderUI {
 	}
 	
 	/**
-	 * Show the interface.
-	 * Presents the options
+	 * Show the interface and present the options
 	 */
 	public void runUI()
 	{
@@ -70,6 +73,7 @@ public class ProviderUI {
 	/**
 	 * Handle a menu option chosen by the user. 
 	 * This method will accept an option assumed to be valid
+	 * 
 	 * @param option The user's menu option
 	 */
 	private void handleMenuOption(int option)

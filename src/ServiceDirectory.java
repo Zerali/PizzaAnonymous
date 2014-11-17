@@ -6,24 +6,29 @@ import java.util.List;
  * Class to handle and hold all the services created by the system
  * 
  * @author Adam
- *
  */
 public class ServiceDirectory {
-	/**Data attributes **/
-	private List<Service> servicesList = new LinkedList<Service>();		//List of all the services aka "Provider Directory"
-	private int nextServiceID;											//Integer that keeps the next ID of created Service
+	// List of all the services aka "Provider Directory"
+	private List<Service> servicesList = new LinkedList<Service>();
+	// Integer that keeps the next ID of created Service
+	private int nextServiceID;
 	
-	/** Constructor **/
+	/**
+	 * Service Directory Constructor
+	 */
 	public ServiceDirectory()
 	{
 		//Set the first ID number on creation
 		nextServiceID = 1;
 	}
 	
-	
-	/** Methods **/
-	
-	//Function to add a service to the list
+	/**
+	 * Function to add a service occasion to the list
+	 * 
+	 * @param name Name of the service to add to the list
+	 * @param cost Cost of the service to add to the list
+	 * @return True if service was added to the list, False otherwise
+	 */
 	public boolean addService(String name, float cost){
 		//Create the new service and give it its attributes
 		Service serviceToAdd = new Service();
@@ -37,7 +42,12 @@ public class ServiceDirectory {
 		return servicesList.add(serviceToAdd);
 	}
 	
-	//Function to delete a service
+	/**
+	 * Function to delete a service occasion to the list
+	 * 
+	 * @param serviceID Identification number of the service
+	 * @return True if service was removed, otherwise false
+	 */
 	public boolean deleteService(int serviceID)
 	{
 		for(int i = 0; i < servicesList.size(); i++)
@@ -51,25 +61,36 @@ public class ServiceDirectory {
 		return false;
 	}
 	
-	//Returns an iterator of the provider directory
+	/**
+	 * Returns an iterator of the provider directory
+	 * 
+	 * @return Iterator of the service list
+	 */
 	public Iterator<Service> getDirectoryIterator(){
-		//create Iterator and send it
+		// create Iterator and return it
 		Iterator<Service> serviceIt = servicesList.iterator();
 		return serviceIt;
 	}
 	
-	//Returns a service from the list by service ID
+	/**
+	 * Returns a service from the list by service ID
+	 * 
+	 * @param serviceID Identification number of the service provided
+	 * @return Service if it exists, otherwise null
+	 */
 	public Service getService(int serviceID){
-		//if empty list return nothing
+		// if empty list return nothing
 		if(servicesList.isEmpty())
 			return null;
-		//find the service by ID within the list and return it
+		
+		// find the service by ID within the list and return it
 		for(int i = 0; i < servicesList.size(); i++){
 			if(servicesList.get(i).getID() == serviceID){
 				return servicesList.get(i);
 			}
 		}
-		//no service found
+		
+		// no service found
 		return null;
 	}
 }

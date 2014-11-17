@@ -22,6 +22,8 @@ public class ProviderController {
 	/**
 	 * Initialize with a list
 	 * 
+	 * TODO Documentation(Nick) add info to parameters
+	 * 
 	 * @param providers
 	 */
 	public ProviderController(ArrayList<Provider> providers)
@@ -31,7 +33,9 @@ public class ProviderController {
 	
 	/**
 	 * This adds a provider by ID to providerDirectory
-	 *  
+	 * 
+	 * TODO Documentation(Nick) add info to parameters
+	 * 
 	 * @param ID
 	 * @param name
 	 * @param address
@@ -56,10 +60,10 @@ public class ProviderController {
 
 	/**
 	 * This searches the provider directory by ID and returns the provider
-	 *  
-	 * @param providerID
-	 * @return Provider of ID
-	 */
+	 * 
+	 * @param providerID Provider identification number
+	 * @return Provider of the Identification number
+	 */ 
 	public Provider getProvider(int providerID)
 	{
 		// check each provider in providers for an id equal to ID
@@ -73,7 +77,7 @@ public class ProviderController {
 	/**
 	 * This deletes a provider by ID from providerDirectory
 	 * 
-	 * @param ID
+	 * @param ID Member identification number
 	 * @return boolean if successfully deleted, can only fail if no provider of ID
 	 */
 	public boolean deleteProvider(int ID)

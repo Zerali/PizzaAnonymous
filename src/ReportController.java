@@ -5,22 +5,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-
 /**
- * The controller that deals with report related tasks. 
- * Takes care of creating reports and placing information into the report.
- * Has overloaded methods for each, one that accepts report parameters for unit testing
- * and another with less parameters for normal usage.
+ * The controller that deals with report related tasks. Takes care of creating
+ * reports and placing information into the report. Has overloaded methods for
+ * each, one that accepts report parameters for unit testing and another with
+ * less parameters for normal usage.
  * 
  * @author Blake
- *
  */
 public class ReportController {
 	
 	/**
-	 * Create all of the weekly reports.  This will create a 
-	 * MemberServiceReport for every member, ProviderServiceReport for every Provider, 
-	 * EFT Report, and Summary Report.
+	 * Create all of the weekly reports.  This will create a MemberServiceReport
+	 * for every member, ProviderServiceReport for every Provider, EFT Report,
+	 * and Summary Report.
+	 * 
 	 * @param eftReport2 
 	 * @param summaryReport2 
 	 * @param providerReports2 
@@ -53,10 +52,11 @@ public class ReportController {
 	}
 	
 	/**
-	 * Fill in all of the weekly reports. 
-	 * Takes each report as a parameter. The size of the report lists must match the size 
-	 * of the corresponding data list, and each report should be initialized.
-	 * This method is to aid in unit testability
+	 * Fill in all of the weekly reports. Takes each report as a parameter. The
+	 * size of the report lists must match the size of the corresponding data
+	 * list, and each report should be initialized. This method is to aid in
+	 * unit testability
+	 * 
 	 * @return True if this task is successful
 	 */
 	public boolean createWeeklyReports(List<MemberReport> memberReports, 
@@ -92,7 +92,8 @@ public class ReportController {
 	}
 	
 	/**
-	 * Create a Member Service Report for the given member. 
+	 * Create a Member Service Report for the given member.
+	 * 
 	 * @param memberID Who to create the report for
 	 * @return True if the task is successful
 	 */
@@ -106,8 +107,9 @@ public class ReportController {
 	}
 	
 	/**
-	 * Create a Member Service Report for the given member, placing the information
-	 * in the provided report.
+	 * Create a Member Service Report for the given member, placing the
+	 * information in the provided report.
+	 * 
 	 * @param memberID Who to create the report for
 	 * @param report The report the information will be placed into
 	 * @return True if the task is successful
@@ -172,7 +174,8 @@ public class ReportController {
 	}
 	
 	/**
-	 * Create a Provider Service Report for the given provider. 
+	 * Create a Provider Service Report for the given provider.
+	 * 
 	 * @param providerID Who to create the report for
 	 * @return True if the task is successful
 	 */
@@ -185,7 +188,8 @@ public class ReportController {
 	}
 	
 	/**
-	 * Create a Provider Service Report for the given provider. 
+	 * Create a Provider Service Report for the given provider.
+	 * 
 	 * @param providerID Who to create the report for
 	 * @param report The ProviderReport information will be placed in
 	 * @return True if the task is successful
@@ -255,7 +259,8 @@ public class ReportController {
 	}
 	
 	/**
-	 * Create a Summary Report for this week. 
+	 * Create a Summary Report for this week.
+	 * 
 	 * @return True if the task is successful
 	 */
 	public boolean makeSummaryReport()
@@ -267,7 +272,8 @@ public class ReportController {
 	}
 	
 	/**
-	 * Create a Summary Report for this week. 
+	 * Create a Summary Report for this week.
+	 * 
 	 * @param report The SummaryReport to put information into
 	 * @return True if the task is successful
 	 */
@@ -355,6 +361,7 @@ public class ReportController {
 	
 	/**
 	 * Create an EFT report for this week
+	 * 
 	 * @return True if the task is successful
 	 */
 	public boolean makeEFTReport()
@@ -367,6 +374,7 @@ public class ReportController {
 	
 	/**
 	 * Create an EFT report for this week
+	 * 
 	 * @param report The EFTReport to place information into
 	 * @return True if the task is successful
 	 */
@@ -413,5 +421,4 @@ public class ReportController {
 		// Done populating data, time to save the report
 		return report.saveReport();
 	}
-
 }

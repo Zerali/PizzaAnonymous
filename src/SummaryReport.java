@@ -6,18 +6,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * A summary report contains information summarizing Pizza Anonymous 
- * activity for the past week. This includes a summary of what services 
- * providers have given, the count of providers that gave services, 
- * the total consultations given, and the total fee.
+ * A summary report contains information summarizing Pizza Anonymous activity
+ * for the past week. This includes a summary of what services providers have
+ * given, the count of providers that gave services, the total consultations
+ * given, and the total fee.
  * 
  * @author Blake
- *
  */
 public class SummaryReport extends Report {
 	
 	/**
 	 * A list of EFT data records.
+	 * 
 	 * The array consists of:
 	 * <li>Provider Name</li>
 	 * <li># Consultations</li>
@@ -25,19 +25,25 @@ public class SummaryReport extends Report {
 	 */
 	private List<String[]> providerLines = new LinkedList<String[]>();
 	
-	/** The total number of providers that have given services */
+	// The total number of providers that have given services
 	private int totalProviders;
 	
-	/** The total number of consultations given by all providers */
+	// The total number of consultations given by all providers
 	private int totalConsultations;
 	
-	/** The total fee to be paid to all providers */
+	// The total fee to be paid to all providers
 	private double totalFee;
 
+	/**
+	 * 
+	 */
 	public SummaryReport() {
 		super();
 	}
 
+	/**
+	 * TODO Documentation(Adam)
+	 */
 	@Override
 	public String getFileName() {
 		// Get the current date to append to the filename
@@ -49,8 +55,8 @@ public class SummaryReport extends Report {
 	}
 	
 	/**
-	 * Returns what the contents of the file should be. 
-	 * Relies on the data information being set before this happens.
+	 * Returns what the contents of the file should be. Relies on the data
+	 * information being set before this happens.
 	 */
 	@Override
 	public String toString()
@@ -91,15 +97,35 @@ public class SummaryReport extends Report {
 	}
 
 	// Begin accessors & mutators //
+	
+	/**
+	 * TODO Documentation(Adam)
+	 * 
+	 * @return
+	 */
 	public List<String[]> getProviderLines() {
 		return providerLines;
 	}
+	
+	
+	/**
+	 * TODO Documentation(Adam)
+	 * 
+	 * @param providerName
+	 * @param consults
+	 * @param fee
+	 */
 	public void addLine(String providerName, int consults, double fee)
 	{
 		// Add the data to the list of string arrays
 		providerLines.add(new String[] {providerName, String.valueOf(consults), Report.FEE_FORMAT.format(fee)});
 	}
 
+	/**
+	 * TODO Documentation(Adam)
+	 * 
+	 * @return
+	 */
 	public int getTotalProviders() {
 		return totalProviders;
 	}
@@ -107,16 +133,38 @@ public class SummaryReport extends Report {
 		this.totalProviders = totalProviders;
 	}
 
+	/**
+	 * TODO Documentation(Adam)
+	 * 
+	 * @return
+	 */
 	public int getTotalConsultations() {
 		return totalConsultations;
 	}
+	
+	/**
+	 * TODO Documentation(Adam)
+	 * 
+	 * @param totalConsultations
+	 */
 	public void setTotalConsultations(int totalConsultations) {
 		this.totalConsultations = totalConsultations;
 	}
 
+	/**
+	 * TODO Documentation(Adam)
+	 * 
+	 * @return
+	 */
 	public double getTotalFee() {
 		return totalFee;
 	}
+	
+	/**
+	 * TODO Documentation(Adam)
+	 * 
+	 * @param totalFee
+	 */
 	public void setTotalFee(double totalFee) {
 		this.totalFee = totalFee;
 	}

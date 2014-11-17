@@ -6,18 +6,28 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * this class handles all things related to the service occasions
+ * This class handles all things related to the service occasions
+ * 
+ * TODO Documentation(Adam) Add more info
  * 
  * @author Adam
- *
  */
 public class ServiceOccasionList {
 	//only attribute is a list of service occasions
 	private List<ServiceOccasion> serviceOccasions = new LinkedList<ServiceOccasion>();
 	
 	
-	/**Methods**/
-	//This adds a service occasion to the list
+	/**
+	 * This adds a service occasion to the list
+	 * 
+	 * TODO Documentation(Adam) Add Parameter Info
+	 * 
+	 * @param date
+	 * @param provider
+	 * @param member
+	 * @param service
+	 * @param comments
+	 */
 	public void addServiceOccasion(String date, int provider, int member, int service, String comments){
 		
 		Date currDate = new Date();
@@ -29,7 +39,11 @@ public class ServiceOccasionList {
 		serviceOccasions.add(newOccasion);
 	}
 	
-	//This returns an iterator of the occasions list
+	/**
+	 * This returns an iterator of the occasions list
+	 * 
+	 * @return Iterator of the Occasion list
+	 */
 	public Iterator<ServiceOccasion> getServiceOccasionIterator(){
 		Iterator<ServiceOccasion> occasionIt = serviceOccasions.iterator();
 		return occasionIt;
