@@ -22,9 +22,11 @@ public class ReportUI {
 	private boolean stayInReport = true;
 
 	/**
-	 * TODO Documentation(Blake)
+	 * Create and show a submenu dealing with report actions. 
+	 * Will repeatedly ask for and handle user input
 	 * 
-	 * @param userInputStream
+	 * @param userInputStream An open input stream, providing user input
+	 * This stream is not closed by this class
 	 */
 	public ReportUI(InputStream userInputStream) {
 		this.userInputStream = userInputStream;

@@ -42,7 +42,8 @@ public class ProviderReport extends Report {
 	private double totalFee = 0.0;
 	
 	/**
-	 * TODO Documentation(Blake)
+	 * Create an empty ProviderReport object. All information fields are blank
+     * to begin with.
 	 */
 	public ProviderReport() {
 		super();
@@ -62,8 +63,8 @@ public class ProviderReport extends Report {
 	}
 	
 	/**
-	 * Returns what the contents of the file should be. 
-	 * Relies on the data information being set before this happens.
+	 * Returns what the contents of the file should be. Relies on the data
+     * information being set before this happens.
 	 */
 	@Override
 	public String toString()
@@ -116,7 +117,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @return
+	 * @return Name of the provider this report is about
 	 */
 	public String getName() {
 		return name;
@@ -125,7 +126,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @param name
+	 * @param name The name of the provider this report is about
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -134,7 +135,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @return
+	 * @return ID of the provider this report is about
 	 */
 	public int getId() {
 		return id;
@@ -143,7 +144,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @param id
+	 * @param id ID of the provider this report is about
 	 */
 	public void setId(int id) {
 		this.id = id;
@@ -152,7 +153,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @return
+	 * @return Address describing physical location of provider
 	 */
 	public String getAddress() {
 		return address;
@@ -161,7 +162,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @param address
+	 * @param address Address describing physical location of provider
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -170,7 +171,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @return
+	 * @return City the provider is located in
 	 */
 	public String getCity() {
 		return city;
@@ -179,7 +180,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @param city
+	 * @param city City the provider is located in
 	 */
 	public void setCity(String city) {
 		this.city = city;
@@ -188,7 +189,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @return
+	 * @return State the provider is located in
 	 */
 	public String getState() {
 		return state;
@@ -197,7 +198,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @param state
+	 * @param state State the provider is located in
 	 */
 	public void setState(String state) {
 		this.state = state;
@@ -206,7 +207,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @return
+	 * @return ZIP code for the provider
 	 */
 	public String getZip() {
 		return zip;
@@ -215,23 +216,17 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @param zip
+	 * @param zip ZIP code for the provider
 	 */
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-
-	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @return
-	 */
-	public List<String[]> getServiceInfo() {
-		return serviceInfo;
-	}
 	
 	/**
-	 * TODO Documentation(Blake)
+	 * Add information about a service provided by the Provider this report 
+	 * is reflecting. 
+	 *
+     * TODO Documentation(Blake)
 	 *  
 	 * @param dateOfService
 	 * @param dateEntered
@@ -258,7 +253,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @return
+	 * @return The total consults this provider has given
 	 */
 	public int getTotalConsultations() {
 		return totalConsultations;
@@ -267,7 +262,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @param totalConsultations
+	 * @param totalConsultations The total consults this provider has given
 	 */
 	public void setTotalConsultations(int totalConsultations) {
 		this.totalConsultations = totalConsultations;
@@ -276,7 +271,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @return
+	 * @return The total fee this provider is owed
 	 */
 	public double getTotalFee() {
 		return totalFee;
@@ -285,7 +280,7 @@ public class ProviderReport extends Report {
 	/**
 	 * TODO Documentation(Blake)
 	 * 
-	 * @param totalFee
+	 * @param totalFee The total fee this provider is owed
 	 */
 	public void setTotalFee(double totalFee) {
 		this.totalFee = totalFee;

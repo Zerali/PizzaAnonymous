@@ -29,15 +29,13 @@ public class MemberReport extends Report {
 	private List<String[]> serviceInfo = new LinkedList<String[]>();
 
 	/**
-	 * TODO Documentation(Blake)
+	 * Create an empty MemberReport object. 
+	 * All information fields are blank to begin with.
 	 */
 	public MemberReport() {
 		super();
 	}
 
-	/**
-	 * TODO Documentation(Blake)
-	 */
 	@Override
 	public String getFileName() {
 		// Get the current date to append to the filename
@@ -91,129 +89,98 @@ public class MemberReport extends Report {
 	}
 
 	// Begin accessors & mutators
+	
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @return
+	 * @return Name of the member this report is reflecting
 	 */
 	public String getName() {
 		return name;
 	}
 	
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @param name
+	 * @param name Name of the member this report will reflect
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @return
+	 * @return The ID of the member this report is reflecting
 	 */
 	public int getId() {
 		return id;
 	}
 	
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @param id
+	 * @param id ID of the member this report will reflect
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @return
+	 * @return The Address of the member this report is reflecting
 	 */
 	public String getAddress() {
 		return address;
 	}
 	
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @param address
+	 * @param address Address of the member this report will reflect
 	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @return
+	 * @return The City of residence of the member this report is reflecting
 	 */
 	public String getCity() {
 		return city;
 	}
 	
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @param city
+	 * @param city City of residence of the member this report will reflect
 	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @return
+	 * @return The State of residence of the member this report is reflecting
 	 */
 	public String getState() {
 		return state;
 	}
 	
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @param state
+	 * @param state State of residence of the member this report will reflect
 	 */
 	public void setState(String state) {
 		this.state = state;
 	}
 	
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @return
+	 * @return The ZIP code of the member this report is reflecting
 	 */
 	public String getZip() {
 		return state;
 	}
 	
 	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @param zip
+	 * @param zip ZIP code of the member this report will reflect
 	 */
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-
-	/**
-	 * TODO Documentation(Blake)
-	 * 
-	 * @return
-	 */
-	public List<String[]> getServiceInfo() {
-		return serviceInfo;
-	}
 	
 	/**
-	 * TODO Documentation(Blake)
+	 * Add a service record to the report. This is the information about a 
+	 * service that has been provided to the member this report is reflecting.
 	 * 
-	 * @param date
-	 * @param providerName
-	 * @param serviceName
+	 * @param date The data the service was given
+	 * @param providerName The name of the provider that gave the service
+	 * @param serviceName The name of the service that was provided
 	 */
 	public void addServiceInfo(String date, String providerName, String serviceName) {
 		serviceInfo.add(new String[] {date, providerName, serviceName});

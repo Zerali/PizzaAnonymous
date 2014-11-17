@@ -9,20 +9,20 @@ public class ServiceController {
 	private ServiceDirectory serviceDirectory = new ServiceDirectory();
 	//create service occasion list class
 	private ServiceOccasionList serviceOccasionList = new ServiceOccasionList();
-	
+		
 	/**
-	 * This method returns service directory
+	 * Returns the Service Directory of the system
 	 * 
-	 * @return Service Directory Object
+	 * @return the service directory
 	 */
 	public ServiceDirectory getServiceDirectory(){
 		return serviceDirectory;
 	}
 	
 	/**
-	 * This method returns the service occasion list
+	 * Returns the service occasion list of the system
 	 * 
-	 * @return Service Occasion List Object
+	 * @return The service occasions list
 	 */
 	public ServiceOccasionList getServiceOccasionList(){
 		return serviceOccasionList;

@@ -3,7 +3,7 @@ import java.util.Iterator;
 /**
  * Facade class between user interfaces and controllers
  * 
- * @author Neil, Blake
+ * @author Neil, Blake, Adam
  */
 public class PizzaAnonymous {
 	
@@ -96,7 +96,7 @@ public class PizzaAnonymous {
 	/**
 	 * Get the service directory as an Iterator
 	 * 
-	 * @return Service directory as an Iterator
+	 * @return Iterator of the service directory
 	 */
 	public Iterator<Service> lookupServiceDirectory()
 	{
@@ -110,7 +110,7 @@ public class PizzaAnonymous {
 	 * @param cost the cost of the service
 	 * @return True if the service was added and false if it was not
 	 */
-	public boolean addService(String name, float cost)
+	public boolean addService(String name, double cost)
 	{
 		return serviceController.getServiceDirectory().addService(name, cost);
 	}
@@ -141,6 +141,17 @@ public class PizzaAnonymous {
 	}
 	
 	/**
+	 * Delete provider from the system
+	 * 
+	 * @param providerID the ID of the provider
+	 * @return True if the service was deleted and false if it was not
+	 */
+	public boolean deleteProvider(int providerID)
+	{
+		return providerController.deleteProvider(providerID);
+	}
+	
+	/**
 	 * Get a provider based on their ID number
 	 * 
 	 * @param providerID The unique ID number of the provider
@@ -149,6 +160,22 @@ public class PizzaAnonymous {
 	public Provider getProvider(int providerID)
 	{
 		return providerController.getProvider(providerID);
+	}
+	
+	/**
+	 *  this adds a provider by ID to providerDirectory
+	 * @param ID
+	 * @param name
+	 * @param address
+	 * @param city
+	 * @param state
+	 * @param ZIP
+	 * @return boolean if successfully added which can only fail if there is already
+	 * 											a provider with the passed ID
+	 */
+	public boolean addProvider(int ID, String name, String address, String city, String state, int ZIP)
+	{
+		return providerController.addProvider(ID, name, address, city, state, ZIP);
 	}
 	
 	/**

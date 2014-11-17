@@ -28,9 +28,11 @@ public class BaseUI {
 	}
 	
 	/**
-	 * TODO Documentation(Blake, Nick, Adam)
+	 * Create the main program menu. From this menu, launch into other submenus. 
+	 * Will repeatedly ask for a menu option and perform that action. 
 	 * 
-	 * @param userInputStream An InputStream which provides user input
+	 * @param userInputStream An opened input stream for user input. 
+	 * Is not closed afterwards.
 	 */
 	public BaseUI(InputStream userInputStream)
 	{
@@ -277,11 +279,11 @@ public class BaseUI {
 	 * @param prompt The message to display to the user, asking for input
 	 * @return An float of the user's choosing
 	 */
-	public static float getFloatInput(InputStream userInput, String prompt)
+	public static double getDoubleInput(InputStream userInput, String prompt)
 	{
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(userInput); // Scanner to read input
-		float input = -1; // The float the user inputs
+		double input = -1; // The float the user inputs
 		
 		// Show a prompt
 		System.out.print(prompt);

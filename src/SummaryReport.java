@@ -35,14 +35,14 @@ public class SummaryReport extends Report {
 	private double totalFee;
 
 	/**
-	 * 
+	 * TODO Documentation(Blake)
 	 */
 	public SummaryReport() {
 		super();
 	}
 
 	/**
-	 * TODO Documentation(Adam)
+	 * TODO Documentation(Blake)
 	 */
 	@Override
 	public String getFileName() {
@@ -98,22 +98,13 @@ public class SummaryReport extends Report {
 
 	// Begin accessors & mutators //
 	
-	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
-	 */
-	public List<String[]> getProviderLines() {
-		return providerLines;
-	}
-	
 	
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @param providerName
-	 * @param consults
-	 * @param fee
+	 * Add a summary of some provider's activities.
+	 *
+	 * @param providerName Name of the provider
+	 * @param consults How many consultations they had
+	 * @param fee The total fee they are to be paid
 	 */
 	public void addLine(String providerName, int consults, double fee)
 	{
@@ -122,52 +113,46 @@ public class SummaryReport extends Report {
 	}
 
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
+	 * @return Total number of providers that have given services
 	 */
 	public int getTotalProviders() {
 		return totalProviders;
 	}
+	
+	/**
+	 * @param totalProviders Total number of providers that have given services
+	 */
 	public void setTotalProviders(int totalProviders) {
 		this.totalProviders = totalProviders;
 	}
 
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
+	 * @return Total number of consultations given by all providers, combined
 	 */
 	public int getTotalConsultations() {
 		return totalConsultations;
 	}
 	
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @param totalConsultations
+	 * @param totalConsultations Total number of consultations given by all providers, combined
 	 */
 	public void setTotalConsultations(int totalConsultations) {
 		this.totalConsultations = totalConsultations;
 	}
 
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
+	 * @return Total fee to be paid to all providers, combined
 	 */
 	public double getTotalFee() {
 		return totalFee;
 	}
 	
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @param totalFee
+	 * @param totalFee Total fee to be paid to all providers, combined
 	 */
 	public void setTotalFee(double totalFee) {
 		this.totalFee = totalFee;
 	}
+	
 	// End accessors & mutators //
-
 }

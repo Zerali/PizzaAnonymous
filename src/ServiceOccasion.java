@@ -37,54 +37,54 @@ public class ServiceOccasion {
 	}
 	
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
+	 * Returns the serviceID of the objects
+	 *
+	 * @return serviceID the id of the service that was provided
 	 */
 	public int getServiceID(){
 		return serviceID;
 	}
-	
+
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
+	 * Returns the memberID of the object
+	 *
+	 * @return memberID The member the service was provided to
 	 */
 	public int getMemberID(){
 		return memberID;
 	}
 	
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
+	 * Returns the providerID of the object
+	 *
+	 * @return providerID The provider the service was provided from
 	 */
 	public int getProviderID(){
 		return providerID;
 	}
 	
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
+	 * Returns the date the service was provided
+	 *
+	 * @return dateProvided the date the service was provided
 	 */
 	public String getDateProvided(){
 		return dateProvided;
 	}
-	
+
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
+	 * Returns the date the service occasion was received in the system
+	 *
+	 * @return dateReceived the date the occasion was captured in the system
 	 */
 	public String getDateReceived(){
 		return dateReceived;
 	}
-	
+
 	/**
-	 * TODO Documentation(Adam)
-	 * 
-	 * @return
+	 * Returns the comments field of the service occasion
+	 *
+	 * @return Any comments given during the capture of the service provision
 	 */
 	public String getComments(){
 		return comments;

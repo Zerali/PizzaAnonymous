@@ -24,7 +24,8 @@ public class ProviderController {
 	 * 
 	 * TODO Documentation(Nick) add info to parameters
 	 * 
-	 * @param providers
+	 * @param providers Array list of providers to initialize the controller
+     *                  with
 	 */
 	public ProviderController(ArrayList<Provider> providers)
 	{

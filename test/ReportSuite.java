@@ -4,7 +4,6 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 	// The list of Test Classes that will run together
-	BaseUITest.class,
 	ReportTest.class,
 	MemberReportTest.class,
 	ProviderReportTest.class,
