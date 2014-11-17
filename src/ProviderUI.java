@@ -16,6 +16,13 @@ public class ProviderUI {
 	public static final int EXIT_OPTION = 5;
 	
 	private Integer providerID;
+	
+	// used in testing
+	public Integer getProviderID()
+	{
+		return providerID;
+	}
+	
 	private PizzaAnonymous PAinstance;
 	
 	// The input stream that user input is taken from
@@ -23,6 +30,13 @@ public class ProviderUI {
 	
 	// Whether we want to stay in the Provider UI or not
 	private boolean stayInProvider = true;
+	
+	// testing constructor used for Junit
+	public ProviderUI(InputStream userInputStream, Boolean Test)
+	{
+		this.userInputStream = userInputStream;
+		PAinstance = PizzaAnonymous.getInstance();
+	}
 
 	/**
 	 * TODO Documentation(Nick)
@@ -76,7 +90,7 @@ public class ProviderUI {
 	 * 
 	 * @param option The user's menu option
 	 */
-	private void handleMenuOption(int option)
+	public void handleMenuOption(int option)
 	{
 		// Depending on the option, switch to a different menu
 		switch(option)
@@ -114,7 +128,7 @@ public class ProviderUI {
 	 * integer is a valid provider login. Loop until valid login
 	 * or exit option (-1) is inputed
 	 */
-	private void providerLogin()
+	public void providerLogin()
 	{
 		int input = -1; // The provider login
 		
@@ -151,7 +165,7 @@ public class ProviderUI {
 	 * Asks pizza anonymous for the directory of services and
 	 * then prints the list to the console
 	 */
-	private void requestServiceDirectory()
+	public void requestServiceDirectory()
 	{
 		// create an iterator and assign it to the directory
 		Iterator<Service> directoryIter;
@@ -174,7 +188,7 @@ public class ProviderUI {
 	/**
 	 * Validate a service by ID
 	 */
-	private void validateServiceSelection()
+	public void validateServiceSelection()
 	{
 		Service service;
 		int serviceID;
@@ -184,7 +198,7 @@ public class ProviderUI {
 		while (!verify)
 		{
 			// Get the user's input as an integer
-			serviceID = BaseUI.getIntegerInput(userInputStream, "Enter ID of service to lookup");
+			serviceID = BaseUI.getIntegerInput(userInputStream, "Enter ID of service to lookup: ");
 			
 			// get the service from pizza anonymous
 			service = PAinstance.getService(serviceID);
@@ -200,14 +214,14 @@ public class ProviderUI {
 			System.out.println(serviceID + " " + service.getName() + " " + service.getCost());
 			
 			// ask if right service
-			verify = BaseUI.getConfirmation(userInputStream, "Is this the correct Service?");
+			verify = BaseUI.getConfirmation(userInputStream, "Is this the correct Service?: ");
 		}
 	}
 	
 	/**
 	 * Take a int member ID and check to see if that is in the list of members
 	 */
-	private void validateMember()
+	public void validateMember()
 	{
 		int input = -1; // The provider login
 		Member member;
@@ -216,7 +230,7 @@ public class ProviderUI {
 		while(true)
 		{
 			// Get the user's input as an integer
-			input = BaseUI.getIntegerInput(userInputStream, "Enter member ID or -1 to quit");
+			input = BaseUI.getIntegerInput(userInputStream, "Enter member ID or -1 to quit: ");
 			
 			// if exit option (-1) break
 			if(input == -1)
@@ -249,7 +263,7 @@ public class ProviderUI {
 	 * Create a new service occasion in the list of service occasions by
 	 * taking in new information and calling the 
 	 */
-	private void captureMemberService()
+	public void captureMemberService()
 	{
 		// values of a service occasion
 		String dateServiced;
@@ -261,7 +275,7 @@ public class ProviderUI {
 		while(true)
 		{
 			// Get the user's input as an integer
-			memberID = BaseUI.getIntegerInput(userInputStream, "Input member ID");
+			memberID = BaseUI.getIntegerInput(userInputStream, "Input member ID: ");
 			
 			// if no member exists prompt and repeat
 			if (PAinstance.getMember(memberID) == null)
@@ -280,7 +294,7 @@ public class ProviderUI {
 		while(true)
 		{
 			// Get the user's input as an string
-			dateServiced = BaseUI.getStringInput(userInputStream, "Input Date as MM-DD-YYYY");
+			dateServiced = BaseUI.getStringInput(userInputStream, "Input Date as MM-DD-YYYY: ");
 			
 			// check if correct length for error checking purpose
 			if (dateServiced.length() != 10)
@@ -298,11 +312,11 @@ public class ProviderUI {
 		while(true)
 		{
 			// ask if to display service directory and display if asked
-			if (BaseUI.getConfirmation(userInputStream, "Display service directory?"))
+			if (BaseUI.getConfirmation(userInputStream, "Display service directory?: "))
 				requestServiceDirectory();
 			
 			// Get the serviceID as an integer
-			serviceID = BaseUI.getIntegerInput(userInputStream, "Input service ID");
+			serviceID = BaseUI.getIntegerInput(userInputStream, "Input service ID: ");
 			
 			// if no service exists, prompt and repeat process
 			if (PAinstance.getService(serviceID) == null)
@@ -314,7 +328,7 @@ public class ProviderUI {
 			}
 			else // if service exist, ask if it is the correct service
 			{
-				if(BaseUI.getConfirmation(userInputStream, "Is " + PAinstance.getService(serviceID).getName() +" the service provided?"))
+				if(BaseUI.getConfirmation(userInputStream, "Is " + PAinstance.getService(serviceID).getName() +" the service provided? "))
 					break;
 			}
 		}
@@ -322,7 +336,7 @@ public class ProviderUI {
 		// get comments
 		while(true)
 		{
-			comments = BaseUI.getStringInput(userInputStream, "Input comments up to 200 characters:");
+			comments = BaseUI.getStringInput(userInputStream, "Input comments up to 200 characters: ");
 			
 			// check if correct length for error checking purpose
 			if (comments.length() > 200)
