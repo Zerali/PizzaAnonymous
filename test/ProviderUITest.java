@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -12,6 +14,9 @@ import org.junit.Test;
 
 
 public class ProviderUITest {
+	
+	// the UI we're testing
+	private static ProviderUI providerUI;
 	
 	// Objects we need to create an artificial service occasion through & through
 	private static Member testMember;
@@ -33,10 +38,12 @@ public class ProviderUITest {
 		testService.setCost(1.23F);
 		testServiceOccasion = new ServiceOccasion(1, 1, 1, "o.date", "o.cur_date", "o.comments");
 		
+		/*
 		// Get the reference to the report controller (so we can call methods on it)
 		Field reportControllerField = PizzaAnonymous.getInstance().getClass().getDeclaredField("reportController");
 		reportControllerField.setAccessible(true);
 		reportController = (ReportController) reportControllerField.get(PizzaAnonymous.getInstance());
+		*/
 	}
 
 	@AfterClass
@@ -60,6 +67,87 @@ public class ProviderUITest {
 	@After
 	public void tearDown() throws Exception {
 		// Runs after each test.
+	}
+	
+	/**
+	 * Test the providerLogin() method of ProviderUI
+	 * @throws Exception if reflection fails
+	 */
+	@Test
+	public void testProviderLogin() throws Exception{
+		injectProvider(); // add a provider to test around
+		String testData; // String to store user input string in
+		InputStream testInput; // InputStream that will simulate user input
+		
+		// Test for exit of providerLogin
+		testData = "-1";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		providerUI = new ProviderUI(testInput, true);
+		providerUI.providerLogin();
+		assertEquals(null, providerUI.getProviderID());
+		providerUI = null;
+		
+		// Successful login, should set providerID
+		testData = "1";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		providerUI = new ProviderUI(testInput, true);
+		providerUI.providerLogin();
+		assertEquals((Integer)1, providerUI.getProviderID());
+		providerUI = null;
+		
+		// Unsuccessful login, should not set providerID
+		testData = "2" + System.lineSeparator() + "-1";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		providerUI = new ProviderUI(testInput, true);
+		providerUI.providerLogin();
+		assertEquals(null, providerUI.getProviderID());
+		providerUI = null;
+		
+		clearProviders();
+	}
+	
+	/**
+	 * Test the validateServiceSelection() method of ProviderUI
+	 * @throws Exception if reflection fails
+	 */
+	@Test
+	public void testValidateServiceSelection() throws Exception{
+		injectService(); // add a provider to test around
+		String testData; // String to store user input string in
+		InputStream testInput; // InputStream that will simulate user input
+		
+		// Shows no service in serviceList case,Shows loop on correct input, Shows exit of loop on correct input
+		testData = "0" + System.lineSeparator() + "1" + System.lineSeparator() + "n" + System.lineSeparator() + "1" + System.lineSeparator() + "y";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		providerUI = new ProviderUI(testInput, true);
+		providerUI.validateServiceSelection();
+		
+		clearServices();
+	}
+	
+	/**
+	 * Test the validateMember() method of ProviderUI
+	 * @throws Exception if reflection fails
+	 */
+	@Test
+	public void testValidateMember() throws Exception{
+		injectMember(); // add a provider to test around
+		String testData; // String to store user input string in
+		InputStream testInput; // InputStream that will simulate user input
+		
+		// test the exit feature
+		testData = "-1";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		providerUI = new ProviderUI(testInput, true);
+		providerUI.validateMember();
+		
+		// member not found and member found cases
+		testData = "0\n1";
+		testInput = new ByteArrayInputStream(testData.getBytes());
+		providerUI = new ProviderUI(testInput, true);
+		providerUI.validateMember();
+		
+		clearMembers();
 	}
 	
 	/**
