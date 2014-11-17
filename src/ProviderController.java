@@ -1,18 +1,18 @@
-/**
- * 
- * Controlls the list of providers and handles all logic on the list
- * 
- * @author nick
- * 
- */
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * Controls the list of providers and handles all logic on the list
+ * 
+ * TODO Documentation(Nick) Add more in depth information
+ * 
+ * @author Nick
+ */
 public class ProviderController {
 	ArrayList<Provider> providers;
 	
 	/**
-	 *  intialize without a list
+	 *  Initialize without a list
 	 */
 	public ProviderController()
 	{
@@ -20,7 +20,8 @@ public class ProviderController {
 	}
 	
 	/**
-	 *  intialize with a list
+	 * Initialize with a list
+	 * 
 	 * @param providers
 	 */
 	public ProviderController(ArrayList<Provider> providers)
@@ -29,15 +30,16 @@ public class ProviderController {
 	}
 	
 	/**
-	 *  this adds a provider by ID to providerDirectory
+	 * This adds a provider by ID to providerDirectory
+	 *  
 	 * @param ID
 	 * @param name
 	 * @param address
 	 * @param city
 	 * @param state
 	 * @param ZIP
-	 * @return boolean if successfully added which can only fail if there is already
-	 * 											a provider with the passed ID
+	 * @return boolean True if successfully, fail if a provider with ID already
+	 *                 exists
 	 */
 	public boolean addProvider(int ID, String name, String address, String city, String state, int ZIP)
 	{
@@ -53,7 +55,8 @@ public class ProviderController {
 	}
 
 	/**
-	 *  this searches the provider directory by ID and returns the provider
+	 * This searches the provider directory by ID and returns the provider
+	 *  
 	 * @param providerID
 	 * @return Provider of ID
 	 */
@@ -68,7 +71,8 @@ public class ProviderController {
 	}
 
 	/**
-	 *  this deletes a provider by ID from providerDirectory
+	 * This deletes a provider by ID from providerDirectory
+	 * 
 	 * @param ID
 	 * @return boolean if successfully deleted, can only fail if no provider of ID
 	 */
@@ -86,7 +90,8 @@ public class ProviderController {
 	}
 
 	/**
-	 *  this returns a list of all providers
+	 * This returns a list of all providers
+	 * 
 	 * @return Iterator of providers
 	 */
 	public Iterator<Provider> getProviderList()
@@ -95,5 +100,4 @@ public class ProviderController {
 		Iterator<Provider> newIterator = providers.iterator();
 		return newIterator;
 	}
-
 }

@@ -10,7 +10,6 @@ import java.util.List;
  * provider associated with Pizza Anonymous
  * 
  * @author Blake
- *
  */
 public class ProviderReport extends Report {
 	
@@ -23,7 +22,9 @@ public class ProviderReport extends Report {
 	private String zip;
 	
 	/**
-	 * A list of service records. Each service occasion is stored as a string array.
+	 * A list of service records. Each service occasion is stored as a string
+	 * array.
+	 * 
 	 * The array consists of:
 	 * <li>Date of Service</li>
 	 * <li>Date and time data was received by computer</li>
@@ -40,10 +41,16 @@ public class ProviderReport extends Report {
 	// The total fee this provider is owed by PA
 	private double totalFee = 0.0;
 	
+	/**
+	 * TODO Documentation(Blake)
+	 */
 	public ProviderReport() {
 		super();
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 */
 	@Override
 	public String getFileName() {
 		// Get the current date to append to the filename
@@ -106,51 +113,133 @@ public class ProviderReport extends Report {
 	}
 
 	// Begin accessor & mutators //
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getAddress() {
 		return address;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param address
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getCity() {
 		return city;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param city
+	 */
 	public void setCity(String city) {
 		this.city = city;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getState() {
 		return state;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param state
+	 */
 	public void setState(String state) {
 		this.state = state;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public String getZip() {
 		return zip;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param zip
+	 */
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public List<String[]> getServiceInfo() {
 		return serviceInfo;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 *  
+	 * @param dateOfService
+	 * @param dateEntered
+	 * @param memberName
+	 * @param memberID
+	 * @param serviceCode
+	 * @param fee
+	 */
 	public void addServiceInfo(String dateOfService, 
 			String dateEntered, 
 			String memberName,
@@ -166,17 +255,38 @@ public class ProviderReport extends Report {
 				Report.FEE_FORMAT.format(fee)});
 	}
 
-
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public int getTotalConsultations() {
 		return totalConsultations;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param totalConsultations
+	 */
 	public void setTotalConsultations(int totalConsultations) {
 		this.totalConsultations = totalConsultations;
 	}
 
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @return
+	 */
 	public double getTotalFee() {
 		return totalFee;
 	}
+	
+	/**
+	 * TODO Documentation(Blake)
+	 * 
+	 * @param totalFee
+	 */
 	public void setTotalFee(double totalFee) {
 		this.totalFee = totalFee;
 	}
