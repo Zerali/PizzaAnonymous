@@ -31,7 +31,7 @@ public class ServiceDirectory {
 	 * @param cost Cost of the service to add to the list
 	 * @return True if service was added to the list, False otherwise
 	 */
-	public boolean addService(String name, float cost){
+	public boolean addService(String name, double cost){
 		//Create the new service and give it its attributes
 		Service serviceToAdd = new Service();
 		

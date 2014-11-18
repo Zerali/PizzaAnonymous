@@ -51,7 +51,7 @@ public class ReportControllerTest {
 		testService = new Service();
 		testService.setID(1);
 		testService.setName("s.name");
-		testService.setCost(1.23F);
+		testService.setCost(1.23);
 		testServiceOccasion = new ServiceOccasion(1, 1, 1, "o.date", "o.cur_date", "o.comments");
 		
 		// Get the reference to the report controller (so we can call methods on it)

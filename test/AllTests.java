@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	BaseUITest2.class,
 	ReportSuite.class,
 	ProviderSuite.class,
-	ServiceSuite.class
+	ServiceSuite.class,
+	MemberSuite.class
 	})
 public class AllTests {
 

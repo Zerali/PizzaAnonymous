@@ -11,7 +11,7 @@ public class Service {
 	// Name of the service
 	private String name;
 	// Service fee
-	private float cost;
+	private double cost;
 	
 	/**
 	 * Returns the ID of the service

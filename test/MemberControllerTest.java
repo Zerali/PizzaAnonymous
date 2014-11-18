@@ -1,7 +1,5 @@
 import static org.junit.Assert.*;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -59,6 +57,7 @@ public class MemberControllerTest {
 		assertEquals("Mary", testMemberController.getMember(78945).getName());
 		
 		//Similar check; but return Failure
-		assertEquals("Marty", testMemberController.getMember(45789).getName());
+		assertNull("Marty", testMemberController.getMember(45789));
 	}
+	
 }
