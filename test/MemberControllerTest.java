@@ -35,16 +35,30 @@ public class MemberControllerTest {
 	 */
 	public void testDeleteMember() 
 	{
-		
+		//A member with unique details is added to the list
 		testMemberController.addMember("Mark", 15975, "10th Ave S.", "Saint Cloud", "MN", 56303, true);
 		
+		//A member with this ID exists, so can be deleted. Return True.
 		assertTrue(testMemberController.deleteMember(15975));
 		
+		//No member with this ID exists; cannot be deleted. Return false.
 		assertFalse(testMemberController.deleteMember(57951));
 	}
 	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	/**
+	 * Test case for editMember() in the MemberController
+	 */
+	public void testGetMember() 
+	{
+		//A member with unique details is added to the list
+		testMemberController.addMember("Mary", 78945, "11th Ave S.", "Saint Cloud", "MN", 56304, true);
+		
+		//Check if the parameter and the name looked up by ID match up
+		//Return Successful
+		assertEquals("Mary", testMemberController.getMember(78945).getName());
+		
+		//Similar check; but return Failure
+		assertEquals("Marty", testMemberController.getMember(45789).getName());
 	}
 }
