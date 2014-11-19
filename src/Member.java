@@ -3,7 +3,8 @@
  */
 
 /**
- * TODO Documentation(Amila)
+ * This class holds the members' attributes such as name, ID etc.
+ * The responsibility of this class is to set and return the attributes
  * 
  * @author Amila DeSilva
  */
@@ -40,154 +41,140 @@ public class Member
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Accessor: returns the name of a member
 	 * 
 	 * @return name
 	 */
-	//Accessor method to return the value of the private data member name
 	public String getName()
 	{
 		return name;
 	}
 		
 	/**
-	 * TODO Documentation(Amila)
+	 * Accessor: returns the id of a member
 	 * 
 	 * @return ID
 	 */
-	//Accessor method to return the value of the private data member ID	
 	public int getID()
 	{
 		return ID;
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Accessor: returns the address of a member
 	 * 
 	 * @return address
 	 */
-	//Accessor method to return the value of the private data member address
 	public String getAddress()
 	{
 		return address;
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Accessor: returns the city of a member
 	 * 
 	 * @return city
 	 */
-	//Accessor method to return the value of the private data member city
 	public String getCity()
 	{
 		return city;
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Accessor: the state of a member
 	 * 
 	 * @return state
 	 */
-	//Accessor method to return the value of the private data member state
 	public String getState()
 	{
 		return state;
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Accessor: the zip code of a member
 	 * 
 	 * @return ZIP
 	 */
-	//Accessor method to return the value of the private data member ZIP
 	public int getZIP()
 	{
 		return ZIP;
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Accessor: the valid status of a member
 	 * 
 	 * @return validstatus
 	 */
-	//Accessor method to return the value of the private data member //validstatus
 	public boolean getValidStatus()
 	{
 		return validstatus;
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Mutator: sets the ID of a member
 	 * 
 	 * @param id
 	 */
-	//Mutator to set the value of the private data member ID
-	public void setValidStatus(int id)
+	public void setID(int id)
 	{
 		ID = id; 
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Mutator: sets the valid status of a member
 	 * 
 	 * @param status
 	 */
-	//Mutator to set the value of the private data member validstatus
 	public void setValidStatus(boolean status)
 	{
 		validstatus = status; 
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Mutator: sets the name of a member 
 	 * 
 	 * @param Name
 	 */
-	//Mutator to set the value of the private data member name
 	public void setName(String Name)
 	{
 		name = Name;
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Mutator: sets the address of a member
 	 * 
 	 * @param Address
 	 */
-	//Mutator to set the value of the private data member address
 	public void setAddress(String Address)
 	{
 		address = Address;
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Mutator: sets the city of a member
 	 * 
 	 * @param City
 	 */
-	//Mutator to set the value of the private data member city
 	public void setCity(String City)
 	{
 		city = City; 
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Mutator: sets the state of a member
 	 * 
 	 * @param State
 	 */
-	//Mutator to set the value of the private data member state
 	public void setState(String State) 
 	{
 		state = State;
 	}
 
 	/**
-	 * TODO Documentation(Amila)
+	 * Mutator: sets the ZIP code of a member
 	 * 
 	 * @param zip
 	 */
-	//Mutator to set the value of the private data member ZIP
 	public void setZIP(int zip)
 	{
 		ZIP = zip;

@@ -2,17 +2,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * TODO Documentation(Amila)
+ * This class creates and maintains the list of members
  * 
  * @author Amila DeSilva
  */
 public class MemberController 
 {
 	ArrayList<Member> members;
-	private int nextMemberID;
 	
 	/**
-	 * TODO Documentation(Amila)
+	 * Default constructor: creates an empty list of members 
 	 */
 	public MemberController() 
 	{
@@ -20,8 +19,8 @@ public class MemberController
 	}
 
 	/**
-	 * TODO Documentation(Amila)
-	 * 
+	 * Constructor: sets a list containing the info. of members to the 
+	 * class' instance members
 	 * @param members
 	 */
 	public MemberController(ArrayList<Member> members) 
