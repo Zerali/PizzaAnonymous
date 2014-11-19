@@ -302,7 +302,6 @@ public class MaintenanceUI {
 		//DONE
 		String attributeInput = "";
 		Member member;
-		int ID;
 		String name = "";
 		String address = "";
 		String city = "";

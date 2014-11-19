@@ -28,9 +28,6 @@ public class EFTReport extends Report {
 		super();
 	}
 
-	/**
-	 * TODO Documentation(Blake)
-	 */
 	@Override
 	public String getFileName() {
 		// Get the current date to append to the filename
