@@ -1,0 +1,17 @@
+Provider Name:	p_name
+Provider Number:	1
+Provider Address:	p_address
+Provider City:	p_city
+Provider State:	mn
+Provider ZIP Code:	56301
+
+Service Information:
+	Date of Service:	11-20-2014
+	Date Received:		11-20-2014 10-18-16
+	Member Name:		m_name
+	Member Number:		1
+	Service Code:		1
+	Fee to be Paid:		$123.00
+
+Total number of consultations: 1
+Total fee: $123.00

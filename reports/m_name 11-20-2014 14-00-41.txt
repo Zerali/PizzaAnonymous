@@ -1,0 +1,12 @@
+Member Name:	m_name
+Member Number:	1
+Member Address:	m_address
+Member City:	m_city
+Member State:	mn
+Member ZIP Code:	56301
+
+Service Information:
+	Date of Service:	11-20-2014
+	Provider Name:		p_name
+	Service Name:		test_service
+

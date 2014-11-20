@@ -1,0 +1,8 @@
+Provider Summaries:
+Provider Name:		p_name
+Total Consultations:	1
+Total Fee:		$123.00
+
+Total Number of Providers: 1
+Total Number of Consultations: 1
+Total Fee for the Week: $123.00

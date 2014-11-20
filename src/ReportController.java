@@ -19,11 +19,7 @@ public class ReportController {
 	 * Create all of the weekly reports.  This will create a MemberServiceReport
 	 * for every member, ProviderServiceReport for every Provider, EFT Report,
 	 * and Summary Report.
-	 * 
-	 * @param eftReport2 
-	 * @param summaryReport2 
-	 * @param providerReports2 
-	 * @param memberReports2 
+	 *
 	 * @return True if this task is successful
 	 */
 	public boolean createWeeklyReports()
@@ -38,12 +34,14 @@ public class ReportController {
 		Iterator<Member> memberIt = PizzaAnonymous.getInstance().getMemberList();
 		while(memberIt.hasNext())
 		{
+			memberIt.next();
 			memberReports.add(new MemberReport());
 		}
 		
 		Iterator<Provider> providerIt = PizzaAnonymous.getInstance().getProviderList();
 		while(providerIt.hasNext())
 		{
+			providerIt.next();
 			providerReports.add(new ProviderReport());
 		}
 		
@@ -210,6 +208,10 @@ public class ReportController {
 		{
 			return false;
 		}
+		
+		// Variables for end totals
+		int totalConsultations = 0;
+		double totalFee = 0.00;
 
 		// Will need to get and set multiple fields
 		report.setName(provider.getName());
@@ -252,7 +254,15 @@ public class ReportController {
 					occasion.getMemberID(), 
 					occasion.getServiceID(), 
 					service.getCost());
+			
+			// Update total tracking variables
+			totalConsultations++;
+			totalFee += service.getCost();
 		}
+		
+		// Set the total tracking fields
+		report.setTotalConsultations(totalConsultations);
+		report.setTotalFee(totalFee);
 
 		// Finally save the report to file
 		return report.saveReport();

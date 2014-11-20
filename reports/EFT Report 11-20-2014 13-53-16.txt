@@ -1,0 +1,5 @@
+EFT Information:
+Provider Name:	p_name
+Provider Number:	1
+Payment Amount:	$123.00
+
