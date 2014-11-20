@@ -1,4 +1,13 @@
 <MemberController>
-  <members/>
-  <nextMemberID>0</nextMemberID>
+  <members>
+    <Member>
+      <name>m_name</name>
+      <ID>1</ID>
+      <address>m_address</address>
+      <city>m_city</city>
+      <state>mn</state>
+      <ZIP>56301</ZIP>
+      <validstatus>true</validstatus>
+    </Member>
+  </members>
 </MemberController>

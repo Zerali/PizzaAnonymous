@@ -1,3 +1,12 @@
 <ProviderController>
-  <providers/>
+  <providers>
+    <Provider>
+      <ID>1</ID>
+      <name>p_name</name>
+      <address>p_address</address>
+      <city>p_city</city>
+      <state>mn</state>
+      <ZIP>56301</ZIP>
+    </Provider>
+  </providers>
 </ProviderController>

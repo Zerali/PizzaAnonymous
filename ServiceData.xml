@@ -10,6 +10,15 @@
     <nextServiceID>2</nextServiceID>
   </serviceDirectory>
   <serviceOccasionList>
-    <serviceOccasions class="linked-list"/>
+    <serviceOccasions class="linked-list">
+      <ServiceOccasion>
+        <serviceID>1</serviceID>
+        <memberID>1</memberID>
+        <providerID>1</providerID>
+        <dateProvided>11-20-2014</dateProvided>
+        <dateReceived>11-20-2014 10-18-16</dateReceived>
+        <comments>some_comments</comments>
+      </ServiceOccasion>
+    </serviceOccasions>
   </serviceOccasionList>
 </ServiceController>
