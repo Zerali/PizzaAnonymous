@@ -461,7 +461,8 @@ public class MaintenanceUI {
 			if (PizzaAnonymous.getInstance().getService(ID) != null)
 			{
 				System.out.println ("Error! ID already taken!");
-				continue;
+				// get another ID
+				ID = -1;
 			}
 		}
 		while(address.length() > 25 || address.length() < 1)
