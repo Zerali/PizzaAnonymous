@@ -476,10 +476,10 @@ public class MaintenanceUI {
 			if (city.length() > 14 || city.length() < 1)
 				System.out.println ("Error! City not valid");
 		}
-		while(state.length() > 2 || state.length() < 1)
+		while(state.length() > 2 || state.length() < 2)
 		{
 			state = BaseUI.getStringInput(userInputStream, "Enter state (2 char max): ");
-			if (state.length() > 2 || state.length() < 1)
+			if (state.length() > 2 || state.length() < 2)
 				System.out.println ("Error! State not valid");
 		}
 		while(ZIP > 99999 || ZIP < 1)
@@ -563,9 +563,9 @@ public class MaintenanceUI {
 				do
 				{
 					state = BaseUI.getStringInput(userInputStream, "Enter state (2 char max): ");
-					if (state.length() > 2 || state.length() < 1)
+					if (state.length() > 2 || state.length() < 2)
 						System.out.println ("Error! State not valid");
-				} while(state.length() > 2 || state.length() < 1);
+				} while(state.length() > 2 || state.length() < 2);
 				// set new value for state
 				provider.setState(state);
 				break;
