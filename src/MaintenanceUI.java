@@ -522,7 +522,7 @@ public class MaintenanceUI {
 		}
 
 		// loop taking in attributes to edit until exit is entered
-		while (attributeInput != "exit")
+		while (!attributeInput.equals("exit"))
 		{
 			// provider exists, get input on what to edit
 			attributeInput = BaseUI.getStringInput(userInputStream, "Enter which attribute to edit (Name, Address, City, State, ZIP, exit): ");
