@@ -125,6 +125,7 @@ public class MaintenanceUI {
 					
 			case EXIT_OPTION:
 				// Return to the base UI
+				stayInMaintenance = false;
 				new BaseUI(userInputStream);
 				break;
 					
@@ -169,6 +170,7 @@ public class MaintenanceUI {
 					
 			case EXIT_OPTION:
 				// Return to the base UI
+				stayInMaintenance = false;
 				new BaseUI(userInputStream);
 				break;
 					
@@ -321,7 +323,7 @@ public class MaintenanceUI {
 		}
 
 		//Loop until user done editing
-		while(attributeInput != "exit")
+		while(!attributeInput.equalsIgnoreCase("exit"))
 		{
 			//ask which attribute to edit
 			attributeInput = BaseUI.getStringInput(userInputStream, "Enter which attribute to edit (Name, Address, City, State, ZIP, exit): ");
