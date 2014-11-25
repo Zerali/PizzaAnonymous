@@ -617,14 +617,14 @@ public class MaintenanceUI {
 		String serviceName;
 		double serviceCost;
 
-		serviceName = BaseUI.getStringInput(userInputStream, "Enter service name: ");
+		serviceName = BaseUI.getStringInput(userInputStream, "Enter service name(20 Char): ");
 		serviceCost = BaseUI.getDoubleInput(userInputStream, "Enter service cost: ");
 		
 		//Try to add the service
 		if(PizzaAnonymous.getInstance().addService(serviceName, serviceCost))
 			System.out.println("Succesfully added");
 		else
-			System.out.println("Failed to add");
+			System.out.println("Failed to add, check input");
 	}
 	
 	/**
@@ -640,7 +640,7 @@ public class MaintenanceUI {
 		if(PizzaAnonymous.getInstance().deleteService(serviceToDelete))
 			System.out.println("Succesfully deleted");
 		else
-			System.out.println("Failed to delete");
+			System.out.println("Failed to delete, check ID");
 	}
 	
 }
