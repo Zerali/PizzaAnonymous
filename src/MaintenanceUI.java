@@ -13,7 +13,7 @@ public class MaintenanceUI {
 	public static final int MEMBER_OPTION = 1;
 	public static final int PROVIDER_OPTION = 2;
 	public static final int SERVICE_OPTION = 3;
-	public static final int EXIT_OPTION = 4;
+	public static final int MAIN_MENU_OPTION = 4;
 		
 	//Constants for secondary menu options delete = 2 because service only has two options
 	public static final int ADD_OPTION = 1;
@@ -40,7 +40,7 @@ public class MaintenanceUI {
 			runUI();
 
 			// Get the user's menu option
-			menuOption = BaseUI.getMenuInput(userInputStream, MEMBER_OPTION, EXIT_OPTION);
+			menuOption = BaseUI.getMenuInput(userInputStream, MEMBER_OPTION, MAIN_MENU_OPTION);
 
 			// Handle that option
 			handleMenuOption(menuOption);
@@ -49,11 +49,13 @@ public class MaintenanceUI {
 	
 	public void runUI()
 	{
-		System.out.println("The following menus are available:");
+		System.out.println("------------------------------");
+		System.out.println("Menu Options:");
 		System.out.println(MEMBER_OPTION + ": Add, edit, or delete a member");
 		System.out.println(PROVIDER_OPTION + ": Add, edit, or delete a provider");
 		System.out.println(SERVICE_OPTION + ": Add or delete a service");
-		System.out.println(EXIT_OPTION + ": Exit");
+		System.out.println(MAIN_MENU_OPTION + ": Main Menu");
+		System.out.println("------------------------------");
 	}
 	
 	/**
@@ -79,7 +81,7 @@ public class MaintenanceUI {
 			runServicesMenu();
 			break;
 			
-		case EXIT_OPTION:
+		case MAIN_MENU_OPTION:
 			// Return to the base UI
 			stayInMaintenance = false;
 			new BaseUI(userInputStream);
@@ -99,14 +101,16 @@ public class MaintenanceUI {
 	{
 		int menuOption;
 		
+		System.out.println("------------------------------");
 		System.out.println("Choose an action to take on a Member:");
 		System.out.println(ADD_OPTION + ": Add a member");
 		System.out.println(DELETE_OPTION + ": Delete a member");
 		System.out.println(EDIT_OPTION + ": Edit a member");
-		System.out.println(EXIT_OPTION + ": Exit");
+		System.out.println(MAIN_MENU_OPTION + ": Main Menu");
+		System.out.println("------------------------------");
 		
 		// Get the user's menu option
-		menuOption = BaseUI.getMenuInput(userInputStream, ADD_OPTION, EXIT_OPTION);
+		menuOption = BaseUI.getMenuInput(userInputStream, ADD_OPTION, MAIN_MENU_OPTION);
 		
 		// Depending on the option, switch to a different menu
 			switch(menuOption)
@@ -123,7 +127,7 @@ public class MaintenanceUI {
 				deleteMember();
 				break;
 					
-			case EXIT_OPTION:
+			case MAIN_MENU_OPTION:
 				// Return to the base UI
 				stayInMaintenance = false;
 				new BaseUI(userInputStream);
@@ -144,14 +148,16 @@ public class MaintenanceUI {
 	{
 		int menuOption;
 		
+		System.out.println("------------------------------");
 		System.out.println("Choose an action to take on a Provider:");
 		System.out.println(ADD_OPTION + ": Add a provider");
 		System.out.println(DELETE_OPTION + ": Delete a provider");
 		System.out.println(EDIT_OPTION + ": Edit a provider");
-		System.out.println(EXIT_OPTION + ": Exit");
+		System.out.println(MAIN_MENU_OPTION + ": Main Menu");
+		System.out.println("------------------------------");
 		
 		// Get the user's menu option
-		menuOption = BaseUI.getMenuInput(userInputStream, ADD_OPTION, EXIT_OPTION);
+		menuOption = BaseUI.getMenuInput(userInputStream, ADD_OPTION, MAIN_MENU_OPTION);
 		
 		// Depending on the option, switch to a different menu
 			switch(menuOption)
@@ -168,7 +174,7 @@ public class MaintenanceUI {
 				deleteProvider();
 				break;
 					
-			case EXIT_OPTION:
+			case MAIN_MENU_OPTION:
 				// Return to the base UI
 				stayInMaintenance = false;
 				new BaseUI(userInputStream);
@@ -189,10 +195,12 @@ public class MaintenanceUI {
 	{
 		int menuOption;
 		
+		System.out.println("------------------------------");
 		System.out.println("Choose an action to take on a Service:");
 		System.out.println(ADD_OPTION + ": Add a service");
 		System.out.println(DELETE_OPTION + ": Delete a service");
-		System.out.println(EDIT_OPTION + ": Exit");
+		System.out.println(EDIT_OPTION + ": Main Menu");
+		System.out.println("------------------------------");
 		
 		// Get the user's menu option
 		menuOption = BaseUI.getMenuInput(userInputStream, ADD_OPTION, EDIT_OPTION);

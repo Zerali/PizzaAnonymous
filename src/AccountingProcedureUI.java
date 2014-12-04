@@ -10,7 +10,7 @@ public class AccountingProcedureUI {
 	
 	// Constants for the menu options
 	public static final int WEEKLY_OPTION = 1;
-	public static final int EXIT_OPTION = 2;
+	public static final int MAIN_MENU_OPTION = 2;
 	
 	// The input stream that user input is taken from
 	private InputStream userInputStream;
@@ -35,7 +35,7 @@ public class AccountingProcedureUI {
 			runUI();
 
 			// Get the user's menu option
-			menuOption = BaseUI.getMenuInput(userInputStream, WEEKLY_OPTION, EXIT_OPTION);
+			menuOption = BaseUI.getMenuInput(userInputStream, WEEKLY_OPTION, MAIN_MENU_OPTION);
 
 			// Handle that option
 			handleMenuOption(menuOption);
@@ -48,9 +48,11 @@ public class AccountingProcedureUI {
 	 */
 	public void runUI()
 	{
+		System.out.println("------------------------------");
 		System.out.println("The following menus are available:");
 		System.out.println(WEEKLY_OPTION + ": Run weekly report procedure");
-		System.out.println(EXIT_OPTION + ": Exit");
+		System.out.println(MAIN_MENU_OPTION + ": Main Menu");
+		System.out.println("------------------------------");
 	}
 	
 	/**
@@ -68,7 +70,7 @@ public class AccountingProcedureUI {
 			createWeeklyReports();
 			break;
 			
-		case EXIT_OPTION:
+		case MAIN_MENU_OPTION:
 			// Return to the base UI
 			stayInAccounting = false;
 			new BaseUI(userInputStream);

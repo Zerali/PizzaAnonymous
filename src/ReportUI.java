@@ -13,7 +13,7 @@ public class ReportUI {
 	public static final int PROVIDER_OPTION = 3;
 	public static final int EFT_OPTION = 4;
 	public static final int SUMMARY_OPTION = 5;
-	public static final int EXIT_OPTION = 6;
+	public static final int MAIN_MENU_OPTION = 6;
 	
 	// The input stream that user input is taken from
 	private InputStream userInputStream;
@@ -38,7 +38,7 @@ public class ReportUI {
 			runUI();
 
 			// Get the user's menu option
-			menuOption = BaseUI.getMenuInput(userInputStream, WEEKLY_OPTION, EXIT_OPTION);
+			menuOption = BaseUI.getMenuInput(userInputStream, WEEKLY_OPTION, MAIN_MENU_OPTION);
 
 			// Handle that option
 			handleMenuOption(menuOption);
@@ -51,13 +51,15 @@ public class ReportUI {
 	 */
 	public void runUI()
 	{
-		System.out.println("The following menus are available:");
+		System.out.println("------------------------------");
+		System.out.println("Menu Options:");
 		System.out.println(WEEKLY_OPTION + ": Run weekly report procedure");
 		System.out.println(MEMBER_OPTION + ": Create a Member Service Report");
 		System.out.println(PROVIDER_OPTION + ": Create a Provider Service Report");
 		System.out.println(EFT_OPTION + ": Create an EFT Report");
 		System.out.println(SUMMARY_OPTION + ": Create a Summary Report for the past week");
-		System.out.println(EXIT_OPTION + ": Exit");
+		System.out.println(MAIN_MENU_OPTION + ": Main Menu");
+		System.out.println("------------------------------");
 	}
 	
 	/**
@@ -91,7 +93,7 @@ public class ReportUI {
 			createSummaryReport();
 			break;
 			
-		case EXIT_OPTION:
+		case MAIN_MENU_OPTION:
 			// Return to the base UI
 			stayInReport = false;
 			new BaseUI(userInputStream);

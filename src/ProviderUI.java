@@ -13,7 +13,7 @@ public class ProviderUI {
 	public static final int VALIDATE_MEMBER = 2;
 	public static final int CAPTURE_MEMBER_SERVICE = 3;
 	public static final int VALIDATE_SERVICE = 4;
-	public static final int EXIT_OPTION = 5;
+	public static final int MAIN_MENU_OPTION = 5;
 	
 	private Integer providerID;
 	
@@ -64,7 +64,7 @@ public class ProviderUI {
 			runUI();
 
 			// Get the user's menu option
-			menuOption = BaseUI.getMenuInput(userInputStream, REQUEST_SERVICE_DIRECTORY, EXIT_OPTION);
+			menuOption = BaseUI.getMenuInput(userInputStream, REQUEST_SERVICE_DIRECTORY, MAIN_MENU_OPTION);
 
 			// Handle that option
 			handleMenuOption(menuOption);
@@ -76,12 +76,14 @@ public class ProviderUI {
 	 */
 	public void runUI()
 	{
-		System.out.println("The following options are available:");
+		System.out.println("------------------------------");
+		System.out.println("Menu Options:");
 		System.out.println(REQUEST_SERVICE_DIRECTORY + ": Print the service directory");
 		System.out.println(VALIDATE_MEMBER + ": Validate a member");
 		System.out.println(CAPTURE_MEMBER_SERVICE + ": Capture a member\'s service");
 		System.out.println(VALIDATE_SERVICE + ": Validate a service");
-		System.out.println(EXIT_OPTION + ": Exit");
+		System.out.println(MAIN_MENU_OPTION + ": Main Menu");
+		System.out.println("------------------------------");
 	}
 	
 	/**
@@ -111,7 +113,7 @@ public class ProviderUI {
 			validateServiceSelection();
 			break;
 			
-		case EXIT_OPTION:
+		case MAIN_MENU_OPTION:
 			// Return to the base UI
 			stayInProvider = false;
 			new BaseUI(userInputStream);
